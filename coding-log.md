@@ -16,3 +16,9 @@
 
   > props down, events up
 
+
+# 2017-05-10
+
+**element-ui **
+
+NavMenu 导航菜单中若在` <el-menu/>`中设置 router 参数，则其中`<el-menu-item/>`的 index 参数值即为路由地址

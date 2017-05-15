@@ -55,8 +55,69 @@ ssh-add
 ```
 {background-color: #aaa;background:no-repeat;}=={background: #aaa;}
 ```
+# 2017-05-12
+
+**CSS**
+
+`box-shadow`属性：向框添加阴影
+
+```
+box-shadow: h-shadow v-shadow blur spread color inset;
+```
+
+```
+box-shadow: 10px 10px 5px #888888;
+```
+
+```
+box-shadow: 0 0 1px #ddd;
+```
+
+------
+
+`white-space`属性：设置如何处理元素内的空白
+
+------
+
+选择器中写两个类，如中间无空格为多类选择器，有空格为派生选择器
+
+------
+
+**Vue**
+
+component 类似“类”的概念，名称、文件名大写
+
+------
+
+`<template>` 中的根标签要缩进，`<sctipt>`、`<style>` 中的内容不缩进
+
 # 2017-05-14
 
 **CSS**
 
 `top`、`right`、`bottom`、`left` 属性定义与各边边距
+
+# 2017-05-15
+
+**Vue**
+
+父组件通过事件接受子组件参数时，绑定处只要写函数名，参数会自动传入函数中
+
+---
+
+**CSS**
+
+想要`heigt: 100%`起作用需先同时设置`body`与`html`的高度：
+
+```
+<html style="height: 100%;">
+  <body style="height: 100%;">
+    <div style="height: 100%;">
+      <p>
+        这样这个div的高度就会100%了
+      </p>
+    </div>
+  </body>
+</html>
+```
+

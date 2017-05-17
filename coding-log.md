@@ -129,3 +129,63 @@ component 类似“类”的概念，名称、文件名大写
 
 - 父元素设置line-height:1.5会直接继承给子元素，子元素根据自己的font-size再去计算子元素自己的line-height。
 - 父元素设置line-height:150%是计算好了line-height值，然后把这个计算值给子元素继承，子元素继承拿到的就是最终的值了。此时子元素设置font-size就对其line-height无影响了。
+
+# 2017-05-17
+
+**Vue**
+
+组件的 `<style>` 如果加了scope属性，则其子组件也无法继承这些样式
+
+---
+
+**HTML**
+
+`<table>` 表格
+
+`<tr>` 行
+
+`<th>` 表头项
+
+`<td>` 内容项
+
+---
+
+**CSS**
+
+top、margin-top的区别：
+
+1. top、bottom、left、right是绝对定位，必须设置position为absolute。
+
+   margin一系列设置是相对定位。
+
+   注意：如果用top等，而position未设置为absolute，那设置是不起作用的。
+
+2. top这些在绝对定位的前提下，这个绝对定位，是相对body  或者  position：relative的父级元素的绝对定位。
+
+   margin的相对定位，是指相对相邻元素的定位。
+
+---
+
+文本不换行，超出以省略号显示
+
+```
+white-space: nowrap;
+overflow: hidden;
+text-overflow:ellipsis;
+```
+
+---
+
+**Vue**
+
+事件处理器参数可为：
+
+- JavaScript 代码：`@click="counter += 1"`
+
+- 方法：`@click="greet"`
+
+- 内联处理器方法：`@click="say('what')"`
+
+  其中内联语句处理器中访问原生 DOM 事件。可以用特殊变量 `$event` 把它传入方法
+
+   `$event` 为`this.$emit('click', value)`中的第二个参数value（$emit只有两个参数）

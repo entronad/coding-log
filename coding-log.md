@@ -195,3 +195,7 @@ text-overflow:ellipsis;
 **Vue**
 
 props 中的参数，子组件中无权修改，只有 $emit 事件通知父组件修改
+
+---
+
+vue 中引入 axios 分两种情况，组件中通过原型链引入，vuex 中直接引入，两者相互独立

@@ -189,3 +189,9 @@ text-overflow:ellipsis;
   其中内联语句处理器中访问原生 DOM 事件。可以用特殊变量 `$event` 把它传入方法
 
    `$event` 为`this.$emit('click', value)`中的第二个参数value（$emit只有两个参数）
+
+# 2017-05-18
+
+**Vue**
+
+props 中的参数，子组件中无权修改，只有 $emit 事件通知父组件修改

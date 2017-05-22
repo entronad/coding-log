@@ -230,3 +230,9 @@ action 的参数为(context, payload)，action 可为 async 函数
 **CSS**
 
 通过`margin: 0 auto;`设置居中需设置 width 值
+
+# 2017-05-22
+
+**CSS**
+
+只有当父元素的 position 设为 relative 时， 其子元素的 absolute position 是按照父元素的相对位置来的 

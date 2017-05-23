@@ -236,3 +236,13 @@ action 的参数为(context, payload)，action 可为 async 函数
 **CSS**
 
 只有当父元素的 position 设为 relative 时， 其子元素的 absolute position 是按照父元素的相对位置来的 
+
+# 2017-05-23
+
+**Vue**
+
+当<style>标签设置scoped属性后，将在该标签里的类名添加后缀以区别
+
+**CSS**
+
+宽高的百分比是在减去padding之后，无需考虑滚动条

@@ -246,3 +246,13 @@ action 的参数为(context, payload)，action 可为 async 函数
 **CSS**
 
 宽高的百分比是在减去padding之后，无需考虑滚动条
+
+# 2017-05-24
+
+**Vue**
+
+尝试在`actions`里面`commit`另一个`mutation`，而不是在`mutation`里调用另一个`mutation`方法。
+
+---
+
+状态中的数据来源如是后端api，网络请求应当放在action中

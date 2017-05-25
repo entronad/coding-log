@@ -256,3 +256,86 @@ action 的参数为(context, payload)，action 可为 async 函数
 ---
 
 状态中的数据来源如是后端api，网络请求应当放在action中
+
+# 2017-05-25
+
+在字面量定义对象中如所定义方法只有一个表达式，宜采用`方法名: 箭头函数`的形式：
+
+```
+const getters = {
+  checkoutStatus: state => state.checkoutStatus
+}
+```
+
+如所定义方法有多个语句，宜采用`方法名(参数) {语句块}`的形式：
+
+```
+const actions = {
+  checkout ({ commit, state }, products) {
+    const savedCartItems = [...state.added]
+    commit(types.CHECKOUT_REQUEST)
+  }
+}
+```
+
+在箭头函数中，以下两种情况需注意加括号：
+
+- 参数虽然只有一个，但为对象解构赋值的:
+
+  ```
+  ({state, payload}) => state.checkoutStatus
+  ```
+
+- 只有一个表达式，但为对象字面量的:
+
+  ```
+  state => ({a: state.checkout, b: state.Status})
+  ```
+
+---
+
+**Vue**
+
+Vue组件中要用到模块尽量挂载在Vue示例中，其他.js模块中哪个要用哪个引入
+
+---
+
+import from 文件夹 即为引用该文件夹中的index.js
+
+---
+
+async 函数的多种声明方式：
+
+```
+// 函数声明
+async function foo() {}
+
+// 函数表达式
+const foo = async function () {};
+
+// 对象的方法
+let obj = { async foo() {} };
+obj.foo().then(...)
+
+// Class 的方法
+class Storage {
+  constructor() {
+    this.cachePromise = caches.open('avatars');
+  }
+
+  async getAvatar(name) {
+    const cache = await this.cachePromise;
+    return cache.match(`/avatars/${name}.jpg`);
+  }
+}
+
+const storage = new Storage();
+storage.getAvatar('jake').then(…);
+
+// 箭头函数
+const foo = async () => {};
+```
+
+---
+
+JavaScript 的 Array方法push()返回值是数组长度而不是数组本身

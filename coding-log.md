@@ -339,3 +339,23 @@ const foo = async () => {};
 ---
 
 JavaScript 的 Array方法push()返回值是数组长度而不是数组本身
+
+# 2017-05-27
+
+**CSS**
+
+margin 的 auto 为“浏览器设置的外边距”，左右会自动居中，但上下为0，故可通过`margin: 0 auto;`设置水平居中，但不可`margin: auto 0;`设置垂直居中。
+
+---
+
+高度首先要比较父元素设定z-index之后确定的 stacking context，同一stacking context再进行比较
+
+当 position 为默认的 static （处于文档流中）时，z-index 无效
+
+**Vue**
+
+Vue 中引入JS库的最佳实践：以插件的形式引入
+
+---
+
+iview组件阻断了原生的事件，且无法接受捕捉与冒泡的事件

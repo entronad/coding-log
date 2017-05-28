@@ -359,3 +359,17 @@ Vue 中引入JS库的最佳实践：以插件的形式引入
 ---
 
 iview组件阻断了原生的事件，且无法接受捕捉与冒泡的事件
+
+# 2017-05-27
+
+**Vue**
+
+不应该对 data 属性使用箭头函数，不应该使用箭头函数来定义computed, methods, watch, 生命周期钩子中的函数。这是因为这些属性将被混入到 Vue 实例中。所有 的 this 上下文自动地绑定为 Vue 实例。而箭头函数绑定了父上下文，因此 `this` 与你期待的 Vue 实例不同。
+
+---
+
+state 在组件中通过computed引用
+
+**HTML**
+
+localStorage中只可存储字符串，如存入对象，需用JSON.stringfy()，取出对象需用JSON.parse()

@@ -385,3 +385,16 @@ localStorage中只可存储字符串，如存入对象，需用JSON.stringfy()�
 ---
 
 v-bind:class 参数对象中的变量名需加引号
+
+# 2017-06-01
+
+**Vue**
+
+vue中父组件调用子组件的方法：
+
+```
+<child1 ref="child1"></child1>
+
+this.$refs.child1.handleParentClick("ssss")
+```
+

@@ -398,3 +398,12 @@ vue中父组件调用子组件的方法：
 this.$refs.child1.handleParentClick("ssss")
 ```
 
+# 2017-06-03
+
+**Vue**
+
+iview中menu组件的active-name属性并不是与当前选项双向绑定，只决定初始选项，或通过updateActiveName手动更新当前选项
+
+**HTML**
+
+属性直接传值是字符串，要怎么变成数字还要研究

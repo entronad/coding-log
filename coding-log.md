@@ -429,3 +429,9 @@ webkit内核
 +---chromium (改造为blink内核)
 +---mobile webviews
 ```
+**Vue**
+webpack打包的index.html中，所引用的文件目录都是绝对路径，起点为站点的根"/"，如作为webapp，需改为相对目录
+
+---
+
+把根目录下`config/index.js`中的`productionSourceMap: true`改为`false`可不打包map文件，减小目标文件体积

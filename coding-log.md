@@ -417,3 +417,15 @@ iview中menu组件的active-name属性并不是与当前选项双向绑定，只
 ---
 
 不同组件内的标签id，也要是全局唯一的
+
+# 2017-06-10
+
+**Browser**
+
+```
+webkit内核
++---safari
++---chrome
++---chromium (改造为blink内核)
++---mobile webviews
+```

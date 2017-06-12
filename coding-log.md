@@ -435,3 +435,13 @@ webpack打包的index.html中，所引用的文件目录都是绝对路径，起
 ---
 
 把根目录下`config/index.js`中的`productionSourceMap: true`改为`false`可不打包map文件，减小目标文件体积
+
+# 2017-06-12
+
+**CSS**
+
+background-size属性必须在background属性之后，且在同一个class中定义
+
+**Vue**
+
+在data中的变量定义时不可引用data中的其他变量，因为此时data还没生成

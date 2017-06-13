@@ -406,7 +406,7 @@ iview中menu组件的active-name属性并不是与当前选项双向绑定，只
 
 **HTML**
 
-属性直接传值是字符串，要怎么变成数字还要研究
+**属性直接传值是字符串，要怎么变成数字还要研究**
 
 # 2017-06-06
 
@@ -445,3 +445,60 @@ background-size属性必须在background属性之后，且在同一个class中�
 **Vue**
 
 在data中的变量定义时不可引用data中的其他变量，因为此时data还没生成
+
+# 2017-06-13
+
+**Vue**
+
+Tip: built files are meant to be served over an HTTP server.
+  Opening index.html over file:// won't work.
+
+**静态直读不可用history模式**
+
+
+
+**响应式**
+
+**五、rem 适配**
+
+对于移动端的开发，rem 适配必不可少，我们可以用多种方式实现，下面给出一种方案
+
+在 index.html 中添加如下代码
+
+`<``script``>`
+
+` ``let html = document.documentElement;`
+
+ 
+
+` ``window.rem = html.getBoundingClientRect().width / 16 ;`
+
+` ``html.style.fontSize = window.rem + 'px';`
+
+`</``script``>`
+
+这里基于宽 320px 的屏幕分成了 16 份，也就是 1rem = 20px，目前大多数设计稿都是根据 iphone6 的宽（ 375px ）走的，建议大家在这里分成 25 份，也就是 1rem = 15px，计算起来方便些。
+
+**简单说下 rem 原理**：根据 html 的 fontSize 属性值为基准，其它所有的 rem 值，根据这个基准计算。
+
+我们根据屏幕宽度用 js 动态修改了 html 的 fontSize 属性值，达到移动端适配的目的
+
+**总结**
+
+以上就是这篇文章的全部内容了，本文作为移动端配置的基础篇，深入了解框架后才能继续构建网站，希望这是一个好的开始，有了这个架子再填充代码就方便了许多，不用再去考虑开发环境问题了。希望本文的内容对有需要的朋友们能有所帮助。
+
+**vue-router**
+
+有时候，同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：谁先定义的，谁的优先级就最高。
+
+要注意，以 / 开头的嵌套路径会被当作根路径。 这让你充分的使用嵌套组件而无须设置嵌套的路径。
+
+vue-router 的导航方法 （`push`、 `replace`、 `go`） 在各类路由模式（`history`、 `hash` 和`abstract`）下表现一致
+
+---
+
+'#' 称为hash或锚点
+
+协议, 域名, 路径, 参数 这些数据都是与服务器进行交互的。唯独 hash 是与浏览器进行交互的。
+
+改变 hash 的值浏览器不会刷新

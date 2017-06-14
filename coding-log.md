@@ -502,3 +502,12 @@ vue-router 的导航方法 （`push`、 `replace`、 `go`） 在各类路由模�
 协议, 域名, 路径, 参数 这些数据都是与服务器进行交互的。唯独 hash 是与浏览器进行交互的。
 
 改变 hash 的值浏览器不会刷新
+
+**vue作为静态资源打包**
+
+assetsPublicPath: './',或''
+productionSourceMap: false,
+
+路由模式用hash
+
+在文件系统中没有根，只能用相对的

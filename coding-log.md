@@ -511,3 +511,34 @@ productionSourceMap: false,
 路由模式用hash
 
 在文件系统中没有根，只能用相对的
+
+# 2017-06-15
+
+**webpack**
+
+热监视编译：webpack --watch
+
+热更新编译：全局安装 webpack-dev-server 命令：webpack-dev-server --contentbase src --inline --hot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

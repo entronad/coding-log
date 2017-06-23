@@ -520,9 +520,22 @@ productionSourceMap: false,
 
 热更新编译：全局安装 webpack-dev-server 命令：webpack-dev-server --contentbase src --inline --hot
 
+# 2017-06-23
 
+**React**
 
+组件名称必须以大写字母开头
 
+组件的返回值只能有一个根元素
+
+React 元素的事件处理和 DOM元素的很相似。但是有一点语法上的不同:
+
+- React事件绑定属性的命名采用驼峰式写法，而不是小写。
+- 如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM元素的写法)
+
+**JavaScript**
+
+func.bind(obj)：返回一个新创建的函数实例，其this值绑定到obj
 
 
 

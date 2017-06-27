@@ -537,7 +537,11 @@ React 元素的事件处理和 DOM元素的很相似。但是有一点语法上�
 
 func.bind(obj)：返回一个新创建的函数实例，其this值绑定到obj
 
+# 2017-06-24
 
+**npm**
+
+修改package.json后需关注package-lock.json
 
 
 

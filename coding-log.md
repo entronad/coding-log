@@ -543,11 +543,22 @@ func.bind(obj)：返回一个新创建的函数实例，其this值绑定到obj
 
 修改package.json后需关注package-lock.json
 
+# 2017-06-30
 
+**react**
 
+JSX中标签的类名为className
 
+ReactNative在加载网络图片时一定要事先设置宽高
 
+加载原生图片资源时，Android只能加载drawable中的而不能加载mipmap中的
 
+加载本地文件系统中的图片：
+
+```
+let imgUrl = Platform.OS === 'android' ? 'file:///' + this.state.imgPath : this.state.imgPath
+source = {{uri: imgUrl}}
+```
 
 
 

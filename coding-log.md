@@ -560,9 +560,45 @@ let imgUrl = Platform.OS === 'android' ? 'file:///' + this.state.imgPath : this.
 source = {{uri: imgUrl}}
 ```
 
+# 2017-07-02
 
+**webpack**
 
+设置多个entry是为多个页面使用，用对象可配置chunk的name
 
+filename: 文件名，path: 路径
+
+filename中可使用占位符
+
+hash是本次打包的hash，每次打包不一样，每个文件一样
+
+chunkhash是模块的hash，每个文件只有有变化就不一样，类似md5校验
+
+config上下文默认的是运行脚本时的当前目录（不是config的目录）
+
+loader是用来处理资源文件的
+
+include, exclude需跟绝对路径，一般采用path.resolve()、path.join()方法来处理
+
+在main.js中直接import css
+
+loaders数组的顺序按加载的顺序逆序
+
+**vpn**
+
+MonoCloud
+
+# 2017-07-03
+
+**react-native**
+
+fetch中post的body要将对象序列化：JSON.stringfy(data)
+
+# 2017-07-04
+
+**JavaScript**
+
+obj.a == null可同时起到obj.a === null与obj.a === undefined作用
 
 
 

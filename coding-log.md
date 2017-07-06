@@ -600,6 +600,44 @@ fetch中post的body要将对象序列化：JSON.stringfy(data)
 
 obj.a == null可同时起到obj.a === null与obj.a === undefined作用
 
+# 2017-07-06
+
+**DOM**
+
+addEventListener的回调函数中添加e.preventDefault()阻止默认行为，比如a标签的跳转
+
+---
+
+DOM0级事件：通过标签内或onclick = 的方式定义的事件；DOM0级事件只能存在一个，后面的会覆盖前面的；DOM0级事件方法被认为属于元素作用域，this绑定元素
+
+DOM2级事件：通过addEventListener()添加的事件，DOM2级事件多个可以共存，可以与DOM0级事件共存。只有DOM2级事件有事件流；removeEventListener()参数与addEventListener()相同，故要能移除，回调函数需具名；第三个参数，是否是捕获时触发
+
+DOM3级事件：内容和验证上更多的扩展
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

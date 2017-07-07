@@ -614,6 +614,12 @@ DOM2级事件：通过addEventListener()添加的事件，DOM2级事件多个可
 
 DOM3级事件：内容和验证上更多的扩展
 
+# 2017-07-07
+
+**Webpack**
+
+脚本流程：rm删除dist/static下的所有文件，执行webpack(config, callback)
+
 
 
 

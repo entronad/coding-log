@@ -574,7 +574,7 @@ hash是本次打包的hash，每次打包不一样，每个文件一样
 
 chunkhash是模块的hash，每个文件只有有变化就不一样，类似md5校验
 
-config上下文默认的是运行脚本时的当前目录（不是config的目录）
+config上下文默认的是运行脚本时的当前目录（不是config的目录），而config中的__dirname则是参数文件所在目录
 
 loader是用来处理资源文件的
 
@@ -620,9 +620,21 @@ DOM3级事件：内容和验证上更多的扩展
 
 脚本流程：rm删除dist/static下的所有文件，执行webpack(config, callback)
 
+# 2017-07-08
 
+**DOM**
 
+<html>可通过document.documentElement快捷访问，等价于
 
+document.childNode[0]
+
+document.firstChild
+
+<body>可通过document.body快捷访问
+
+**Webpack**
+
+webpack-dev-server和webpack-dev-middleware打包的结果是在内存中
 
 
 

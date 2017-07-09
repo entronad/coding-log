@@ -406,7 +406,15 @@ iview中menu组件的active-name属性并不是与当前选项双向绑定，只
 
 **HTML**
 
-**属性直接传值是字符串，要怎么变成数字还要研究**
+HTML的属性分为两种：content attribute 和IDL attribute
+
+content attribute即标签里的设置的属性，它必是字符串
+
+IDL attribute即JavaScript DOM对象的属性
+
+这两者的关联尽可能的developer-friendly，不过有时会很奇怪
+
+https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes
 
 # 2017-06-06
 
@@ -636,9 +644,19 @@ document.firstChild
 
 webpack-dev-server和webpack-dev-middleware打包的结果是在内存中
 
+# 2017-07-09
 
+**HTML**
 
+元素的布尔属性，只要出现，不管值为什么表示true，不出现为false，不可用true/false赋值，以前习惯用同名值
 
+HTML5规定：
+
+> The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.
+>
+> If the attribute is present, its value must either be the empty string or a value that is an ASCII case-insensitive match for the attribute’s canonical name, with no leading or trailing whitespace.
+>
+> The values “true” and “false” are not allowed on boolean attributes. To represent a false value, the attribute has to be omitted altogether.
 
 
 

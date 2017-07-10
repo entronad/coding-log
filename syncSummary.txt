@@ -1,0 +1,26 @@
+VISUAL STUDIO CODE SETTINGS SYNC 
+Version: 2.8.2
+
+Upload Summary
+
+--------------------
+GITHUB TOKEN: 9f0a9deaec1f157cf4ad5e0e70fd453220e2d1c5
+GITHUB GIST: b3c8a130e3c84758d17d75daa1ec10d0
+GITHUB GIST TYPE: Secret
+
+--------------------
+
+If current theme / file icon extension is not installed. Restart will be Required to Apply Theme and File Icon.
+
+
+Files Upload.
+
+extensions.json
+settings.json
+
+
+EXTENSIONS ADDED :
+
+code-settings-sync - Version :2.8.2
+vetur - Version :0.8.6
+vscode-react-native - Version :0.3.2

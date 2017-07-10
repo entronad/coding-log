@@ -658,7 +658,25 @@ HTML5规定：
 >
 > The values “true” and “false” are not allowed on boolean attributes. To represent a false value, the attribute has to be omitted altogether.
 
+# 2017-07-10
 
+**HTML**
+
+标签语义化
+
+> 方便开发维护
+>
+> 更好的SEO
+>
+> 无CSS时能呈现
+>
+> 利于浏览器加载
+
+**webpack**
+
+UglifyJs无法处理es6模板字符串
+
+webpack-dev-middleware需要老老实实用express
 
 
 

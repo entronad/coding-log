@@ -678,11 +678,74 @@ UglifyJs无法处理es6模板字符串
 
 webpack-dev-middleware需要老老实实用express
 
+# 2017-07-11
 
+**JavaScript**
 
+slice方法的两个参数前闭后开
 
+---
 
+&&
 
+> 如果第一个操作数是 Boolean 类型，而且值为 false ，那么直接返回 false。 
+> 如果第一个操作数是 Boolean 类型，而且值为 true，另外一个操作数是 object 类型，那么将返回这个对象。 
+> 如果两个操作数都是 object 类型，那么，返回第二个对象。 
+> 如果任何一个操作数是 null，那么，返回 null。 
+> 如果任何一个操作数是 NaN，那么返回 NaN。 
+> 如果任何一个操作数是 undefinded，那么返回 undefined。 
+
+||
+
+> 如果第一个操作数是 boolean 类型，而且值为 true， 那么，直接返回 true。 
+> 如果第一个操作数是 Boolean 类型，而且值为 false ，第二个操作数为 object，那么返回 object 对象。 
+> 如果两个操作数都是 object 类型，那么返回第一个对象。 
+> 如果两个操作数都是 null，那么，返回 null。 
+> 如果两个操作数都是 NaN，那么返回 NaN。 
+> 如果两个操作数都是 undefined，那么，返回 undefined。 
+
+**Vue**
+
+数组会触发视图更新的方法：
+
+- `push()`
+- `pop()`
+- `shift()`
+- `unshift()`
+- `splice()`
+- `sort()`
+- `reverse()`
+
+当使用非变异方法`filter()`, `concat()`, `slice()`时，可以用新数组替换旧数组：
+
+```
+example1.items = example1.items.filter(function (item) {
+  return item.message.match(/Foo/)
+})
+```
+
+由于 JavaScript 的限制， Vue 不能检测以下变动的数组：
+
+1. 当你利用索引直接设置一个项时，例如： `vm.items[indexOfItem] = newValue`
+2. 当你修改数组的长度时，例如： `vm.items.length = newLength`
+
+为了解决第一类问题，以下两种方式都可以实现和 `vm.items[indexOfItem] = newValue` 相同的效果， 同时也将触发状态更新：
+
+```
+// Vue.set
+Vue.set(example1.items, indexOfItem, newValue)
+```
+
+```
+// Array.prototype.splice
+example1.items.splice(indexOfItem, 1, newValue)
+```
+
+为了解决第二类问题，你可以使用 `splice`：
+
+```
+example1.items.splice(newLength)
+```
 
 
 

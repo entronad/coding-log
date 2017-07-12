@@ -1,3 +1,13 @@
+# ref
+
+http://zhouweicsu.github.io/blog/2017/03/07/vue-2-0-reactivity/
+
+https://github.com/zoro-web/blog/issues/2
+
+https://github.com/aooy/blog/issues/2
+
+# note
+
 JavaScript对象可以分为两类：数据属性、访问器属性
 
 数据属性具有[[Value]]这一特性，可直接定义
@@ -257,11 +267,25 @@ export function defineReactive (
 
 
 
+响应式的实现
 
+initData调用observe()方法返回ob = new Observer(value)：
 
+observer对象
 
+- 首先创建了一个 Dep 对象实例；
+- 然后把自身 this 添加到 value 的 __ob__ 属性上；
+- 最后对 value 的类型进行判断，如果是数组则观察数组，否则观察单个元素（要理解这一步是个递归过程，即 value 的元素如果符合条件也需要转化为 Observer 对象）。
 
+用walk方法遍历boserve对象，调用defineReactive，其中定义了dep.depend()
 
+Dep 则是 Observer 和 Watcher 之间的纽带。依赖收集完成后，当属性变化会执行主题对象（Observer）的`dep.notify` 方法，这个方法会遍历订阅者（Watcher）列表向其发送消息，Watcher 会执行 `run` 方法去更新视图
+
+模板渲染的实现：
+
+- compile 函数主要是将 template 转换为 AST，优化 AST，再将 AST 转换为 render函数；
+- render函数 与数据通过 Watcher 产生关联；
+- 在数据发生变化时调用 patch 函数，执行此 render 函数，生成新 VNode，与旧 VNode 进行 diff，最终更新 DOM 树。
 
 
 

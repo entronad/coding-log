@@ -747,9 +747,21 @@ example1.items.splice(indexOfItem, 1, newValue)
 example1.items.splice(newLength)
 ```
 
+# 2017-07-15
 
+**git**
 
+commit格式：
 
+动词（add/update/fix）+ 内容 + at/in/of + 文件/模块 + [[fixed/closed] #issue号码]
+
+版本节点
+
+[release/build/test] 1.0.1
+
+coding-log
+
+修改的文件名
 
 
 

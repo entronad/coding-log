@@ -763,13 +763,63 @@ coding-log
 
 修改的文件名
 
+# 2017-07-19
 
+**react-native**
 
+RN中：`flexDirection`的默认值是`column`而不是`row`，而`flex`也只能指定一个数字值
 
+RN支持WebSocket
 
+|                 | react-native-cli                         | create-react-native-app                  |
+| --------------- | ---------------------------------------- | ---------------------------------------- |
+| 命名              | 项目名不可含有-，可有_                             | 项目名可有-                                   |
+| dependencies    | react, react-native                      | expo, react, react-native                |
+| devDependencies | babel-jest, babel-preset-react-native, jest, react-test-renderer | react-native-scripts, jest-expo, react-test-renderer |
+|                 |                                          |                                          |
 
+官方支持的导航是 react-navigation
 
+require中的图片名字必须是一个静态字符串（不能使用变量！因为require是在编译时期执行，而非运行时期执行！）
 
+Android、IOS都可使用@2x、@3x加载不同分辨率图片
 
+在React Native中，另一个值得一提的变动是我们把`src`属性改为了`source`属性，而且并不接受字符串，正确的值是一个带有`uri`属性的对象。
 
+```
+<Image source={{uri: 'something.jpg'}} />
+```
 
+开发者们常面对的一种需求就是类似web中的背景图（`background-image`）。要实现这一用例，只需简单使用`<ImageBackground>`组件，然后把需要背景图的子组件嵌入其中即可。
+
+```
+return (
+  <ImageBackground source={...}>
+    <Text>Inside</Text>
+  </ImageBackground>
+);
+```
+
+如果要在**Android**上使用LayoutAnimation，那么目前还需要在`UIManager`中启用：
+
+```
+UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+```
+
+务必在卸载组件前清除定时器
+
+> 什么时候使用setNativeProps呢？在（不得不）频繁刷新而又遇到了性能瓶颈的时候。
+>
+> 直接操作组件并不是应该经常使用的工具。一般来说只是用来创建连续的动画，同时避免渲染组件结构和同步太多视图变化所带来的大量开销。`setNativeProps`是一个“简单粗暴”的方法，它直接在底层（DOM、UIView等）而不是React组件中记录state，这样会使代码逻辑难以理清。所以在使用这个方法之前，请尽量先尝试用`setState`和shouldComponentUpdate方法来解决问题。
+>
+> 避免和render方法的冲突
+>
+> 如果要更新一个由render方法来维护的属性，则可能会碰到一些出人意料的bug。因为每一次组件重新渲染都可能引起属性变化，这样一来，之前通过`setNativeProps`所设定的值就被完全忽略和覆盖掉了。
+>
+> setNativeProps与shouldComponentUpdate
+>
+> 通过巧妙运用 `shouldComponentUpdate`方法，可以避免重新渲染那些实际没有变化的子组件所带来的额外开销，此时使用`setState`的性能已经可以与`setNativeProps`相媲美了。
+
+RN性能优化：http://reactnative.cn/docs/0.46/performance.html#content
+
+特定平台：1.ios.和.android. 2 Platform.select() 3 Platform.OS === 'ios'

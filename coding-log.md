@@ -823,3 +823,19 @@ UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationE
 RN性能优化：http://reactnative.cn/docs/0.46/performance.html#content
 
 特定平台：1.ios.和.android. 2 Platform.select() 3 Platform.OS === 'ios'
+
+# 2017-07-20
+
+CSS预处理使用情况：
+
+antd / antd-mobile: less
+
+iview: less
+
+element-ui: bootstrap
+
+---
+
+**JavaScript**
+
+限制小数位数：toFixed(/* 0~20 */)

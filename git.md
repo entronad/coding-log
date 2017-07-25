@@ -1,3 +1,21 @@
+commit格式：
+
+动词（add/update/fix）+ 内容 + at/in/of + 文件/模块 + [[fixed/closed] #issue号码]
+
+c.f. continue from下次从何处开始
+
+中间用 | 间隔
+
+版本节点
+
+[release/build/test] 1.0.1
+
+coding-log
+
+修改的文件名
+
+
+
 git status    当前状态
 
 git diff

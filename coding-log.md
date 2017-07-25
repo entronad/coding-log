@@ -747,22 +747,6 @@ example1.items.splice(indexOfItem, 1, newValue)
 example1.items.splice(newLength)
 ```
 
-# 2017-07-15
-
-**git**
-
-commit格式：
-
-动词（add/update/fix）+ 内容 + at/in/of + 文件/模块 + [[fixed/closed] #issue号码]
-
-版本节点
-
-[release/build/test] 1.0.1
-
-coding-log
-
-修改的文件名
-
 # 2017-07-19
 
 **react-native**
@@ -936,3 +920,19 @@ MD推荐12/14/16/20/34字体排版缩放
 高： 68dp
 文本内边距： 16dp
 每行的默认字体大小： 16sp/12sp或者14sp/14sp
+
+# 2017-07-24
+
+**Vue**
+
+Vue中可注册全局过滤器，仅在{{}}和v-bind中可用
+
+# 2017-07-24
+
+移动阅读时代，markdown的格式不宜嵌套过深，一般同一内容只宜使用一种格式（无序列表、有序列表、代码），尽量flat，以适应手机ListView式的阅读
+
+文章链接发布到聚合网站尽量在工作日早晨，因为白天人们习惯使用PC网页浏览，晚上习惯使用手机APP，PC的链接直接跳转到源文章，方便转化，而手机APP只会打开webview，不能跳转到源文章APP，不好转化
+
+**Echarts**
+
+echarts的init方法要传入的是唯一的元素，官方推荐的getElementById就是这个目的，但不一定必须使用这个方法，vue中可用this.$el（此组件挂载的元素）或ref/this.refs.（内部子元素）来指定

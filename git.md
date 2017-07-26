@@ -58,6 +58,8 @@ git log --graph    带图形的log
 
 git merge --no-ff -m "提交信息" 分支名    合并指定分支到当前分支保留提交信息
 
+git push origin local_branch:remote_branch 把本地分支推送到远程的对应分支，没有就创建
+
 ---
 
 git stash    将当前工作区内容储存并清空
@@ -101,6 +103,3 @@ git push origin 标签名/--tags    推送标签/全部标签
 ​	git tag -d 标签名
 
 ​	git push origin :refs/tags/标签名
-
-
-

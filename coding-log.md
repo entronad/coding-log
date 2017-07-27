@@ -936,3 +936,31 @@ Vue中可注册全局过滤器，仅在{{}}和v-bind中可用
 **Echarts**
 
 echarts的init方法要传入的是唯一的元素，官方推荐的getElementById就是这个目的，但不一定必须使用这个方法，vue中可用this.$el（此组件挂载的元素）或ref/this.refs.（内部子元素）来指定
+
+# 2017-07-27
+
+**Vue**
+
+为了发现对象内部值的变化，可以在选项参数中指定 `deep: true` 。注意监听数组的变动不需要这么做。
+
+```
+vm.$watch('someObject', callback, {
+  deep: true
+})
+vm.someObject.nestedValue = 123
+// callback is fired
+```
+
+---
+
+计算属性返回如果是一个对象，重新计算后将返回一个新的对象，watch它时无需deep
+
+**JavaScript**
+
+splice删除一个元素后，数组length
+
+箭头函数与this：
+
+- 箭头函数根本没有自己的`this`，导致内部的`this`就是定义时外层代码块的`this`
+- 由于箭头函数没有自己的`this`，所以当然也就不能用`call()`、`apply()`、`bind()`这些方法去改变`this`的指向，
+- 所以也不能做构造函数

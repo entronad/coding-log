@@ -971,7 +971,22 @@ splice删除一个元素后，数组length
 
 require() 执行会将对应文件内的脚本都执行一遍
 
-# 2017-07-28
+# 2017-07-29
+
+**CSS**
+
+选择器优先级：
+
+!important > # > . > 标签 > *
+
+不同选择器的优先级与先后无关
+
+设置的样式高于继承
+>>>>>>> 68b70a03fe46d1db870c2e169e54b098d9734aae
+
+<<<<<<< HEAD
+
+# 2017-07-31
 
 仅有POST、PUT以及PATCH这三个动词时会包含请求体，而GET、HEAD、DELETE、CONNECT、TRACE、OPTIONS这几个动词时不包含请求体。
 
@@ -979,11 +994,12 @@ require() 执行会将对应文件内的脚本都执行一遍
 
 HTTP协议不限制你携带请求体，但严格符合协议的server是不应该处理这个请求体的，也就是说可以带，但带了没意义
 
-> Yes. In other words, any HTTP request message is allowed to contain a message body, and thus must parse messages with that in mind. Server semantics for GET, however, are restricted such that a body, if any, has no semantic meaning to the request. The requirements on parsing are separate from the requirements on method semantics.
->
-> So, yes, you can send a body with GET, and no, it is never useful to do so.
->
-> This is part of the layered design of HTTP/1.1 that will become clear again once the spec is partitioned (work in progress).
->
-> ​    ——HTTP 规范的主要创作人之一 [Roy T. Fielding](http://roy.gbiv.com/)
+Yes. In other words, any HTTP request message is allowed to contain a message body, and thus must parse messages with that in mind. Server semantics for GET, however, are restricted such that a body, if any, has no semantic meaning to the request. The requirements on parsing are separate from the requirements on method semantics.
 
+So, yes, you can send a body with GET, and no, it is never useful to do so.
+
+This is part of the layered design of HTTP/1.1 that will become clear again once the spec is partitioned (work in progress).
+
+    ——HTTP 规范的主要创作人之一 Roy T. Fielding
+
+=======

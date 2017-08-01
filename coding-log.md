@@ -982,10 +982,6 @@ require() 执行会将对应文件内的脚本都执行一遍
 不同选择器的优先级与先后无关
 
 设置的样式高于继承
->>>>>>> 68b70a03fe46d1db870c2e169e54b098d9734aae
-
-<<<<<<< HEAD
-
 # 2017-07-31
 
 仅有POST、PUT以及PATCH这三个动词时会包含请求体，而GET、HEAD、DELETE、CONNECT、TRACE、OPTIONS这几个动词时不包含请求体。
@@ -1001,5 +997,47 @@ So, yes, you can send a body with GET, and no, it is never useful to do so.
 This is part of the layered design of HTTP/1.1 that will become clear again once the spec is partitioned (work in progress).
 
     ——HTTP 规范的主要创作人之一 Roy T. Fielding
+# 2017-08-01
 
-=======
+**iview**
+
+size默认值是'default'
+
+**Vue**
+
+```
+<input v-model="something">
+```
+
+这不过是以下示例的语法糖：
+
+```
+<input
+  v-bind:value="something"
+  v-on:input="something = $event.target.value">
+```
+
+所以要让组件的 `v-model` 生效，它应该 (在 2.2.0+ 这是可配置的)：
+
+- 接受一个 `value` 属性
+- 在有新的值时触发 `input` 事件
+
+自定义事件$emit 到 v-on 的参数传递：emit的arg[1],arg[2]...直接传到handler的arg[0],arg[1]...
+
+在监听原生 DOM 事件时，方法以事件为唯一的参数。如果使用内联语句，语句可以访问一个 `$event` 属性： `v-on:click="handle('ok', $event)"`
+
+---
+
+对于多数特性来说，传递给组件的值会覆盖组件本身设定的值。即例如传递 `type="large"`将会覆盖 `type="date"` 且有可能破坏该组件！索性我们对待 `class` 和 `style` 特性会更聪明一些，这两个特性的值都会做合并 (merge) 操作，让最终生成的值为：`form-control date-picker-theme-dark`。
+
+---
+
+**JavaScript**
+
+String的三个子串方法slice(), substr(), substring(): 第一个参数都是起始位置（左闭）
+
+slice(),  第二个参数是结束位置（右开）；负数第一个第二个都将与长度相加
+
+substring() 第二个参数是结束位置（右开）；负数第一个与长度相加，第二个转换为0
+
+substr()第二个参数是长度 ；负数第一个第二个都转换为0

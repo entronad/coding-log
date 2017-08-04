@@ -1061,3 +1061,18 @@ module.exports = {
   entry: ["babel-polyfill", "./app/js"] //在webpack.config.js中
 };
 ```
+# 2017-08-04
+
+**JavaScript**
+
+delete 操作符：从对象中移除某属性，后面跟这个引用
+
+- 一般都返回true，包括对象中没有这个属性，只有属性configurable: false时不能删除，返回false
+- 只会删除自身的属性，不会删除原型链上的属性
+- 不能删除全局/局部作用域中的变量、函数（他们的configurable: false）
+
+---
+
+数组的堆栈方法，都不是链式的方式，进（push，unshift）返回长度，出（pop，shift）返回出的项
+
+unshift方法多个参数时，完成的顺序与参数原顺序一致（整体推入）

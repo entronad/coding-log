@@ -992,3 +992,100 @@ require() 执行会将对应文件内的脚本都执行一遍
 伪类：假想给该元素添加一个类名 :link :hover
 
 伪元素：假想给该元素某部分添加元素标签，并应用样式 :first-letter :first-line :before :after
+
+# 2017-07-31
+
+仅有POST、PUT以及PATCH这三个动词时会包含请求体，而GET、HEAD、DELETE、CONNECT、TRACE、OPTIONS这几个动词时不包含请求体。
+
+关于GET等与请求体的关系：
+
+HTTP协议不限制你携带请求体，但严格符合协议的server是不应该处理这个请求体的，也就是说可以带，但带了没意义
+
+> Yes. In other words, any HTTP request message is allowed to contain a message body, and thus must parse messages with that in mind. Server semantics for GET, however, are restricted such that a body, if any, has no semantic meaning to the request. The requirements on parsing are separate from the requirements on method semantics.
+>
+> So, yes, you can send a body with GET, and no, it is never useful to do so.
+>
+> This is part of the layered design of HTTP/1.1 that will become clear again once the spec is partitioned (work in progress).
+>
+> ​    ——HTTP 规范的主要创作人之一 Roy T. Fielding
+>
+# 2017-08-01
+
+
+**iview**
+
+size默认值是'default'
+
+**Vue**
+
+```
+<input v-model="something">
+```
+
+这不过是以下示例的语法糖：
+
+```
+<input
+  v-bind:value="something"
+  v-on:input="something = $event.target.value">
+```
+
+所以要让组件的 `v-model` 生效，它应该 (在 2.2.0+ 这是可配置的)：
+
+- 接受一个 `value` 属性
+- 在有新的值时触发 `input` 事件
+
+自定义事件$emit 到 v-on 的参数传递：emit的arg[1],arg[2]...直接传到handler的arg[0],arg[1]...
+
+在监听原生 DOM 事件时，方法以事件为唯一的参数。如果使用内联语句，语句可以访问一个 `$event` 属性： `v-on:click="handle('ok', $event)"`
+
+---
+
+对于多数特性来说，传递给组件的值会覆盖组件本身设定的值。即例如传递 `type="large"`将会覆盖 `type="date"` 且有可能破坏该组件！索性我们对待 `class` 和 `style` 特性会更聪明一些，这两个特性的值都会做合并 (merge) 操作，让最终生成的值为：`form-control date-picker-theme-dark`。
+
+---
+
+**JavaScript**
+
+String的三个子串方法slice(), substr(), substring(): 第一个参数都是起始位置（左闭）
+
+slice(),  第二个参数是结束位置（右开）；负数第一个第二个都将与长度相加
+
+substring() 第二个参数是结束位置（右开）；负数第一个与长度相加，第二个转换为0
+
+substr()第二个参数是长度 ；负数第一个第二个都转换为0
+
+# 2017-08-02
+
+**Vue**
+
+ie浏览器无法使用es6等新特性，需使用babel-polyfill
+
+```
+npm install --save babel-polyfill
+```
+
+```
+import "babel-polyfill" //在main.js中
+```
+
+```
+module.exports = {
+  entry: ["babel-polyfill", "./app/js"] //在webpack.config.js中
+};
+```
+# 2017-08-04
+
+**JavaScript**
+
+delete 操作符：从对象中移除某属性，后面跟这个引用
+
+- 一般都返回true，包括对象中没有这个属性，只有属性configurable: false时不能删除，返回false
+- 只会删除自身的属性，不会删除原型链上的属性
+- 不能删除全局/局部作用域中的变量、函数（他们的configurable: false）
+
+---
+
+数组的堆栈方法，都不是链式的方式，进（push，unshift）返回长度，出（pop，shift）返回出的项
+
+unshift方法多个参数时，完成的顺序与参数原顺序一致（整体推入）

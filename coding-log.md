@@ -1131,3 +1131,30 @@ TC39（Technical Committee 39）是一个推动JavaScript发展的委员会。
 （1）通过[Test 262](http://test262.ecmascript.org/)的**验收测试**。
 （2）有2个通过测试的实现，以获取使用过程中的重要实践经验。
 （3）ECMAScript的编辑必须规范上的签字。
+
+# 2017-08-08
+
+**CSS**
+
+相同特殊性需要通过层叠实现效果的例子：
+
+超链接的LVHA顺序声明：
+
+```
+:link {color: blue;}
+:visited {color: purple;}
+:hover {color: red;}
+:active {color: orange}
+```
+
+---
+
+em: 设置长度时为当前元素font-size的大小，设置font-size时为父元素font-size的大小
+
+---
+
+在CSS中，相对URL要相对于样式表本身，而不是使用CSS的html（主要针对跨域）
+
+---
+
+font-family: 指定到具体字体太复杂了不现实，所以css只指定到字体族

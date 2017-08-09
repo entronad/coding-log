@@ -1158,3 +1158,25 @@ em: 设置长度时为当前元素font-size的大小，设置font-size时为父�
 ---
 
 font-family: 指定到具体字体太复杂了不现实，所以css只指定到字体族
+
+# 2017-08-09
+
+**CSS**
+
+font-weigt是可继承的，是相对的在100-900上
+
+---
+
+垂直对齐文本 vertical-align 只能应用于行内元素和替换元素
+
+vertical-align: middle; 会把行内元素框的中点与父元素基线上方0.25em处对齐
+
+---
+
+内容的背景也会应用到内边距，内边距不可为负，外边距可以为负
+
+width、margin可以为auto，其他默认为0
+
+margin、padding、width加起来要是父元素的width（与父元素padding无关），百分百的值是相对于父元素的width
+
+过量设定后，margin-right将是自动计算值

@@ -1180,3 +1180,17 @@ width、margin可以为auto，其他默认为0
 margin、padding、width加起来要是父元素的width（与父元素padding无关），百分百的值是相对于父元素的width
 
 过量设定后，margin-right将是自动计算值
+
+# 2017-08-10
+
+**CSS**
+
+垂直方向上的margin会合并，嵌套元素的margin也会合并
+
+当margin有负数时，一正一负合并，正的会减去负的绝对值；两个负的合并，绝对值会取大的
+
+---
+
+替换元素：img
+
+非替换元素

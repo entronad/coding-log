@@ -1194,3 +1194,28 @@ margin、padding、width加起来要是父元素的width（与父元素padding�
 替换元素：img
 
 非替换元素
+
+# 2017-08-12
+
+**React**
+
+组件类中的方法不会自动绑定对象，可用属性初始化器语法：
+
+```
+class LoggingButton extends React.Component {
+  // This syntax ensures `this` is bound within handleClick.
+  // Warning: this is *experimental* syntax.
+  handleClick = () => {
+    console.log('this is:', this);
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        Click me
+      </button>
+    );
+  }
+}
+```
+

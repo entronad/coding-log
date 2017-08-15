@@ -1219,3 +1219,16 @@ class LoggingButton extends React.Component {
 }
 ```
 
+# 2017-08-15
+
+**CSS**
+
+line-height最好的办法是设置原始数字值，这将成为一个缩放因子
+
+行内元素的边框边界由font-size而不是line-height控制
+
+inline-block外部类似替换行内元素，内部类似块元素(行内非替换元素不可设置宽高)
+
+如果一个元素为绝对定位，float为none，display将用计算值：block
+
+行内非替换元素的左右内边距有效

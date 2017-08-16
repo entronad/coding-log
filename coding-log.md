@@ -1,6 +1,6 @@
 # 2017-05-06
 
-**Vue 笔记**
+**Vue**
 
 - Vue 实例可以认为是 ViewModel，常用 vm 作为变量名
 - Vue 中的 data 对象为代理，类似于引用赋值
@@ -8,7 +8,7 @@
 
 # 2017-05-08
 
-**Vue 笔记**
+**Vue**
 
 - 组件中的data需定义为函数，且返回一个新的data对象
 
@@ -1232,3 +1232,33 @@ inline-block外部类似替换行内元素，内部类似块元素(行内非替�
 如果一个元素为绝对定位，float为none，display将用计算值：block
 
 行内非替换元素的左右内边距有效
+
+# 2017-08-16
+
+**CSS**
+
+浮动元素的margin不会合并
+
+浮动非替换元素必须申明width
+
+包含块（containing block）：浮动元素的包含块是其最近的块级祖先元素
+
+浮动元素会自动变成块级框
+
+---
+
+position: relative原本所占的空间仍保留
+
+position: absolute会变为块级框
+
+包含块：
+
+​	HTML的根元素是html元素，其包含块是视窗大小的矩形
+
+​	static/relative包含块由最近的块级框、行内块祖先元素构成
+
+​	absolute包含块为最近的不是static的祖先元素（即一般是absolute或relative，由于absolute本身要求相同，所以一般会要设一个relative），如果是块级元素，则为border，即包含padding；行内元素则为内容边界
+
+！！！设置top等偏移属性值为百分比时，相对于的是包含块，即static时是块级框，absolute时是border框
+
+width/height属性优先级高于top等，设置冗余了优先满足width等

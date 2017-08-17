@@ -1223,6 +1223,8 @@ class LoggingButton extends React.Component {
 
 **CSS**
 
+替换元素：<img>、<input>、<textarea>、<select>、<object>
+
 line-height最好的办法是设置原始数字值，这将成为一个缩放因子
 
 行内元素的边框边界由font-size而不是line-height控制
@@ -1262,3 +1264,11 @@ position: absolute会变为块级框
 ！！！设置top等偏移属性值为百分比时，相对于的是包含块，即static时是块级框，absolute时是border框
 
 width/height属性优先级高于top等，设置冗余了优先满足width等
+
+# 2017-08-17
+
+对于absolute元素来说，left设为auto，将往左边顶，top设为auto将会为其文档流中的位置
+
+替换元素的width、height若设为auto，将自动计算为图片的大小
+
+z-index中存在叠放上下文，概念与父子元素类似

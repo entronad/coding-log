@@ -1272,3 +1272,58 @@ width/height属性优先级高于top等，设置冗余了优先满足width等
 替换元素的width、height若设为auto，将自动计算为图片的大小
 
 z-index中存在叠放上下文，概念与父子元素类似
+
+# 2017-08-18
+
+**JavaScript**
+
+```
+let { foo: baz } = { foo: "aaa", bar: "bbb" };
+baz // "aaa"
+foo // error: foo is not defined
+
+```
+
+上面代码中，`foo`是匹配的模式，`baz`才是变量。真正被赋值的是变量`baz`，而不是模式`foo`。
+
+如果要将一个已经声明的变量用于解构赋值，必须非常小心。
+
+```
+// 错误的写法
+let x;
+{x} = {x: 1};
+// SyntaxError: syntax error
+
+```
+
+上面代码的写法会报错，因为 JavaScript 引擎会将`{x}`理解成一个代码块，从而发生语法错误。只有不将大括号写在行首，避免 JavaScript 将其解释为代码块，才能解决这个问题。
+
+```
+// 正确的写法
+let x;
+({x} = {x: 1});
+```
+
+由于数组本质是特殊的对象，因此可以对数组进行对象属性的解构。
+
+```
+let arr = [1, 2, 3];
+let {0 : first, [arr.length - 1] : last} = arr;
+first // 1
+last // 3
+
+```
+
+上面代码对数组进行对象解构。数组`arr`的`0`键对应的值是`1`，`[arr.length - 1]`就是`2`键，对应的值是`3`。
+
+只要有可能，就不要在模式中放置圆括号。
+
+---
+
+rest运算符：
+
+函数的arguments对象只是一个类似数组的对象，不是Array实例，没有Array的实例方法，但可以用[]取值，有length
+
+rest对象则就是数组，后面不能有参数。函数的`length`属性，不包括 rest 参数。
+
+对象的扩展运算符使用时，总是后面的覆盖前面的

@@ -1337,3 +1337,9 @@ rest对象则就是数组，后面不能有参数。函数的`length`属性，�
 **JavaScript**
 
 escape character : 转义字符
+
+# 2017-08-24
+
+**MobX**
+
+mobx-react在ReactNative中是通过"mobx-react/native"引入

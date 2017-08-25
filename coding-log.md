@@ -1343,3 +1343,26 @@ escape character : 转义字符
 **MobX**
 
 mobx-react在ReactNative中是通过"mobx-react/native"引入
+
+# 2017-08-25
+
+**ReactNative**
+
+```
+AppRegistry.registerComponent('项目名',() => ...);
+```
+
+与./ios/项目名/appDelegate.m中的
+
+```
+RCTRootView*rootView = [[RCTRootViewalloc]initWithBundleURL:jsCodeLocation
+moduleName:@"项目名" launchOptions:launchOptions];
+```
+
+或是./android/app/src/main/java/com/项目名/MainActivity.java中的
+
+```
+mReactRootView.startReactApplication(mReactInstanceManager, "项目名", null);
+```
+
+必须保持一致

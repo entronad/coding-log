@@ -1366,3 +1366,17 @@ mReactRootView.startReactApplication(mReactInstanceManager, "项目名", null);
 ```
 
 必须保持一致
+
+# 2017-08-26
+
+**JavaScript**
+
+class中的变量需这样定义：
+
+```
+class MyClass {
+  a = 12;
+  static b = 12;
+}
+```
+

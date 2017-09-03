@@ -1380,3 +1380,13 @@ class MyClass {
 }
 ```
 
+# 2017-09-03
+
+**MobX**
+
+observable store在根组件处通过Providerobserver 组件
+
+一般会在入口文件进行初始化
+
+`observer` 是由单独的 `mobx-react` 包提供的
+

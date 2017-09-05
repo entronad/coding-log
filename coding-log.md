@@ -1390,3 +1390,25 @@ observable store在根组件处通过Providerobserver 组件
 
 `observer` 是由单独的 `mobx-react` 包提供的
 
+# 2017-09-05
+
+**MobX**
+
+store 先定义calss，然后在同一个文件中new实例，输出实例，文件名和实例名小写
+
+只要确定该网络请求是更新数据的唯一方法，可将网络请求写在action中，但store中不放“自动逻辑”
+
+**JavaScript**
+
+类中用等号定义的是类的“实例属性”，用此方法定义的方法（foo = () => {}）将自动与“类的实例”（React组件）绑定
+
+---
+
+- 函数声明
+  `async function foo () {}`
+- 函数表达式
+  `const foo = async function () {}`
+- 方法定义
+  `const obj = { async foo () {} }`
+- 箭头函数
+  `async () => {}`

@@ -1412,3 +1412,13 @@ store 先定义calss，然后在同一个文件中new实例，输出实例，文
   `const obj = { async foo () {} }`
 - 箭头函数
   `async () => {}`
+
+# 2017-09-08
+
+**React**
+
+ref添加到Compoennt上获取的是Compoennt实例，添加到原生HTML上获取的是DOM
+
+新版本的React已经不推荐我们使用ref string转而使用ref callback
+
+在说ReactDOM.findDOMNode，当参数是DOM，返回值就是该DOM（这个没啥卵用）；当参数是Component获取的是该Component render方法中的DOM

@@ -1422,3 +1422,36 @@ ref添加到Compoennt上获取的是Compoennt实例，添加到原生HTML上获�
 新版本的React已经不推荐我们使用ref string转而使用ref callback
 
 在说ReactDOM.findDOMNode，当参数是DOM，返回值就是该DOM（这个没啥卵用）；当参数是Component获取的是该Component render方法中的DOM
+
+# 2017-09-11
+
+**JavaScript**
+
+类、对象中的访问器可通过关键字set、get定义
+
+# 2017-09-12
+
+**React**
+
+react组件的内容分发（slot）通过props实现
+
+JSX中的注释也要写到大括号中
+
+需要直接插入html需用属性dangerouslySetInnerHTML={{__html: myHTML}}
+
+---
+
+初始化时钩子顺序：
+
+constructor
+componentWillMount
+render
+componentDidMount
+
+---
+
+虚拟DOM、diff算法使得每次render的时候只会更改必要的元素
+
+---
+
+css-in-js会被转换为内联样式

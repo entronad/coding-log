@@ -1455,3 +1455,23 @@ componentDidMount
 ---
 
 css-in-js会被转换为内联样式
+
+# 2017-09-19
+
+**JavaScript**
+
+在import语句中，同级没有同名但后缀名不同的文件可省略后缀，或.js可省略
+
+**babel**
+
+preset：
+
+es2015: es6中的规范
+
+stage3-0:尚未进入规范（stage4）各阶段提案，每个包含前面所有
+
+react：react要用的
+
+其他要用的靠plugins补充
+
+react-app包括es2015，stage2，react

@@ -1466,7 +1466,7 @@ css-in-js会被转换为内联样式
 
 preset：
 
-es2015: es6中的规范
+env: 已进入规范的特性
 
 stage3-0:尚未进入规范（stage4）各阶段提案，每个包含前面所有
 
@@ -1475,3 +1475,29 @@ react：react要用的
 其他要用的靠plugins补充
 
 react-app包括es2015，stage2，react
+
+# 2017-09-21
+
+**CSS**
+
+水平居中垂直居中
+
+1.
+
+```
+// 父元素宽高要确定
+margin: 0 auto; /*水平居中*/
+position: relative;
+top: 50%; /*偏移*/
+transform: translateY(-50%);
+```
+
+2.
+
+```
+// 父元素中：
+display: flex;
+align-items: center; /*定义body的元素垂直居中*/
+justify-content: center; /*定义body的里的元素水平居中*/
+```
+

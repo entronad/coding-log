@@ -1501,3 +1501,36 @@ align-items: center; /*定义body的元素垂直居中*/
 justify-content: center; /*定义body的里的元素水平居中*/
 ```
 
+# 2017-09-22
+
+**JavaScript**
+
+Module 是尽量静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和AMD 是动态的。
+
+`import`语句会执行所加载的模块。
+
+如果多次重复执行同一句`import`语句，那么只会执行一次，而不会执行多次。
+
+采用default输出的变量，import时无需知道其名字，import后面（不加大括号）跟的是别名，
+
+```
+import _, { each, each as forEach } from 'lodash';
+```
+
+可同时引入export的变量和export default。
+
+```
+export { es6 as default } from './someModule';
+
+// 等同于
+import { es6 } from './someModule';
+export default es6;
+```
+
+**CSS**
+
+子元素的margin-top会顶开父元素的margin-top，解决办法给父元素加1px的padding。
+
+要想margin auto水平居中，width必须是定值。
+
+class的覆盖顺序是按样式表中的定义的顺序来的，而不是元素中定义的顺序

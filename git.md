@@ -103,3 +103,9 @@ git push origin 标签名/--tags    推送标签/全部标签
 ​	git tag -d 标签名
 
 ​	git push origin :refs/tags/标签名
+
+---
+
+设置全局不转换LF与CRLF
+
+git config --global core.autocrlf false

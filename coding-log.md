@@ -1534,3 +1534,17 @@ export default es6;
 要想margin auto水平居中，width必须是定值。
 
 class的覆盖顺序是按样式表中的定义的顺序来的，而不是元素中定义的顺序
+
+# 2017-09-24
+
+**styled-components**
+
+sc与antd
+
+只要有import就会执行
+
+执行过程中用到才会加载
+
+sc首次用到生成style sheet，之后的都是填到其中，antd有用到就会生成类
+
+加载：只有当jsx中出现了该元素才会加载

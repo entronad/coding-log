@@ -1548,3 +1548,16 @@ sc与antd
 sc首次用到生成style sheet，之后的都是填到其中，antd有用到就会生成类
 
 加载：只有当jsx中出现了该元素才会加载
+
+# 2017-09-27
+
+**CSS**
+
+inline 行内元素 宽高无效。
+margin padding只有左右边距有效，上下无效。
+
+**React**
+
+React构造函数和其中的super都应当传入props。
+
+React组件的构造函数将会在装配之前被调用。当为一个`React.Component`子类定义构造函数时，你应该在任何其他的表达式之前调用`super(props)`。否则，`this.props`在构造函数中将是未定义，并可能引发异常。

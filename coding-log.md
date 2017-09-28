@@ -1561,3 +1561,9 @@ margin padding只有左右边距有效，上下无效。
 React构造函数和其中的super都应当传入props。
 
 React组件的构造函数将会在装配之前被调用。当为一个`React.Component`子类定义构造函数时，你应该在任何其他的表达式之前调用`super(props)`。否则，`this.props`在构造函数中将是未定义，并可能引发异常。
+
+# 2017-09-28
+
+**styled-components**
+
+其本质是将生成的样式的class以calssName为名的参数传给组件，故组件中根元素需加入className={this.props.className}

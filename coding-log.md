@@ -1567,3 +1567,9 @@ React组件的构造函数将会在装配之前被调用。当为一个`React.Co
 **styled-components**
 
 其本质是将生成的样式的class以calssName为名的参数传给组件，故组件中根元素需加入className={this.props.className}
+
+# 2017-09-29
+
+**JavaScript**
+
+由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号。

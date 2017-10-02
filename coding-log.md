@@ -1579,3 +1579,9 @@ React组件的构造函数将会在装配之前被调用。当为一个`React.Co
 **React**
 
 组件内部使用的逻辑，以绑定方法的形式定义在类中
+
+# 2017-10-02
+
+**http**
+
+跨域资源共享中，预请求之后的每次请求，response中也必须添加头Access-Control-Allow-Origin

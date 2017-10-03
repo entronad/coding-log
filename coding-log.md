@@ -1585,3 +1585,9 @@ React组件的构造函数将会在装配之前被调用。当为一个`React.Co
 **http**
 
 跨域资源共享中，预请求之后的每次请求，response中也必须添加头Access-Control-Allow-Origin
+
+# 2017-10-03
+
+**React**
+
+this.props.history.push 要使用必须在 Route标签中，否则就要通过history={this.props.history}传递一下

@@ -1591,3 +1591,15 @@ React组件的构造函数将会在装配之前被调用。当为一个`React.Co
 **React**
 
 this.props.history.push 要使用必须在 Route标签中，否则就要通过history={this.props.history}传递一下
+
+# 2017-10-06
+
+**React**
+
+React中元素的事件处理需传递一个方法，第一个参数为e
+
+---
+
+styled-components通过传入参数确定的CSS属性不能实现动态修改
+
+给styled-components包裹的根元素添加ref要用innerRef

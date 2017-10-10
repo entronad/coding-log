@@ -1603,3 +1603,17 @@ React中元素的事件处理需传递一个方法，第一个参数为e
 styled-components通过传入参数确定的CSS属性不能实现动态修改
 
 给styled-components包裹的根元素添加ref要用innerRef
+
+# 2017-10-10
+
+**Mobx**
+
+observable 之后的Array不是Array，但是具有Array的方法，可以用slice()转变为真Array
+
+装饰器要先inject，后observer
+
+**React**
+
+单纯的props改变并不会触发组件更新，只有父组件重新渲染会触发子组件更新
+
+ref不要重新赋值，设个新的变量

@@ -1617,3 +1617,27 @@ observable 之后的Array不是Array，但是具有Array的方法，可以用sli
 单纯的props改变并不会触发组件更新，只有父组件重新渲染会触发子组件更新
 
 ref不要重新赋值，设个新的变量
+
+# 2017-10-12
+
+**React**
+
+子组件向父组件传递参数（修改父组件参数），是以父组件将函数传递给子组件的形式
+
+# 2017-10-13
+
+**JavaScript**
+
+异常向外抛出时，只要在某一层捕获就行了（不一定当场捕获），一直没有捕获程序就会中断
+
+**http**
+
+如果后端要求 application/x-www-form-urlencoded 格式的Post请求体，可采用
+
+```
+var params = new URLSearchParams();
+params.append('param1', 'value1');
+params.append('param2', 'value2');
+axios.post('/foo', params);
+```
+

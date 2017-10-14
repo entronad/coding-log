@@ -1,6 +1,44 @@
+**vue**
+
+**git**
+
+**css**
+
+**html**
+
+**browser**
+
+**webpack**
+
+**react**
+
+**npm**
+
+**vpn**
+
+**react-native**
+
+**dom**
+
+**设计**
+
+**markdown**
+
+**echarts**
+
+**node**
+
+**http**
+
+**mobx**
+
+**babel**
+
+**styled-components**
+
 # 2017-05-06
 
-**Vue**
+**vue**
 
 - Vue 实例可以认为是 ViewModel，常用 vm 作为变量名
 - Vue 中的 data 对象为代理，类似于引用赋值
@@ -8,7 +46,7 @@
 
 # 2017-05-08
 
-**Vue**
+**vue**
 
 - 组件中的data需定义为函数，且返回一个新的data对象
 
@@ -19,9 +57,9 @@
 
 # 2017-05-10
 
-**element-ui **
+**vue **
 
-NavMenu 导航菜单中若在` <el-menu/>`中设置 router 参数，则其中`<el-menu-item/>`的 index 参数值即为路由地址
+element-ui 中 NavMenu 导航菜单中若在` <el-menu/>`中设置 router 参数，则其中`<el-menu-item/>`的 index 参数值即为路由地址
 
 **git**
 
@@ -37,7 +75,7 @@ ssh-add
 ```
 # 2017-05-11
 
-**CSS**
+**css**
 
 `color`属性：检索或设置对象的文本颜色。`color`属性值被间接用来提供一个中间值` currentColor`以供其他接受颜色值的属性使用。
 
@@ -57,7 +95,7 @@ ssh-add
 ```
 # 2017-05-12
 
-**CSS**
+**css**
 
 `box-shadow`属性：向框添加阴影
 
@@ -81,9 +119,7 @@ box-shadow: 0 0 1px #ddd;
 
 选择器中写两个类，如中间无空格为多类选择器，有空格为派生选择器
 
-------
-
-**Vue**
+**vue**
 
 component 类似“类”的概念，名称、文件名大写
 
@@ -93,19 +129,19 @@ component 类似“类”的概念，名称、文件名大写
 
 # 2017-05-14
 
-**CSS**
+**css**
 
 `top`、`right`、`bottom`、`left` 属性定义与各边边距
 
 # 2017-05-15
 
-**Vue**
+**vue**
 
 父组件通过事件接受子组件参数时，绑定处只要写函数名，参数会自动传入函数中
 
 ---
 
-**CSS**
+**css**
 
 想要`heigt: 100%`起作用需先同时设置`body`与`html`的高度：
 
@@ -123,7 +159,7 @@ component 类似“类”的概念，名称、文件名大写
 
 # 2017-05-16
 
-**CSS**
+**css**
 
 `line-height: 1.5`  和 `line-height: 150%`  的区别区别体现在子元素继承时，如下：
 
@@ -132,13 +168,13 @@ component 类似“类”的概念，名称、文件名大写
 
 # 2017-05-17
 
-**Vue**
+**vue**
 
 组件的 `<style>` 如果加了scope属性，则其子组件也无法继承这些样式
 
 ---
 
-**HTML**
+**html**
 
 `<table>` 表格
 
@@ -150,7 +186,7 @@ component 类似“类”的概念，名称、文件名大写
 
 ---
 
-**CSS**
+**css**
 
 top、margin-top的区别：
 
@@ -176,7 +212,7 @@ text-overflow:ellipsis;
 
 ---
 
-**Vue**
+**vue**
 
 事件处理器参数可为：
 
@@ -192,7 +228,7 @@ text-overflow:ellipsis;
 
 # 2017-05-18
 
-**Vue**
+**vue**
 
 props 中的参数，子组件中无权修改，只有 $emit 事件通知父组件修改
 
@@ -202,7 +238,7 @@ vue 中引入 axios 分两种情况，组件中通过原型链引入，vuex 中�
 
 # 2017-05-19
 
-**Vue**
+**vue**
 
 vuex 中的 state 可直接读取，getters 相当于计算属性
 
@@ -227,29 +263,29 @@ action 的参数为(context, payload)，action 可为 async 函数
 
 # 2017-05-19
 
-**CSS**
+**css**
 
 通过`margin: 0 auto;`设置居中需设置 width 值
 
 # 2017-05-22
 
-**CSS**
+**css**
 
 只有当父元素的 position 设为 relative 时， 其子元素的 absolute position 是按照父元素的相对位置来的 
 
 # 2017-05-23
 
-**Vue**
+**vue**
 
 当<style>标签设置scoped属性后，将在该标签里的类名添加后缀以区别
 
-**CSS**
+**css**
 
 宽高的百分比是在减去padding之后，无需考虑滚动条
 
 # 2017-05-24
 
-**Vue**
+**vue**
 
 尝试在`actions`里面`commit`另一个`mutation`，而不是在`mutation`里调用另一个`mutation`方法。
 
@@ -258,6 +294,8 @@ action 的参数为(context, payload)，action 可为 async 函数
 状态中的数据来源如是后端api，网络请求应当放在action中
 
 # 2017-05-25
+
+**javascript**
 
 在字面量定义对象中如所定义方法只有一个表达式，宜采用`方法名: 箭头函数`的形式：
 
@@ -294,7 +332,7 @@ const actions = {
 
 ---
 
-**Vue**
+**vue**
 
 Vue组件中要用到模块尽量挂载在Vue示例中，其他.js模块中哪个要用哪个引入
 
@@ -342,7 +380,7 @@ JavaScript 的 Array方法push()返回值是数组长度而不是数组本身
 
 # 2017-05-27
 
-**CSS**
+**css**
 
 margin 的 auto 为“浏览器设置的外边距”，左右会自动居中，但上下为0，故可通过`margin: 0 auto;`设置水平居中，但不可`margin: auto 0;`设置垂直居中。
 
@@ -352,7 +390,7 @@ margin 的 auto 为“浏览器设置的外边距”，左右会自动居中，�
 
 当 position 为默认的 static （处于文档流中）时，z-index 无效
 
-**Vue**
+**vue**
 
 Vue 中引入JS库的最佳实践：以插件的形式引入
 
@@ -362,7 +400,7 @@ iview组件阻断了原生的事件，且无法接受捕捉与冒泡的事件
 
 # 2017-05-27
 
-**Vue**
+**vue**
 
 不应该对 data 属性使用箭头函数，不应该使用箭头函数来定义computed, methods, watch, 生命周期钩子中的函数。这是因为这些属性将被混入到 Vue 实例中。所有 的 this 上下文自动地绑定为 Vue 实例。而箭头函数绑定了父上下文，因此 `this` 与你期待的 Vue 实例不同。
 
@@ -370,7 +408,7 @@ iview组件阻断了原生的事件，且无法接受捕捉与冒泡的事件
 
 state 在组件中通过computed引用
 
-**HTML**
+**html**
 
 localStorage中只可存储字符串，如存入对象，需用JSON.stringfy()，取出对象需用JSON.parse()
 
@@ -378,7 +416,7 @@ localStorage中只可存储字符串，如存入对象，需用JSON.stringfy()�
 
 # 2017-05-31
 
-**Vue**
+**vue**
 
 在Vue组件中定义的函数都不该用箭头函数，因为其中的this需与运行时的调用对象——Vue实例绑定，而其中若要定义函数则需使用箭头函数，以与其定义时，即Vue对象的运行时的调用对象——Vue实例绑定
 
@@ -388,7 +426,7 @@ v-bind:class 参数对象中的变量名需加引号
 
 # 2017-06-01
 
-**Vue**
+**vue**
 
 vue中父组件调用子组件的方法：
 
@@ -400,11 +438,11 @@ this.$refs.child1.handleParentClick("ssss")
 
 # 2017-06-03
 
-**Vue**
+**vue**
 
 iview中menu组件的active-name属性并不是与当前选项双向绑定，只决定初始选项，或通过updateActiveName手动更新当前选项
 
-**HTML**
+**html**
 
 HTML的属性分为两种：content attribute 和IDL attribute
 
@@ -418,7 +456,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes
 
 # 2017-06-06
 
-**Vue**
+**vue**
 
 初始化逻辑不可直接写在script标签中，需写在钩子中，beforeMount钩子中还没有dom
 
@@ -428,7 +466,7 @@ https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes
 
 # 2017-06-10
 
-**Browser**
+**browser**
 
 ```
 webkit内核
@@ -437,7 +475,7 @@ webkit内核
 +---chromium (改造为blink内核)
 +---mobile webviews
 ```
-**Vue**
+**vue**
 webpack打包的index.html中，所引用的文件目录都是绝对路径，起点为站点的根"/"，如作为webapp，需改为相对目录
 
 ---
@@ -446,26 +484,24 @@ webpack打包的index.html中，所引用的文件目录都是绝对路径，起
 
 # 2017-06-12
 
-**CSS**
+**css**
 
 background-size属性必须在background属性之后，且在同一个class中定义
 
-**Vue**
+**vue**
 
 在data中的变量定义时不可引用data中的其他变量，因为此时data还没生成
 
 # 2017-06-13
 
-**Vue**
+**vue**
 
 Tip: built files are meant to be served over an HTTP server.
   Opening index.html over file:// won't work.
 
 **静态直读不可用history模式**
 
-
-
-**响应式**
+**css**
 
 **五、rem 适配**
 
@@ -495,9 +531,9 @@ Tip: built files are meant to be served over an HTTP server.
 
 以上就是这篇文章的全部内容了，本文作为移动端配置的基础篇，深入了解框架后才能继续构建网站，希望这是一个好的开始，有了这个架子再填充代码就方便了许多，不用再去考虑开发环境问题了。希望本文的内容对有需要的朋友们能有所帮助。
 
-**vue-router**
+**vue**
 
-有时候，同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：谁先定义的，谁的优先级就最高。
+vue-router 有时候，同一个路径可以匹配多个路由，此时，匹配的优先级就按照路由的定义顺序：谁先定义的，谁的优先级就最高。
 
 要注意，以 / 开头的嵌套路径会被当作根路径。 这让你充分的使用嵌套组件而无须设置嵌套的路径。
 
@@ -530,7 +566,7 @@ productionSourceMap: false,
 
 # 2017-06-23
 
-**React**
+**react**
 
 组件名称必须以大写字母开头
 
@@ -541,7 +577,7 @@ React 元素的事件处理和 DOM元素的很相似。但是有一点语法上�
 - React事件绑定属性的命名采用驼峰式写法，而不是小写。
 - 如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM元素的写法)
 
-**JavaScript**
+**javascript**
 
 func.bind(obj)：返回一个新创建的函数实例，其this值绑定到obj
 
@@ -604,13 +640,13 @@ fetch中post的body要将对象序列化：JSON.stringfy(data)
 
 # 2017-07-04
 
-**JavaScript**
+**javascript**
 
 obj.a == null可同时起到obj.a === null与obj.a === undefined作用
 
 # 2017-07-06
 
-**DOM**
+**dom**
 
 addEventListener的回调函数中添加e.preventDefault()阻止默认行为，比如a标签的跳转
 
@@ -624,13 +660,13 @@ DOM3级事件：内容和验证上更多的扩展
 
 # 2017-07-07
 
-**Webpack**
+**webpack**
 
 脚本流程：rm删除dist/static下的所有文件，执行webpack(config, callback)
 
 # 2017-07-08
 
-**DOM**
+**dom**
 
 <html>可通过document.documentElement快捷访问，等价于
 
@@ -640,13 +676,13 @@ document.firstChild
 
 <body>可通过document.body快捷访问
 
-**Webpack**
+**webpack**
 
 webpack-dev-server和webpack-dev-middleware打包的结果是在内存中
 
 # 2017-07-09
 
-**HTML**
+**html**
 
 元素的布尔属性，只要出现，不管值为什么表示true，不出现为false，不可用true/false赋值，以前习惯用同名值
 
@@ -660,7 +696,7 @@ HTML5规定：
 
 # 2017-07-10
 
-**HTML**
+**html**
 
 标签语义化
 
@@ -680,7 +716,7 @@ webpack-dev-middleware需要老老实实用express
 
 # 2017-07-11
 
-**JavaScript**
+**javascript**
 
 slice方法的两个参数前闭后开
 
@@ -704,7 +740,7 @@ slice方法的两个参数前闭后开
 > 如果两个操作数都是 NaN，那么返回 NaN。 
 > 如果两个操作数都是 undefined，那么，返回 undefined。 
 
-**Vue**
+**vue**
 
 数组会触发视图更新的方法：
 
@@ -810,6 +846,8 @@ RN性能优化：http://reactnative.cn/docs/0.46/performance.html#content
 
 # 2017-07-20
 
+**css**
+
 CSS预处理使用情况：
 
 antd / antd-mobile: less
@@ -820,7 +858,7 @@ element-ui: bootstrap
 
 ---
 
-**JavaScript**
+**javascript**
 
 限制小数位数：toFixed(/* 0~20 */)
 
@@ -923,23 +961,25 @@ MD推荐12/14/16/20/34字体排版缩放
 
 # 2017-07-24
 
-**Vue**
+**vue**
 
 Vue中可注册全局过滤器，仅在{{}}和v-bind中可用
 
 # 2017-07-24
 
+**markdown**
+
 移动阅读时代，markdown的格式不宜嵌套过深，一般同一内容只宜使用一种格式（无序列表、有序列表、代码），尽量flat，以适应手机ListView式的阅读
 
 文章链接发布到聚合网站尽量在工作日早晨，因为白天人们习惯使用PC网页浏览，晚上习惯使用手机APP，PC的链接直接跳转到源文章，方便转化，而手机APP只会打开webview，不能跳转到源文章APP，不好转化
 
-**Echarts**
+**echarts**
 
 echarts的init方法要传入的是唯一的元素，官方推荐的getElementById就是这个目的，但不一定必须使用这个方法，vue中可用this.$el（此组件挂载的元素）或ref/this.refs.（内部子元素）来指定
 
 # 2017-07-27
 
-**Vue**
+**vue**
 
 为了发现对象内部值的变化，可以在选项参数中指定 `deep: true` 。注意监听数组的变动不需要这么做。
 
@@ -955,7 +995,7 @@ vm.someObject.nestedValue = 123
 
 计算属性返回如果是一个对象，重新计算后将返回一个新的对象，watch它时无需deep
 
-**JavaScript**
+**javascript**
 
 splice删除一个元素后，数组length
 
@@ -967,13 +1007,13 @@ splice删除一个元素后，数组length
 
 # 2017-07-28
 
-**Node**
+**node**
 
 require() 执行会将对应文件内的脚本都执行一遍
 
 # 2017-07-29
 
-**CSS**
+**css**
 
 选择器优先级：
 
@@ -985,7 +1025,7 @@ require() 执行会将对应文件内的脚本都执行一遍
 
 # 2017-07-30
 
-**CSS**
+**css**
 
 伪类p:first-child指的是作为p元素的且是第一个子元素
 
@@ -994,6 +1034,8 @@ require() 执行会将对应文件内的脚本都执行一遍
 伪元素：假想给该元素某部分添加元素标签，并应用样式 :first-letter :first-line :before :after
 
 # 2017-07-31
+
+**http**
 
 仅有POST、PUT以及PATCH这三个动词时会包含请求体，而GET、HEAD、DELETE、CONNECT、TRACE、OPTIONS这几个动词时不包含请求体。
 
@@ -1012,11 +1054,11 @@ HTTP协议不限制你携带请求体，但严格符合协议的server是不应�
 # 2017-08-01
 
 
-**iview**
+**vue**
 
-size默认值是'default'
+iview size默认值是'default'
 
-**Vue**
+---
 
 ```
 <input v-model="something">
@@ -1045,7 +1087,7 @@ size默认值是'default'
 
 ---
 
-**JavaScript**
+**javascript**
 
 String的三个子串方法slice(), substr(), substring(): 第一个参数都是起始位置（左闭）
 
@@ -1057,7 +1099,7 @@ substr()第二个参数是长度 ；负数第一个第二个都转换为0
 
 # 2017-08-02
 
-**Vue**
+**vue**
 
 ie浏览器无法使用es6等新特性，需使用babel-polyfill
 
@@ -1076,7 +1118,7 @@ module.exports = {
 ```
 # 2017-08-04
 
-**JavaScript**
+**javascript**
 
 delete 操作符：从对象中移除某属性，后面跟这个引用
 
@@ -1091,6 +1133,8 @@ delete 操作符：从对象中移除某属性，后面跟这个引用
 unshift方法多个参数时，完成的顺序与参数原顺序一致（整体推入）
 
 # 2017-08-06
+
+**javascript**
 
 #### 1. TC39
 
@@ -1134,7 +1178,7 @@ TC39（Technical Committee 39）是一个推动JavaScript发展的委员会。
 
 # 2017-08-08
 
-**CSS**
+**css**
 
 相同特殊性需要通过层叠实现效果的例子：
 
@@ -1161,7 +1205,7 @@ font-family: 指定到具体字体太复杂了不现实，所以css只指定到�
 
 # 2017-08-09
 
-**CSS**
+**css**
 
 font-weigt是可继承的，是相对的在100-900上
 
@@ -1183,7 +1227,7 @@ margin、padding、width加起来要是父元素的width（与父元素padding�
 
 # 2017-08-10
 
-**CSS**
+**css**
 
 垂直方向上的margin会合并，嵌套元素的margin也会合并
 
@@ -1197,7 +1241,7 @@ margin、padding、width加起来要是父元素的width（与父元素padding�
 
 # 2017-08-12
 
-**React**
+**react**
 
 组件类中的方法不会自动绑定对象，可用属性初始化器语法：
 
@@ -1221,7 +1265,7 @@ class LoggingButton extends React.Component {
 
 # 2017-08-15
 
-**CSS**
+**css**
 
 替换元素：<img>、<input>、<textarea>、<select>、<object>
 
@@ -1237,7 +1281,7 @@ inline-block外部类似替换行内元素，内部类似块元素(行内非替�
 
 # 2017-08-16
 
-**CSS**
+**css**
 
 浮动元素的margin不会合并
 
@@ -1275,7 +1319,7 @@ z-index中存在叠放上下文，概念与父子元素类似
 
 # 2017-08-18
 
-**JavaScript**
+**javascript**
 
 ```
 let { foo: baz } = { foo: "aaa", bar: "bbb" };
@@ -1330,23 +1374,23 @@ rest对象则就是数组，后面不能有参数。函数的`length`属性，�
 
 # 2017-08-23
 
-**JSON**
+**javascript**
 
-键必须加双引号，字符串要用双引号，最外面要有大括号或方括号
+JSON 键必须加双引号，字符串要用双引号，最外面要有大括号或方括号
 
-**JavaScript**
+---
 
 escape character : 转义字符
 
 # 2017-08-24
 
-**MobX**
+**mobx**
 
 mobx-react在ReactNative中是通过"mobx-react/native"引入
 
 # 2017-08-25
 
-**ReactNative**
+**react-native**
 
 ```
 AppRegistry.registerComponent('项目名',() => ...);
@@ -1369,7 +1413,7 @@ mReactRootView.startReactApplication(mReactInstanceManager, "项目名", null);
 
 # 2017-08-26
 
-**JavaScript**
+**javascript**
 
 class中的变量需这样定义：
 
@@ -1382,7 +1426,7 @@ class MyClass {
 
 # 2017-09-03
 
-**MobX**
+**mobx**
 
 observable store在根组件处通过Providerobserver 组件
 
@@ -1392,13 +1436,13 @@ observable store在根组件处通过Providerobserver 组件
 
 # 2017-09-05
 
-**MobX**
+**mobx**
 
 store 先定义calss，然后在同一个文件中new实例，输出实例，文件名和实例名小写
 
 只要确定该网络请求是更新数据的唯一方法，可将网络请求写在action中，但store中不放“自动逻辑”
 
-**JavaScript**
+**javascript**
 
 类中用等号定义的是类的“实例属性”，用此方法定义的方法（foo = () => {}）将自动与“类的实例”（React组件）绑定
 
@@ -1415,7 +1459,7 @@ store 先定义calss，然后在同一个文件中new实例，输出实例，文
 
 # 2017-09-08
 
-**React**
+**react**
 
 ref添加到Compoennt上获取的是Compoennt实例，添加到原生HTML上获取的是DOM
 
@@ -1425,13 +1469,13 @@ ref添加到Compoennt上获取的是Compoennt实例，添加到原生HTML上获�
 
 # 2017-09-11
 
-**JavaScript**
+**javascript**
 
 类、对象中的访问器可通过关键字set、get定义
 
 # 2017-09-12
 
-**React**
+**react**
 
 react组件的内容分发（slot）通过props实现
 
@@ -1458,7 +1502,7 @@ css-in-js会被转换为内联样式
 
 # 2017-09-19
 
-**JavaScript**
+**javascript**
 
 在import语句中，同级没有同名但后缀名不同的文件可省略后缀，或.js可省略
 
@@ -1478,7 +1522,7 @@ react-app包括es2015，stage2，react
 
 # 2017-09-21
 
-**CSS**
+**css**
 
 水平居中垂直居中
 
@@ -1503,7 +1547,7 @@ justify-content: center; /*定义body的里的元素水平居中*/
 
 # 2017-09-22
 
-**JavaScript**
+**javascript**
 
 Module 是尽量静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。CommonJS 和AMD 是动态的。
 
@@ -1527,7 +1571,7 @@ import { es6 } from './someModule';
 export default es6;
 ```
 
-**CSS**
+**css**
 
 子元素的margin-top会顶开父元素的margin-top，解决办法给父元素加1px的padding。
 
@@ -1551,12 +1595,12 @@ sc首次用到生成style sheet，之后的都是填到其中，antd有用到就
 
 # 2017-09-27
 
-**CSS**
+**css**
 
 inline 行内元素 宽高无效。
 margin padding只有左右边距有效，上下无效。
 
-**React**
+**react**
 
 React构造函数和其中的super都应当传入props。
 
@@ -1570,13 +1614,13 @@ React组件的构造函数将会在装配之前被调用。当为一个`React.Co
 
 # 2017-09-29
 
-**JavaScript**
+**javascript**
 
 由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号。
 
 # 2017-09-30
 
-**React**
+**react**
 
 组件内部使用的逻辑，以绑定方法的形式定义在类中
 
@@ -1588,13 +1632,13 @@ React组件的构造函数将会在装配之前被调用。当为一个`React.Co
 
 # 2017-10-03
 
-**React**
+**react**
 
 this.props.history.push 要使用必须在 Route标签中，否则就要通过history={this.props.history}传递一下
 
 # 2017-10-06
 
-**React**
+**react**
 
 React中元素的事件处理需传递一个方法，第一个参数为e
 
@@ -1606,13 +1650,13 @@ styled-components通过传入参数确定的CSS属性不能实现动态修改
 
 # 2017-10-10
 
-**Mobx**
+**mobx**
 
 observable 之后的Array不是Array，但是具有Array的方法，可以用slice()转变为真Array
 
 装饰器要先inject，后observer
 
-**React**
+**react**
 
 单纯的props改变并不会触发组件更新，只有父组件重新渲染会触发子组件更新
 
@@ -1620,13 +1664,13 @@ ref不要重新赋值，设个新的变量
 
 # 2017-10-12
 
-**React**
+**react**
 
 子组件向父组件传递参数（修改父组件参数），是以父组件将函数传递给子组件的形式
 
 # 2017-10-13
 
-**JavaScript**
+**javascript**
 
 异常向外抛出时，只要在某一层捕获就行了（不一定当场捕获），一直没有捕获程序就会中断
 
@@ -1641,3 +1685,26 @@ params.append('param2', 'value2');
 axios.post('/foo', params);
 ```
 
+# 2017-10-14
+
+**mobx**
+
+Observable Object 不适用于有原型的对象，也无法监视键的增减，要监视键的增减用Map
+
+---
+
+当 `observer` 需要组合其它装饰器或高阶组件时，请确保 `observer` 是最深处(第一个应用)的装饰器，否则它可能什么都不做。
+
+**javascript**
+
+只要捕获了异常，之后的语句照常执行；
+
+而finally中的语句将“一定”被执行，哪怕在try、catch中return了。
+
+---
+
+decorator 只可修饰类和类的属性，不可修饰函数（因为存在变量提升）
+
+---
+
+`Object.assign()` 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。

@@ -100,7 +100,7 @@ ssh-add
 `box-shadow`属性：向框添加阴影
 
 ```
-box-shadow: h-shadow v-shadow blur spread color inset;
+box-shadow: insert h-shadow v-shadow blur spread color;
 ```
 
 ```
@@ -118,6 +118,14 @@ box-shadow: 0 0 1px #ddd;
 ------
 
 选择器中写两个类，如中间无空格为多类选择器，有空格为派生选择器
+
+> 逗号为或
+>
+> 紧贴为且
+>
+> 空格为子
+
+以上为同类，若元素+类则为具有此类的元素
 
 **vue**
 
@@ -267,12 +275,6 @@ action 的参数为(context, payload)，action 可为 async 函数
 
 通过`margin: 0 auto;`设置居中需设置 width 值
 
-# 2017-05-22
-
-**css**
-
-只有当父元素的 position 设为 relative 时， 其子元素的 absolute position 是按照父元素的相对位置来的 
-
 # 2017-05-23
 
 **vue**
@@ -388,7 +390,7 @@ margin 的 auto 为“浏览器设置的外边距”，左右会自动居中，�
 
 高度首先要比较父元素设定z-index之后确定的 stacking context，同一stacking context再进行比较
 
-当 position 为默认的 static （处于文档流中）时，z-index 无效
+z-index仅对**定位元素**有效（定位元素：不是static，而是relative, absolute, fixed）
 
 **vue**
 
@@ -526,10 +528,6 @@ Tip: built files are meant to be served over an HTTP server.
 **简单说下 rem 原理**：根据 html 的 fontSize 属性值为基准，其它所有的 rem 值，根据这个基准计算。
 
 我们根据屏幕宽度用 js 动态修改了 html 的 fontSize 属性值，达到移动端适配的目的
-
-**总结**
-
-以上就是这篇文章的全部内容了，本文作为移动端配置的基础篇，深入了解框架后才能继续构建网站，希望这是一个好的开始，有了这个架子再填充代码就方便了许多，不用再去考虑开发环境问题了。希望本文的内容对有需要的朋友们能有所帮助。
 
 **vue**
 
@@ -707,12 +705,6 @@ HTML5规定：
 > 无CSS时能呈现
 >
 > 利于浏览器加载
-
-**webpack**
-
-UglifyJs无法处理es6模板字符串
-
-webpack-dev-middleware需要老老实实用express
 
 # 2017-07-11
 
@@ -1217,7 +1209,7 @@ vertical-align: middle; 会把行内元素框的中点与父元素基线上方0.
 
 ---
 
-内容的背景也会应用到内边距，内边距不可为负，外边距可以为负
+内容的背景也会应用到padding，padding不可为负，margin可以为负
 
 width、margin可以为auto，其他默认为0
 
@@ -1310,6 +1302,8 @@ position: absolute会变为块级框
 width/height属性优先级高于top等，设置冗余了优先满足width等
 
 # 2017-08-17
+
+**css**
 
 对于absolute元素来说，left设为auto，将往左边顶，top设为auto将会为其文档流中的位置
 
@@ -1708,3 +1702,59 @@ decorator 只可修饰类和类的属性，不可修饰函数（因为存在变�
 ---
 
 `Object.assign()` 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+
+# 2017-10-17
+
+**css**
+
+currentColor 可作为属性值使用
+
+```
+hr {
+  height: .5em;
+  background: currentColor;
+}
+```
+
+---
+
+合成属性 background 包含：
+
+- [`background-image`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-image): `none`
+- [`background-position`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-position): `0% 0%`
+- [`background-size`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-size): `auto auto`
+- [`background-repeat`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-repeat): `repeat`
+- [`background-origin`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-origin): `padding-box`
+- [`background-clip`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-clip): `border-box`
+- [`background-attachment`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-attachment): `scroll`
+- [`background-color`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/background-color): `transparent`
+
+---
+
+默认时（background-clip: border-box）border会被放置在background之上，设置background-clip: padding-box时border会被放置在padding上
+
+---
+
+box-shadow 中的spread是指不模糊的范围，可用以设置多重边框
+
+---
+
+条纹背景可以通过linear-gradient与background-size配合实现
+
+---
+
+当任意两个相邻圆角的半径之和超过border box 的尺寸时，用户代理必须按比例减小各个边框半径所使用的值，直到它们不会相互重叠为止
+
+border-radius可单独设置水平半径、垂直半径，并可用百分百：
+
+```
+border-radius: 50% / 50%;
+```
+
+---
+
+对元素使用了3D变形之后，其内部的变形效应是“不可逆转”的
+
+---
+
+使用高斯模糊算法（或类似算法）进行模糊处理，在阴影边缘发生阴影色和纯透明色之间的颜色过渡长度近似于模糊半径的两倍

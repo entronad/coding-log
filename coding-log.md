@@ -1788,3 +1788,48 @@ delete: 从对象中删除某个属性，操作数为对象某个属性的引用
 类的实例属性：用等号定义，通过对象实例的this调用，相当于在constructor中用this定义
 
 类的静态属性：用static和等号定义，通过类名.调用
+
+# 2017-10-19
+
+**css**
+
+```
+figure {
+  width: min-content;
+  margin: auto;
+}
+```
+
+min-content 这个关键字将解析为这个容器内部最大的不可断行元素的宽度（即最宽的单词、图片或具有固定宽度的盒元素）
+
+---
+
+\<table> 会自动根据内容跳转列宽，也可通过设置table-layout调整布局方式：
+
+```
+table {
+	table-layout: fixed;
+	width: 100%;
+}
+```
+
+---
+
+margin 的百分比值是以父元素的宽度作为解析基准的。没错，即使对于margin-top 和margin-bottom 来说也是这样！
+
+---
+
+内容长度变化页脚固定底部可使用flex设置：
+
+```
+body {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+}
+main { flex: 1; }
+```
+
+---
+
+可以使用max-width来处理需要压缩的宽度

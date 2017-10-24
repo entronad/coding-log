@@ -109,3 +109,9 @@ git push origin 标签名/--tags    推送标签/全部标签
 设置全局不转换LF与CRLF
 
 git config --global core.autocrlf false
+
+---
+
+查看当前目录下代码行数：
+
+find . |xargs grep -v "^$"|wc -l

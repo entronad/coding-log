@@ -1839,3 +1839,9 @@ main { flex: 1; }
 **javascript**
 
 引用类的静态属性时，要用类名. 不能用 this.
+
+# 2017-10-25
+
+**react-native**
+
+\<View> 标签内部不可以直接添加字符串

@@ -36,6 +36,8 @@
 
 **styled-components**
 
+**redux**
+
 # 2017-05-06
 
 **vue**
@@ -1845,3 +1847,15 @@ main { flex: 1; }
 **react-native**
 
 \<View> 标签内部不可以直接添加字符串
+
+# 2017-10-16
+
+**react-native**
+
+react-navigation 中navigationOptions不仅可以设给screen，还可以设给嵌套路由中的子路由，以应用到该子路由中所有的screen
+
+---
+
+**redux**
+
+大部分的组件都应该是展示型的，但一般需要少数的几个容器组件把它们和 Redux store 连接起来。

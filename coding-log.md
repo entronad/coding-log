@@ -1859,3 +1859,29 @@ react-navigation 中navigationOptions不仅可以设给screen，还可以设给�
 **redux**
 
 大部分的组件都应该是展示型的，但一般需要少数的几个容器组件把它们和 Redux store 连接起来。
+
+# 2017-10-16
+
+**react**
+
+直接在jsx中给onClick赋值匿名箭头函数的方式并不推荐，因为每次都会生成新副本，且引起不必要的重新渲染
+
+---
+
+生命周期方法中该做的：
+
+constructor：初始化state，因为它是第一个执行的，且后续生命周期方法都有可能用到state
+
+render：对于不需要渲染视图的组件，返回null或false
+
+componentWillMount：基本不用用到，render之前要做的事放到constructor中。但是在SSR中只有他没有componentDidMount
+
+componentDidMount：由于render只是返回jsx，实际渲染react会在综合考虑父子组件后统一渲染，故componentDidMount不一定总是紧贴render执行；他其中可以放心使用DOM了。
+
+componentWillReceiveProps：任何父组件更新引起的更新都会调用它因此有必要在其中对比nextProps与this.props不一致才执行需要的setState；state变化引起的更新不会调用它（否则其中的setState就会引起循环调用了）。
+
+shouldComponentUpdate：通过重写该函数可避免不必要的重新渲染，提高性能；在执行this.setState之后this.state不会立即重设，故可进行nextState和shis.state的对比。
+
+componentDidUpdate：和mount不同，此方法在SSR中也会调用（良好的设计中，SSR不应该有更新）
+
+componentWillUnmount：在componentDidMount中用非React方法创造的DOM元素要在此处理，否则会内存泄露。  

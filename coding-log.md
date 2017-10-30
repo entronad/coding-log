@@ -1,3 +1,5 @@
+**javascript**
+
 **vue**
 
 **git**
@@ -37,6 +39,8 @@
 **styled-components**
 
 **redux**
+
+**fetch**
 
 # 2017-05-06
 
@@ -1885,3 +1889,23 @@ shouldComponentUpdate：通过重写该函数可避免不必要的重新渲染�
 componentDidUpdate：和mount不同，此方法在SSR中也会调用（良好的设计中，SSR不应该有更新）
 
 componentWillUnmount：在componentDidMount中用非React方法创造的DOM元素要在此处理，否则会内存泄露。  
+
+# 2017-10-30
+
+**react**
+
+`this.props.children` 的值有三种可能：如果当前组件没有子节点，它就是 `undefined` ;如果有一个子节点，数据类型是 `object` ；如果有多个子节点，数据类型就是 `array` 。
+
+在React.Children中提供了map等一些列方法处理this.props.children而不用担心它是什么类型
+
+---
+
+网络请求适宜放在componentDidMount中还有一个原因是ssr中无此函数，正好可省去无意义的请求
+
+**fetch**
+
+fetch().then() 中还不可直接读取response中的内容，因为fetch在接受到http报头部分就会调用then，不会等到整个响应完成，所以要继续用response.json().then()
+
+**javascript**
+
+thunk是一个计算机编程中的术语，表示辅助调用另一个子程序（设为g）时，被调用的那个子程序g。

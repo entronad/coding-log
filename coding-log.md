@@ -1909,3 +1909,9 @@ fetch().then() 中还不可直接读取response中的内容，因为fetch在接�
 **javascript**
 
 thunk是一个计算机编程中的术语，表示辅助调用另一个子程序（设为g）时，被调用的那个子程序g。
+
+# 2017-11-02
+
+**fetch**
+
+当接收到一个代表错误的 HTTP 状态码时，从 `fetch()`返回的 Promise **不会被标记为 reject，** 即使该 HTTP 响应的状态码是 404 或 500。相反，它会将 Promise 状态标记为 resolve （但是会将 reolve 的返回值的 ok 属性设置为 false ），  仅当网络故障时或请求被阻止时，才会标记为 reject。

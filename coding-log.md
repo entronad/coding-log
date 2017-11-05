@@ -1969,3 +1969,15 @@ thunk是一个计算机编程中的术语，表示辅助调用另一个子程序
 模块耦合的灵活性
 
 传入某个类的参数应该是最小而明确的，比如如果只要使用employee对象中age和level，就应当只接受这两个参数，而不是将employee对象全部传入
+
+# 2017-11-05
+
+**echarts**
+
+技术对比：
+
+echarts：canvas
+
+highcharts：svg
+
+D3：v3为svg，v4为canvas

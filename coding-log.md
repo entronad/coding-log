@@ -2118,3 +2118,30 @@ const p = Promise.race([p1, p2, p3]);
 ---
 
 目前Promise尚无finally方法
+
+# 2017-11-10
+
+**javascript**
+
+在await后面的promise中，只要有一个reject，async返回的promise就reject了，后面的await都不会执行了，如果不希望这样可以用try/catch或.catch()处理这个promise
+
+---
+
+await同时触发，可有两种方式：
+
+```
+// 写法一
+let [foo, bar] = await Promise.all([getFoo(), getBar()]);
+
+// 写法二
+let fooPromise = getFoo();
+let barPromise = getBar();
+let foo = await fooPromise;
+let bar = await barPromise;
+```
+
+不要将await写在forEach回调中
+
+---
+
+箭头函数中如返回值仅为对象字面量，需在大括号外包裹括号，若参数仅为对象的展开写法，也需在大括号外包裹括号

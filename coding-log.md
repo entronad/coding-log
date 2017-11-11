@@ -2145,3 +2145,44 @@ let bar = await barPromise;
 ---
 
 箭头函数中如返回值仅为对象字面量，需在大括号外包裹括号，若参数仅为对象的展开写法，也需在大括号外包裹括号
+
+# 2017-11-11
+
+**javascript**
+
+在模板字面量中插入的表达式（\${}），如需为空需使用\${''}，\${null}将返回\`null\`
+
+---
+
+js的异常e除了e.message 和 e.lineNumber之外还有一个重要的属性 e.name  
+
+
+
+e.name 错误类型,  
+
+e.message 错误的详细信息.  
+
+
+
+Error.name的六种值对应的信息：  
+
+1. EvalError：eval()的使用与定义不一致   
+
+
+2. RangeError：数值越界   
+
+
+3. ReferenceError：非法或不能识别的引用数值   
+
+
+4. SyntaxError：发生语法解析错误   
+
+
+5. TypeError：操作数类型错误   
+
+
+6. URIError：URI处理函数使用不当  
+
+
+
+这样你的js代码在运行到有捕获异常的代码时，就算代码出错了，也会继续往下运行代码，不会停止，而且使用了异常对js的调试也有一定的帮助。  

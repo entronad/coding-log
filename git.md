@@ -54,6 +54,8 @@ git merge    合并指定分支到当前分支
 
 git branch -d 分支名    删除分支
 
+git branch -D 分支名    强制删除分支
+
 git log --graph    带图形的log
 
 git merge --no-ff -m "提交信息" 分支名    合并指定分支到当前分支保留提交信息

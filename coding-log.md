@@ -2432,3 +2432,11 @@ case语句诀窍
 **redux**
 
 redux-thunk的作用：原来dispatch()参数只能是一个action，而用applyMiddleware(thunk)引入redux-thnk之后，参数可以是一个函数，其第一个参数是dispatch，在此函数中决定如何dispatch，同时dispatch的返回值为该函数的返回值
+
+# 2017-12-06
+
+**node**
+
+express 中间件需调用响应方法终结请求响应的循环，否则客户端请求将会一直挂起
+
+express 一般中间件function (req, res, next)与错误处理中间件function(err, req, res, next)是通过形参个数区分的

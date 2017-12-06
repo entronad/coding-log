@@ -117,3 +117,23 @@ git config --global core.autocrlf false
 查看当前目录下代码行数：
 
 find . |xargs grep -v "^$"|wc -l
+
+---
+
+当使用HTTPS时，可通过如下方式带上用户名密码，以不用每次都输入：
+
+```
+http://yourname:password@gitee.com/name/project.git
+```
+
+如需修改：
+
+```
+git remote rm origin
+```
+
+增加https远程仓库地址
+
+```
+git remote add origin http://yourname:password@gitee.com/name/project.git
+```

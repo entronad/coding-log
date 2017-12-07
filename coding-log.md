@@ -2440,3 +2440,22 @@ redux-thunk的作用：原来dispatch()参数只能是一个action，而用apply
 express 中间件需调用响应方法终结请求响应的循环，否则客户端请求将会一直挂起
 
 express 一般中间件function (req, res, next)与错误处理中间件function(err, req, res, next)是通过形参个数区分的
+
+# 2017-12-07
+
+**构建**
+
+循环分类：
+
+- 计数循环
+- 连续求职循环
+- 无限循环
+- 迭代器循环
+
+---
+
+卫语句（guard clause）：在正常操作之前添加的提前返回的条件语句，以防止复杂的嵌套
+
+---
+
+隐式地判断Ture和False更佳

@@ -2459,3 +2459,9 @@ express 一般中间件function (req, res, next)与错误处理中间件function
 ---
 
 隐式地判断Ture和False更佳
+
+# 2017-12-08
+
+**构建**
+
+在逻辑判断中，按照数轴的顺序编写数值表达式

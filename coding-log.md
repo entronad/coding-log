@@ -2489,3 +2489,9 @@ express 一般中间件function (req, res, next)与错误处理中间件function
 在对sdk文件夹执行移动、改名等操作后，需重新执行SDK安装程序到当前的sdk文件夹
 
 到gradle官网下载所需版本的all.zip文件夹放到.gradle文件夹对应的缓存文件夹
+
+# 2017-12-17
+
+**react-native**
+
+在Android中，点击home再重新打开，将导致整个App重新加载渲染，生命周期，但store的状态将被保持

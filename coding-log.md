@@ -2494,4 +2494,52 @@ express 一般中间件function (req, res, next)与错误处理中间件function
 
 **react-native**
 
-在Android中，点击home再重新打开，将导致整个App重新加载渲染，生命周期，但store的状态将被保持
+在Android中，点击home再重新打开，
+
+？？？？？？？？？将导致整个App重新加载渲染，生命周期，但store的状态将被保持？？？？？？？
+
+以上这句好像错的，好像与导航栈有关
+
+# 2017-12-17
+
+**react-native**
+
+react-navigation:
+
+Navigator的基本结构为：
+
+```
+StackNavigator(RouteConfigs, StackNavigatorConfig)
+```
+
+其中RouteConfigs通过一组
+
+```
+Profile: {
+    screen: ProfileScreen,    
+  },
+```
+
+的映射决定route，每个screen组件内部可定义参数：
+
+```
+static navigationOptions = {
+    title: 'Home',
+  }
+```
+
+每一个screen组件都被注入了navigation参数，其中包含：
+
+- `navigate` - (helper) link to other screens
+- `state` - screen's current state/routes
+- `setParams` - (helper) make changes to route's params
+- `goBack` - (helper) close active screen and move back
+- `dispatch` - send an action to router
+
+dispatch可以发送一些内置的action：
+
+- [Navigate](https://reactnavigation.org/docs/navigators/navigation-actions#Navigate) - Navigate to another route
+- [Reset](https://reactnavigation.org/docs/navigators/navigation-actions#reset) - Replace current state with a new state
+- [Back](https://reactnavigation.org/docs/navigators/navigation-actions#Back) - Go back to previous state
+- [Set Params](https://reactnavigation.org/docs/navigators/navigation-actions#SetParams) - Set Params for given route
+- [Init](https://reactnavigation.org/docs/navigators/navigation-actions#Init) - Used to initialize first state if state is undefined

@@ -2498,6 +2498,14 @@ express 一般中间件function (req, res, next)与错误处理中间件function
 
 ？？？？？？？？？将导致整个App重新加载渲染，生命周期，但store的状态将被保持？？？？？？？
 
+好像是这样：
+
+home不会导致ReactInstanceManager.detachViewFromInstance() ，不会更新store
+
+返回会导致ReactInstanceManager.detachViewFromInstance()，不会更新store
+
+每次ReactInstanceManager.attachRootViewToInstance()会根据状态直接跳路由
+
 以上这句好像错的，好像与导航栈有关
 
 # 2017-12-17
@@ -2543,3 +2551,18 @@ dispatch可以发送一些内置的action：
 - [Back](https://reactnavigation.org/docs/navigators/navigation-actions#Back) - Go back to previous state
 - [Set Params](https://reactnavigation.org/docs/navigators/navigation-actions#SetParams) - Set Params for given route
 - [Init](https://reactnavigation.org/docs/navigators/navigation-actions#Init) - Used to initialize first state if state is undefined
+
+# 2017-12-20
+
+**react**
+
+组件只会在mapStateToProps监听了state中的那些值变化时更新
+
+如果不给connect方法传递第一个参数mapStateToProps，组件将不会监听store（用于只注入dispatch）
+
+通过bindActionCreator可以把dispatch传递给actionCreator
+
+---
+
+reducer中不可有任何副作用操作
+

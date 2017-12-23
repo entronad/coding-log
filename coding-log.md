@@ -2566,3 +2566,12 @@ dispatch可以发送一些内置的action：
 
 reducer中不可有任何副作用操作
 
+# 2017-12-23
+
+**react**
+
+componentWillUpdate(nextProps, nextState) 的调用是在接受新的props和state之前，因此其中的this.props和this.state还是老的，要用新的要用(nextProps, nextState)参数
+
+**react-native**
+
+AsyncStorage.removItem 如果找不到对应的键，会抛异常

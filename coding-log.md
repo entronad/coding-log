@@ -2574,4 +2574,20 @@ componentWillUpdate(nextProps, nextState) 的调用是在接受新的props和sta
 
 **react-native**
 
-AsyncStorage.removItem 如果找不到对应的键，会抛异常
+AsyncStorage.removItem 如果找不到对应的键，不会抛异常，会返回null
+
+# 2017-12-26
+
+**react**
+
+ref函数给组件成员变量赋值，只会在mount时发生一次
+
+**构建**
+
+不宜在调用某个子程序前后使用设置代码和收尾代码，这很有可能是该子程序的抽象不合理
+
+# 2017-12-27
+
+**react-native**
+
+react-navigation 中，顶层的内建navigator也包含有一个navigation prop，这是因为顶层有一个透明的container，提供这个navigation prop

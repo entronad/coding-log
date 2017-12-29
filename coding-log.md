@@ -2591,3 +2591,14 @@ ref函数给组件成员变量赋值，只会在mount时发生一次
 **react-native**
 
 react-navigation 中，顶层的内建navigator也包含有一个navigation prop，这是因为顶层有一个透明的container，提供这个navigation prop
+
+# 2017-12-29
+
+**react**
+
+PropTypes现在的位置：
+
+```
+import PropTypes from 'prop-types';
+```
+

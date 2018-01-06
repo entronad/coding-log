@@ -73,3 +73,13 @@ The best is the enemy of the good.
    f. 如果调整没有改进代码的性能，就恢复到步骤a保存的代码（通常而言，超过一半的调整尝试都只能稍微改善性能甚至造成性能恶化）。
 
 3. 重复步骤2。
+
+# 2018-01-06
+
+**react-native**
+
+react-navigation中，若某个参数可为React Element，必须包裹在jsx中，不可直接引入类。
+
+---
+
+Image组件的图片资源属性为source

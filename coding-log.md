@@ -83,3 +83,9 @@ react-navigation中，若某个参数可为React Element，必须包裹在jsx中
 ---
 
 Image组件的图片资源属性为source
+
+# 2018-01-08
+
+**react-native**
+
+WebView中，已自动将px转换为dp渲染

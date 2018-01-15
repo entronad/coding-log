@@ -89,3 +89,29 @@ Image组件的图片资源属性为source
 **react-native**
 
 WebView中，已自动将px转换为dp渲染
+
+# 2018-01-09
+
+**react-native**
+
+overflow 属性仅适用于IOS，Android将切割子元素
+
+# 2018-01-11
+
+**react-native**
+
+只有在全是\<View>标签的子树中才能继承字体样式
+
+**styled-components**
+
+在react-native不要忘了给组件的根元素添加 style={this.props.style} 才能使得styled()给它传递样式
+
+---
+
+不管是styled()，还是StackNavigator()都不是真正的套了一个组件，需要将有关的样式参数传递参数组件
+
+# 2018-01-15
+
+**react-native**
+
+在 antd-mobile 中，组件会通过 style 属性，或 ...restProps 确保赋给组件的 style 被传递给根元素，故可直接使用styled()

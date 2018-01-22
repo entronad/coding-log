@@ -46,6 +46,8 @@
 
 **android**
 
+**amap**
+
 # 2018-01-03
 
 **构建**
@@ -115,3 +117,19 @@ overflow 属性仅适用于IOS，Android将切割子元素
 **react-native**
 
 在 antd-mobile 中，组件会通过 style 属性，或 ...restProps 确保赋给组件的 style 被传递给根元素，故可直接使用styled()
+
+# 2018-01-19
+
+**react-native**
+
+rn中只有Text有点击事件onPress，其他的需要包裹“Touchable...”
+
+# 2018-01-22
+
+**javascript**
+
+要注意 0 的真值为false，故“有数字才显示”需使用value != null
+
+**amap**
+
+所有对象的属性必须使用get函数，不可直接通过marker.XX获取

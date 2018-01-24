@@ -133,3 +133,9 @@ rn中只有Text有点击事件onPress，其他的需要包裹“Touchable...”
 **amap**
 
 所有对象的属性必须使用get函数，不可直接通过marker.XX获取
+
+# 2018-01-22
+
+**styled-components**
+
+在**react-native**中使用时，使用padding 或 margin 时（即合成写法）必须加单位px（其实是dp）

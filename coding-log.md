@@ -139,3 +139,13 @@ rn中只有Text有点击事件onPress，其他的需要包裹“Touchable...”
 **styled-components**
 
 在**react-native**中使用时，使用padding 或 margin 时（即合成写法）必须加单位px（其实是dp）
+
+# 2018-01-26
+
+**react-native**
+
+react-navigation的navigator切换screen后并不是进行重新渲染，不会调用mount、update等生命周期方法
+
+---
+
+FlatList的项的点击事件好像只有TouchableOpacity有效

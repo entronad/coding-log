@@ -149,3 +149,9 @@ react-navigation的navigator切换screen后并不是进行重新渲染，不会�
 ---
 
 FlatList的项的点击事件好像只有TouchableOpacity有效
+
+# 2018-01-29
+
+**react-native**
+
+Image如果要使用网络图片，需如下设置：source={{ uri: XXX }}

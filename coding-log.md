@@ -155,3 +155,17 @@ FlatList的项的点击事件好像只有TouchableOpacity有效
 **react-native**
 
 Image如果要使用网络图片，需如下设置：source={{ uri: XXX }}
+
+# 2018-02-01
+
+**javascript**
+
+数组的构造函数只有当参数大于等于两个时，才表示以此为内容创建，故如果要以此内容创建，建议用Array.of()
+
+---
+
+javascript数组成员类型可以各不相同
+
+**react-native**
+
+Webview背景默认是白色，html背景默认是无色

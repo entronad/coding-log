@@ -175,3 +175,9 @@ Webview背景默认是白色，html背景默认是无色
 **javascript**
 
 函数最后一个参数末尾可加逗号的特性在某些情况下尚不可使用
+
+# 2018-02-06
+
+**react-native**
+
+Image 需显式地设置宽高才能正确加载图形resizeMode

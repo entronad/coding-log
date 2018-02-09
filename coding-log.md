@@ -181,3 +181,9 @@ Webview背景默认是白色，html背景默认是无色
 **react-native**
 
 Image 需显式地设置宽高才能正确加载图形resizeMode
+
+# 2018-02-09
+
+**react-native**
+
+渲染列表元素的key要保证不重复，否则更新视图时会发生错误

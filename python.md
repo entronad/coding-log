@@ -110,7 +110,7 @@ def abc(x):
 
 递归函数：函数中调用函数本身，
 
-​切片：L[a: b: c]从a到b（左闭右开）每c个取一个
+切片：L[a: b: c]从a到b（左闭右开）每c个取一个
 
 tuple和str也可切片，结果还是原类型
 
@@ -123,3 +123,77 @@ for in迭代dict默认是迭代key
 下标循环：for i, value in enumerate(['A', 'B', 'C']):
 
 引用多个变量的循环：for x, y in [(1, 1), (2, 4), (3, 9)]:
+
+列表生成式：[x * x for x in range(1, 11) if x % 2 == 0]，[m + n for m in 'ABC' for n in 'XYZ']
+
+列表生成器：可动态的生成列表中的元素，节省内存空间
+
+列表生成器(generator)创建方式
+
+​	将列表生成式外面的[]改为()
+
+​	定义generator函数
+
+变量互换：a, b = b, a
+
+Iterable包括list、tuple、dict、set、str
+
+Iterator包括generator
+
+Iterator是惰性求值的
+
+可使用iter()函数将Iterable转换为Iterator
+
+Iterable和Iterator都可使用for，只有Iterator可使用next()
+
+map()的返回值类型是Iterator
+
+reduce()的回调函数接受两个参数，类似斐波那契数列，返回值类型是list元素的类型
+
+sorted()函数第二个命名关键字参数，将原来的元素映射为可排序的
+
+匿名函数 lambda x: x * x 仅可有一个不需要写return的表达式
+
+装饰器@可调用高阶函数修改函数定义
+
+偏函数functools.partial的作用就是，把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单。
+
+目录下必须有\_\_init\_\_.py才是包，\_\_init\_\_.py即是该包的模块
+
+任何模块代码的第一个字符串都被视为模块的文档注释；
+
+类的定义：class Student(object):
+
+构造函数：def \_\_init\_\_(self):
+
+实例的变量名如果以`__`开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问
+
+查看类型：type()
+
+查看继承关系：isinstance()
+
+实例属性通过构造函数中定义self.name = name，类的属性直接写，类属性通过实例直接调用，为共享的，先看实例有没有，没有 就调用类属性
+
+给对象绑定方法后所有实例都可使用
+
+可通过\_\_slots\_\_ = ('name', 'age')限定类的实例可绑定的属性
+
+可通过装饰器@property、@xxx.setter定义访问器
+
+可多重继承class Dog(Mammal, RunnableMixIn, CarnivorousMixIn):
+
+try语句块：
+
+```
+try:
+    print('try...')
+    r = 10 / 0
+    print('result:', r)
+except ZeroDivisionError as e:
+    print('except:', e)
+finally:
+    print('finally...')
+print('END')
+```
+
+抛异常：raise

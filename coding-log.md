@@ -199,3 +199,29 @@ Image 需显式地设置宽高才能正确加载图形resizeMode
 **echarts**
 
 series在初始化的时候其中不能设置一些奇奇怪怪的东西，如null，否则后续数据更新不上，可以为空数组
+
+# 2018-03-01
+
+**构建**
+
+注释应表达意图、为何做、特殊注意点
+
+# 2018-03-15
+
+**javascript**
+
+let和const必须先声明后使用
+
+# 2018-03-28
+
+**react-native**
+
+修改Android版包名
+
+1. 修改`android/app/build.gradle`里的`applicationId`，为新包名，譬如：`com.xxx.yyy.myProject`
+2. 修改`android/app/src/main/AndroidManifest.xml`里的`package`，为新包名，譬如：`com.xxx.yyy.myProject`
+3. 在`android/app/src/main/java/com`下根据新包名中多出的两级`xxx.yyy`新创建两级新目录，譬如：`android/app/src/main/java/com/xxx/yyy`
+4. 打开`android/app/src/main/java/com/xxx/yyy/myProject/MainActivity.java`，修改第一行为：`package com.xxx.yyy.myproject;`
+5. 将之前`android/app/src/main/java/com`下的`myProject`文件夹剪切到`android/app/src/main/java/com/xxx/yyy`下面
+6. android/app/BUCK，修改两个package的值`package = 'com.exease.etd.objective',`
+7. 在android目录下执行`./gradlew clean`清除缓存

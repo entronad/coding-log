@@ -30,7 +30,7 @@ HEAD^^    上两版本
 
 HEAD~10    上10版本
 
-git reset HEAD/哈希
+git reset HEAD/哈希 退回到某一版本
 
 git reflog    每一条命令的hash和内容
 

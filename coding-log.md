@@ -225,3 +225,9 @@ let和const必须先声明后使用
 5. 将之前`android/app/src/main/java/com`下的`myProject`文件夹剪切到`android/app/src/main/java/com/xxx/yyy`下面
 6. android/app/BUCK，修改两个package的值`package = 'com.exease.etd.objective',`
 7. 在android目录下执行`./gradlew clean`清除缓存
+
+# 2018-04-08
+
+**react**
+
+在constructor中要使用传入constructor的参数props, 不可以用this.props（还没生成）

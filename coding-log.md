@@ -231,3 +231,12 @@ let和const必须先声明后使用
 **react**
 
 在constructor中要使用传入constructor的参数props, 不可以用this.props（还没生成）
+
+# 2018-04-18
+
+**react-native**
+
+link操作常见错误
+
+- 无法删除XXX：进入android目录执行./gradlew clean
+- MainApplication找不到符号：忘了import

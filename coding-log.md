@@ -220,11 +220,10 @@ let和const必须先声明后使用
 
 1. 修改`android/app/build.gradle`里的`applicationId`，为新包名，譬如：`com.xxx.yyy.myProject`
 2. 修改`android/app/src/main/AndroidManifest.xml`里的`package`，为新包名，譬如：`com.xxx.yyy.myProject`
-3. 在`android/app/src/main/java/com`下根据新包名中多出的两级`xxx.yyy`新创建两级新目录，譬如：`android/app/src/main/java/com/xxx/yyy`
-4. 打开`android/app/src/main/java/com/xxx/yyy/myProject/MainActivity.java`，修改第一行为：`package com.xxx.yyy.myproject;`
-5. 将之前`android/app/src/main/java/com`下的`myProject`文件夹剪切到`android/app/src/main/java/com/xxx/yyy`下面
-6. android/app/BUCK，修改两个package的值`package = 'com.exease.etd.objective',`
-7. 在android目录下执行`./gradlew clean`清除缓存
+3. 在`android/app/src/main/java/com`下根据新包名中多出的两级`xxx.yyy`新创建两级新目录，譬如：`android/app/src/main/java/com/xxx/yyy` ，将之前`android/app/src/main/java/com`下的`myProject`文件夹剪切到`android/app/src/main/java/com/xxx/yyy`下面
+4. 打开`android/app/src/main/java/com/xxx/yyy/myProject/MainActivity.java`和`MainApplication`，修改第一行为：`package com.xxx.yyy.myproject;`
+5. android/app/BUCK，修改两个package的值`package = 'com.exease.etd.objective',`
+6. 在android目录下执行`./gradlew clean`清除缓存
 
 # 2018-04-08
 
@@ -240,3 +239,73 @@ link操作常见错误
 
 - 无法删除XXX：进入android目录执行./gradlew clean
 - MainApplication找不到符号：忘了import
+
+# 2018-05-14
+
+**react-native**
+
+android版生成签名与打包release版
+
+1. 在JDK的bin目录下执行
+
+   ```
+   $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+   ```
+
+2. 把`my-release-key.keystore`文件放到你工程中的`android/app`文件夹下。
+
+3. 编辑`~/.gradle/gradle.properties`（没有这个文件你就创建一个），添加如下的代码（注意把其中的`****`替换为相应密码）
+
+   ```
+   MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
+
+   MYAPP_RELEASE_KEY_ALIAS=my-key-alias
+
+   MYAPP_RELEASE_STORE_PASSWORD=*
+
+   MYAPP_RELEASE_KEY_PASSWORD=*
+
+   ```
+
+4. 编辑你项目目录下的`android/app/build.gradle`，添加如下的签名配置：
+
+   ```
+   ...
+   android {
+       ...
+       defaultConfig { ... }
+       signingConfigs {
+           release {
+               storeFile file(MYAPP_RELEASE_STORE_FILE)
+               storePassword MYAPP_RELEASE_STORE_PASSWORD
+               keyAlias MYAPP_RELEASE_KEY_ALIAS
+               keyPassword MYAPP_RELEASE_KEY_PASSWORD
+           }
+       }
+       buildTypes {
+           release {
+               ...
+               signingConfig signingConfigs.release
+           }
+       }
+   }
+   ...
+   ```
+
+5. 根据需要设置`enableProguardInReleaseBuilds`和`enableSeparateBuildPerCPUArchitecture`
+
+6. 在android目录下执行
+
+   ```
+   ./gradlew assembleRelease
+   ```
+
+   生成APK，位于`android/app/build/outputs/apk/app-release.apk`
+
+7. 可在android目录下执行
+
+   ```
+   ./gradlew installRelease
+   ```
+
+   测试生成的包

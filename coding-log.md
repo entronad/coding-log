@@ -309,3 +309,17 @@ android版生成签名与打包release版
    ```
 
    测试生成的包
+
+# 2018-05-15
+
+**react-native**
+
+react native打包出现unable to process incoming event 'ProcessComplete' <ProgressCompleteEvent>，换用命令：
+
+```
+./gradlew assembleRelease --console plain
+```
+
+---
+
+\*.iso.js与\*.android.js的区别类似Platform.OS判断的区别，都是在运行时选择，如用import只会引用\*.ios.js，需用require

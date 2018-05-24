@@ -333,3 +333,9 @@ react native打包出现unable to process incoming event 'ProcessComplete' <Prog
 **react-native**
 
 react-navigation中如果要让goBack()穿越到父navigator中，需传入参数goBack(null)
+
+# 2018-5-24
+
+**javascript**
+
+class如果没有继承，constructor中不可加super()

@@ -334,8 +334,14 @@ react native打包出现unable to process incoming event 'ProcessComplete' <Prog
 
 react-navigation中如果要让goBack()穿越到父navigator中，需传入参数goBack(null)
 
-# 2018-5-24
+# 2018-05-24
 
 **javascript**
 
 class如果没有继承，constructor中不可加super()
+
+# 2018-06-01
+
+**javascript**
+
+类的构造函数，最好只用来构造所需持有的成员对象的实例，初始化的函数的调用放在专门的初始化函数中，特别是异步的且要等结果的

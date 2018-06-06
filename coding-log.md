@@ -330,6 +330,8 @@ react native打包出现unable to process incoming event 'ProcessComplete' <Prog
 
 在安卓中，最适合存放App文件的是外部存储中的私有目录：file:///storage/emulated/0/Android/data/com.xxx.xxx/，它会在App删除后一并删除
 
+(手机中直接查看的位置：内部存储设备/Android/data/com.xxx.xxx/)
+
 **react-native**
 
 react-navigation中如果要让goBack()穿越到父navigator中，需传入参数goBack(null)

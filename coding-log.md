@@ -359,3 +359,27 @@ class如果没有继承，constructor中不可加super()
 **javascript**
 
 如果报错信息中莫名其妙的提示不应该出现'<'，可能是git merge的冲突未处理，通过搜索'<<<'处理
+
+# 2018-06-12
+
+**javascript**
+
+通过import引进的.json文件就已经自动解析为对象了
+
+# 2018-06-14
+
+**markdown**
+
+可以使用如下形式对标题进行内部链接
+
+```
+## Block Elements
+
+[This link](#block-elements)
+```
+
+注意：
+
+- 链接地址要将大写改为小写，空格改为-
+- 不管标题是几级，都只用一个#
+- 只会链接到第一个匹配的标题

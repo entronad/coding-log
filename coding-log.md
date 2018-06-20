@@ -514,3 +514,25 @@ zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
 distributionUrl=https\://services.gradle.org/distributions/gradle-4.4-all.zip
 ```
+**android**
+
+如要强制项目中所有的某个依赖版本，可按如下设置
+
+in `android/build.gradle`
+
+```
+allprojects {
+    repositories {
+
+        // ...
+
++        configurations.all {
++          resolutionStrategy {
++            force 'com.google.android.gms:play-services-vision:11.8.0'
++            force 'com.google.android.gms:play-services-gcm:11.8.0'
++          }
++        }
+    }
+
+}
+```

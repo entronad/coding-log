@@ -137,3 +137,12 @@ git remote rm origin
 ```
 git remote add origin http://yourname:password@gitee.com/name/project.git
 ```
+添加或修改.gitignore后需执行
+
+```
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+```
+
+清一下缓存

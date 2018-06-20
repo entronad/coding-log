@@ -403,3 +403,114 @@ Modbus协议通过功能码控制对输入继电器、输出继电器、输入�
 101与104规约都适用于厂站与调度主站间通信，应用层定义相同，区别是101基于穿行通信，104基于以太网
 
 101/104不适用OSI七层模型，101分为物理层、链路层、应用层；104分为物理层、链路层、网络层、传输层、应用层
+
+# 2018-06-20
+
+**react-native**
+
+将RN项目gradle版本升级至4.4：
+
+in android/gradle.properties:
+
+```
+android.useDeprecatedNdk=true
+android.enableAapt2=false
+
+```
+
+in android/build.gradle:
+
+```
+uildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com'
+            name 'Google'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven {
+            url 'https://maven.google.com'
+            name 'Google'
+        }
+        maven { url "https://jitpack.io" }
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+        }
+    }
+}
+
+subprojects {
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+            if (details.requested.group == 'com.android.support'
+              && !details.requested.name.contains('multidex') ) {
+                details.useVersion "26.0.1"
+            }
+        }
+    }
+
+    afterEvaluate { 
+        project -> if (project.hasProperty("android")) { 
+            android { 
+                compileSdkVersion 26 
+                buildToolsVersion '26.0.1' 
+            } 
+        } 
+    } 
+}
+
+```
+
+in android/app/build.gradle:
+
+```
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        applicationId "appName"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+
+...
+
+dependencies {
+    implementation project(':react-native-camera')
+    ...
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'com.android.support:appcompat-v7:26.0.1'
+    implementation "com.facebook.react:react-native:+"  // From node_modules
+}
+
+```
+
+in android/gradle/gradle-wrapper.properties:
+
+```
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-4.4-all.zip
+```

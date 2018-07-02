@@ -536,3 +536,15 @@ allprojects {
 
 }
 ```
+# 2018-07-02
+
+**echarts**
+
+echarts必须确保在第一次setOption时，data 或source字段不能为null、undefined，可以没有这个字段或有一个占位对象，占位对象需反映实际数据的结构，值可以为null。
+
+在react-native封装使用中，可写为数据源或占位对象：
+
+```
+data: this.state.data || [{ time: null, value: null }]
+```
+

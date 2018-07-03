@@ -548,3 +548,9 @@ echarts必须确保在第一次setOption时，data 或source字段不能为null�
 data: this.state.data || [{ time: null, value: null }]
 ```
 
+# 2018-07-02
+
+**react-native**
+
+测试webview访问PC网页可设置userAgent为PC浏览器
+

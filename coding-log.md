@@ -50,6 +50,12 @@
 
 **IoT**
 
+**vscode**
+
+**flutter**
+
+**shadowsocks**
+
 # 2018-01-03
 
 **构建**
@@ -553,4 +559,52 @@ data: this.state.data || [{ time: null, value: null }]
 **react-native**
 
 测试webview访问PC网页可设置userAgent为PC浏览器
+
+# 2018-07-04
+
+**react-native**
+
+当调试没问题，打包后闪退提示com.facebook.react.common.JavascriptException: undefined is not an object (evaluating 'n.View.propTypes.style')，是因为有第三方库使用了被废弃的View.propTypes
+
+**vscode**
+
+全局搜索会排除/node_modules/等目录，如这些目录也想搜索，点击搜索下面的 ··· 按钮，再点掉“排除的文件”后面齿轮的高亮
+
+# 2018-07-04
+
+**flutter**
+
+在国内pub的远程仓库可设置：
+
+```
+export PUB_HOSTED_URL=https://pub.flutter-io.cn //国内用户需要设置
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn //国内用户需要设置
+```
+
+（如需永久有效需在系统变量里设置）
+
+不过如果你要在pub上发布，需将其设回原来的值
+
+**shadowsocks**
+
+设置代理后若要在控制台中也使用代理，需进行设置
+
+以使用shadowsocks代理为例，ss的代理端口为1080,那么应该设置为
+
+```
+export http_proxy="http://127.0.0.1:1080"
+export https_proxy="http://127.0.0.1:1080"
+```
+
+**react-native**
+
+react-native中也可使用babel-plugin-transform-remove-console，无需特别设置即可实现开发时有console，产品打包没有console
+
+---
+
+gradle-tool升级到3以后目前react-navigation打包产品会有问题，需在android根目录的gradle.propertis中加入：
+
+```
+android.enableAapt2=false
+```
 

@@ -608,3 +608,8 @@ gradle-tool升级到3以后目前react-navigation打包产品会有问题，需�
 android.enableAapt2=false
 ```
 
+# 2018-07-10
+
+**react-native**
+
+WebView不可以设置高度，强制为flex: 1，使用时外面需套上View

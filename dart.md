@@ -5,6 +5,9 @@
 - 支持最外层变量定义，也支持类的静态成员和对象字段
 - 没有表示私有公用的关键字，以“_”开头的标识符表示库中私有
 - 标识符以字母或“_”开头，后面可随意组合
+- 语句末尾要加分号
+
+
 
 
 
@@ -28,6 +31,8 @@
 - 当用map[key]取值时，如没有此key，会返回null
 - UTF-16字符用\uxxxx表示，其它长度编码的UTF字符（不是4位）要加{}：\u{xxxxx}
 - 可通过\#获取标识符的Symbol，压缩会改变标识符的名称但不会改变它的Symbol
+
+
 
 
 
@@ -98,4 +103,128 @@ void main(List<String> arguments) {
 - ?.：条件获取成员，如果左边为null也不报错而是返回null
 
 
+
+
+- else if中间分开一个空格
+- 可以用forEach()和for-in遍历可迭代对象，比如Map，List
+- switch分支比对的目标必须是编译时常量，被比较实例必须是同一类（不可以是子类），不可重写==
+
+
+
+- 异常分为Exception和Error两类以及它们的子类
+- 方法无需进行异常声明和检查
+- 可以throw任意对象，当然不建议这样做
+- throw式是一个表达式
+- on指明捕捉的异常类型，catch指明异常参数，两者可配合使用，有了on可省略catch
+- catch有第二个参数StackTrace
+- 在catch块中，可用rethrow关键字继续抛出该异常
+- 就算遇到未捕获的异常，也会先执行完finally中的异常再抛出
+
+
+
+- 类只可以有一个父类，子类可使用任意级父类的内容
+- 对于定义了常量构造函数的类，可用const关键字调用，调用相同常量构造函数（包括参数）构造的对象是同一个实例
+- 在一个常量作用域内（比如一个常量Map）都是常量，不需要再重复写const了
+- 对象类信息的字段是runtimeType
+- 类中声明了初始值的字段，字段会在constructor之前初始化
+- 在类中只有命名冲突时才需要this.xx
+- 可以以如下的形式定义命名构造函数
+
+```
+Point.origin() {
+    x = 0;
+    y = 0;
+  }
+```
+
+- 任何构造函数都不会被继承
+- 如果没有特别指明，子类的构造函数中第一步会调用父类的默认构造函数
+- 子类构造函数的执行顺序是：初始化字段表->父类构造函数->子类构造函数
+- 定义了构造函数会覆盖掉默认构造函数，如父类没有默认构造函数，子类构造函数需在函数体大括号前用冒号手动指明调用父类构造函数
+
+```
+class Employee extends Person {
+  // Person does not have a default constructor;
+  // you must call super.fromJson(data).
+  Employee.fromJson(Map data) : super.fromJson(data) {
+    print('in Employee');
+  }
+}
+```
+- 构造函数大括号前还可用冒号指明初始化字段表，常用来设置final字段：
+
+```
+// Initializer list sets instance variables before
+// the constructor body runs.
+Point.fromJson(Map<String, num> json)
+    : x = json['x'],
+      y = json['y'] {
+  print('In Point.fromJson(): ($x, $y)');
+}
+```
+
+- 没有函数体，而是用冒号指向调用其他构造函数，称为重定向构造函数：
+
+```
+class Point {
+  num x, y;
+
+  // The main constructor for this class.
+  Point(this.x, this.y);
+
+  // Delegates to the main constructor.
+  Point.alongXAxis(num x) : this(x, 0);
+}
+```
+
+- 固定不变的对象可设为编译时常量，通过类定义中的常量构造函数实现：
+
+```
+class ImmutablePoint {
+  static final ImmutablePoint origin =
+      const ImmutablePoint(0, 0);
+
+  final num x, y;
+
+  const ImmutablePoint(this.x, this.y);
+}
+```
+
+- 如果不希望构造函数总是新建一个实例，添加了factory关键字成为工厂构造函数，工厂构造函数不可访问this：
+
+```
+class Logger {
+  final String name;
+  bool mute = false;
+
+  // _cache is library-private, thanks to
+  // the _ in front of its name.
+  static final Map<String, Logger> _cache =
+      <String, Logger>{};
+
+  factory Logger(String name) {
+    if (_cache.containsKey(name)) {
+      return _cache[name];
+    } else {
+      final logger = Logger._internal(name);
+      _cache[name] = logger;
+      return logger;
+    }
+  }
+
+  Logger._internal(this.name);
+
+  void log(String msg) {
+    if (!mute) print(msg);
+  }
+}
+```
+
+- 所有实例的字段都有getter，非final的有setter，也可通过get、set关键字设置
+- 没有定义函数体的方法称为抽象方法，抽象方法只可出现在抽象类中
+- 通过abstract关键字可定义抽象方法，除非定义了工厂构造函数，抽象类不能被实例化
+- 任何类都是一个接口，一个类要实现一个接口（类），用关键字impliments，可以实现多个接口
+- 子类通过@override注解重写父类方法
+- 可通过operator关键字重写运算符（重写 == 运算符需同时重写 hashCode的getter）
+- ​
 

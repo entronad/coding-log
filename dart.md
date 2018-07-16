@@ -226,5 +226,42 @@ class Logger {
 - 任何类都是一个接口，一个类要实现一个接口（类），用关键字impliments，可以实现多个接口
 - 子类通过@override注解重写父类方法
 - 可通过operator关键字重写运算符（重写 == 运算符需同时重写 hashCode的getter）
-- ​
+- 调用一个实例的未实现方法，将会报错，触发1.实例类型为dynamic；或2.实例定义了该方法（为抽象）同时重写了noSuchMethod()
+- 枚举类型定义形式为：
+
+
+```
+enum Color { red, green, blue }
+```
+
+- 枚举类型中的每一个值都有一个index属性，枚举类的values属性可获得所有的值
+- 不可以继承、混入、实现枚举类型，也不可以实例化枚举类型
+- 创建mixin的要求是继承Object，不声明构造函数，不调用super
+- 使用mixin在类定义后使用关键词with，和混入多个mixin
+- 可用static关键字定义类变量和类方法，类变量在第一次使用时才会初始化；类方法不可使用this；对于公有功能，建议使用函数而不是类方法
+- 除了限制类型，泛型还能起到指代类型，减少代码的作用：
+
+```
+abstract class Cache<T> {
+  T getByKey(String key);
+  void setByKey(String key, T value);
+}
+```
+
+- 可在集合的字面量定义中使用泛型
+
+```
+var names = <String>['Seth', 'Kathy', 'Lars'];
+var pages = <String, String>{
+  'index.html': 'Homepage',
+  'robots.txt': 'Hints for web robots',
+  'humans.txt': 'We are people, not machines'
+};
+```
+
+- 集合类型机制是reified（不同于Java的erasure），会在运行时保留
+
+```
+print(names is List<String>);
+```
 

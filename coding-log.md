@@ -613,3 +613,9 @@ android.enableAapt2=false
 **react-native**
 
 WebView不可以设置高度，强制为flex: 1，使用时外面需套上View
+
+# 2018-07-10
+
+**react-native**
+
+涉及setState的异步请求最好放在componentDidMount中，因为如果请求太快setState在render之前将会警告

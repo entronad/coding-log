@@ -1,3 +1,5 @@
+#基本特点
+
 - 任何变量都是对象，包括基本类型，所有对象都继承自 Object 类
 - 强类型，自带类型推断，但也可指定类型
 - 有泛型
@@ -8,7 +10,7 @@
 - 语句末尾要加分号
 
 
-
+#变量与类型
 
 
 - 不指定类型定义变量的关键字是var，会根据初始化的值推断类型，但一旦确定后不可赋给其它类型的值
@@ -33,7 +35,7 @@
 - 可通过\#获取标识符的Symbol，压缩会改变标识符的名称但不会改变它的Symbol
 
 
-
+#函数
 
 
 - 函数的返回值、参数可设定类型也可不设，无返回值的函数返回类型可设为void
@@ -103,7 +105,7 @@ void main(List<String> arguments) {
 - ?.：条件获取成员，如果左边为null也不报错而是返回null
 
 
-
+#结构语句
 
 - else if中间分开一个空格
 - 可以用forEach()和for-in遍历可迭代对象，比如Map，List
@@ -120,6 +122,8 @@ void main(List<String> arguments) {
 - 在catch块中，可用rethrow关键字继续抛出该异常
 - 就算遇到未捕获的异常，也会先执行完finally中的异常再抛出
 
+
+#面向对象
 
 
 - 类只可以有一个父类，子类可使用任意级父类的内容
@@ -265,3 +269,39 @@ var pages = <String, String>{
 print(names is List<String>);
 ```
 
+#异步处理
+
+- 处理异步过程的类是Future和Stream，函数是async/await函数
+- async关键字写在参数表与函数体之间
+- 可将main函数定义为async函数
+- 不需要返回值的async函数返回类型可设为Future\<void\>
+- 可用await for等待遍历stream的所有值，但要小心使用：
+
+```
+await for (varOrType identifier in expression) {
+  // Executes each time the stream emits a value.
+}
+```
+
+- 同步generator用sync\*关键字定义，返回Iterable，异步generator用async\*关键字定义，返回Stream
+- 递归generator函数中调用自身时可用yield*关键字提高性能
+
+#其它
+
+- 当给类实现了call()方法，类的实例就可以像函数一样被调用了
+
+
+- 通过isolate处理多线程，isolate有单独的内存堆，相互之间不可访问
+- 通过typedef关键字，可定义函数的具体（参数、返回值）类型：
+
+```
+typedef Compare<T> = int Function(T a, T b);
+
+int sort(int a, int b) => a - b;
+
+void main() {
+  assert(sort is Compare<int>); // True!
+}
+```
+
+- 文档级注释用///或/**开头，编译器会忽略文档级注释，但其中用[]括起来的内容仍然可以链接

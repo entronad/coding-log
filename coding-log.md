@@ -56,6 +56,8 @@
 
 **shadowsocks**
 
+**ble**
+
 # 2018-01-03
 
 **构建**
@@ -614,8 +616,20 @@ android.enableAapt2=false
 
 WebView不可以设置高度，强制为flex: 1，使用时外面需套上View
 
-# 2018-07-10
+# 2018-07-16
 
 **react-native**
 
 涉及setState的异步请求最好放在componentDidMount中，因为如果请求太快setState在render之前将会警告
+
+# 2018-07-17
+
+**ble**
+
+Android系统ble通信的包最大为20（IOS为182），包超过20会导致系统不发送characteristicUpdate事件
+
+# 2018-07-18
+
+**flutter**
+
+命令结果为Process finished with exit code 0表示执行成功

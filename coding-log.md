@@ -52,6 +52,8 @@
 
 **vscode**
 
+**dart**
+
 **flutter**
 
 **shadowsocks**
@@ -630,6 +632,18 @@ Android系统ble通信的包最大为20（IOS为182），包超过20会导致系
 
 # 2018-07-18
 
+**dart**
+
+命名参数定义时需用大括号括起来，使用时不需要加大括号
+
+---
+
+"_"开头的标识符只是在这个文件中私有，不是类私有
+
+**javascript**
+
+JSON.stringify时遇到无法解析的自动（比如函数）会没有这个字段，不会报错，解析基本类型的值有一套奇怪的规则，基本上是转换为对应字符串类型
+
 **flutter**
 
-命令结果为Process finished with exit code 0表示执行成功
+flutter中禁用运行时反射（dart中有运行时反射），故类似dartson的Json解析库不可使用

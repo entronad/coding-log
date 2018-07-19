@@ -146,3 +146,9 @@ git commit -m 'update .gitignore'
 ```
 
 清一下缓存
+
+
+
+git 默认是忽略文件名的大小写的，如改动了文件名的大小写需执行
+
+git config core.ignorecase false

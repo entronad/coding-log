@@ -647,3 +647,9 @@ JSON.stringify时遇到无法解析的自动（比如函数）会没有这个字
 **flutter**
 
 flutter中禁用运行时反射（dart中有运行时反射），故类似dartson的Json解析库不可使用
+
+# 2018-07-19
+
+**flutter**
+
+flutter中的flex值需为int

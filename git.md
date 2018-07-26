@@ -152,3 +152,26 @@ git commit -m 'update .gitignore'
 git 默认是忽略文件名的大小写的，如改动了文件名的大小写需执行
 
 git config core.ignorecase false
+
+
+
+git worktree
+
+```
+git worktree add [-f] [--detach] [--checkout] [--lock] [-b <new-branch>] <path> [<commit-ish>]
+```
+
+不加commit-ish会新建一个分支，分支名为路径最终文件夹名
+
+commit-ish为分支名，分支会被checkout在新文件夹中
+
+当前分支不可在新文件夹中checkout
+
+一个分支只可在一个文件夹中被checkout
+
+总之，worktree虽然在不同文件夹中，但还是隶属于同一个.git
+
+remove等功能需在1.17.1版本后使用
+
+不能放在当前文件夹（即repo），新文件夹也会被追踪，建议与当前repo文件夹同级
+

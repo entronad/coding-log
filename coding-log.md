@@ -661,3 +661,13 @@ flutter中的flex值需为int
 **weixin**
 
 小程序头像不可使用带透明通道的
+
+# 2018-07-23
+
+**babel**
+
+babelrc中配置的执行顺序
+
+1. 先执行完所有Plugin，再执行Preset。
+2. 多个Plugin，按照声明次序顺序执行。
+3. 多个Preset，按照声明次序逆序执行。

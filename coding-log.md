@@ -671,3 +671,35 @@ babelrc中配置的执行顺序
 1. 先执行完所有Plugin，再执行Preset。
 2. 多个Plugin，按照声明次序顺序执行。
 3. 多个Preset，按照声明次序逆序执行。
+
+# 2018-08-01
+
+**babel**
+
+在babel7中，需将
+
+babelrc中的module-resolver的配置
+
+```
+"plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"]
+      }
+    ],
+    ]
+```
+
+在eslint中再配一份
+
+```
+"settings": {
+    "import/resolver": {
+      "babel-module": {
+        "root": ["./src"]
+      }
+    }
+  }
+```
+

@@ -703,3 +703,10 @@ babelrc中的module-resolver的配置
   }
 ```
 
+# 2018-08-02
+
+**babel**
+
+babel-plugin-transform-decorators-legacy 适用于 babel 6以下
+
+babel 7 以上要用@babel/plugin-proposal-decorators

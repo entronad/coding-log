@@ -703,10 +703,36 @@ babelrc中的module-resolver的配置
   }
 ```
 
-# 2018-08-02
+# 2018-08-06
 
 **babel**
 
-babel-plugin-transform-decorators-legacy 适用于 babel 6以下
+babel 7之后的改动：
 
-babel 7 以上要用@babel/plugin-proposal-decorators
+所有官方的包统一改名为@babel/型的命名
+
+stage-型的preset被废除了，提案插件单独引入，提案插件包含-proposal-关键字
+
+年份reset被废除了，统一到env中
+
+# 2018-08-06
+
+**webpack**
+
+最新的create-react-app中控制babel适配浏览器版本是通过package.json中的browserslist:
+
+```
+"browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
+    ]
+  }
+```
+

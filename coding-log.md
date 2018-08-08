@@ -736,3 +736,8 @@ stage-型的preset被废除了，提案插件单独引入，提案插件包含-p
   }
 ```
 
+# 2018-08-06
+
+**react**
+
+create-react-app 可通过--scripts-version参数控制script版本

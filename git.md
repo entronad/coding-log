@@ -189,3 +189,36 @@ mv 命令可改文件的名称，包括只改大小写
 
 
 
+# 在其他库基础上创建新仓库，留一个分支关联源仓库以便merge源仓库未来的改动
+
+```
+// 比如你想基于antd，创建一个新仓库antd-plus
+
+// 首先在服务器端建立空的仓库antd-plus
+// 在本地新建一个空的antd-plus文件夹，进入该文件夹
+
+git init
+
+// 添加两个远程仓库
+
+git remote add origin <antd-plus url>
+git remote add antd <antd url>
+
+// fetch 并 merge antd/master 的代码
+
+git pull antd master
+
+// fetch antd-plus；将 master 的内容push到antd-plus/master；并将master转为关联antd-plus/master
+
+git fetch origin
+git push origin master
+git branch -u origin/master master
+
+// 创建antd分支并关联antd/master
+
+git checkout -b antd
+git branch -u antd/master antd
+
+
+```
+

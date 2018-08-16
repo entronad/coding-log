@@ -208,11 +208,11 @@ git remote add antd <antd url>
 
 git pull antd master
 
-// fetch antd-plus；将 master 的内容push到antd-plus/master；并将master转为关联antd-plus/master
+// fetch antd-plus；将master转为关联antd-plus/master；并将 master 的内容push到antd-plus/master
 
 git fetch origin
-git push origin master
 git branch -u origin/master master
+git push
 
 // 创建antd分支并关联antd/master
 

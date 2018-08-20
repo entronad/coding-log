@@ -1,4 +1,4 @@
-commit格式：
+ commit格式：
 
 动词（add/update/fix）+ 内容 + at/in/of + 文件/模块 + [[fixed/closed] #issue号码]
 
@@ -30,7 +30,7 @@ HEAD^^    上两版本
 
 HEAD~10    上10版本
 
-git reset HEAD/哈希 退回到某一版本
+git reset --hard HEAD/哈希 退回到某一版本
 
 git reflog    每一条命令的hash和内容
 
@@ -44,9 +44,9 @@ git reset HEAD 文件名    将HEAD之后暂存区的修改撤销掉，不会动
 
 git checkout -b dev    等价于：
 
-​	git branch dev    创建分支
+	git branch dev    创建分支
 
-​	git checkout dev    切换到分支
+	git checkout dev    切换到分支
 
 git branch    查看所有分支
 
@@ -70,9 +70,9 @@ git stash list    查看当前stash
 
 git stash pop   恢复stash中的内容到当前工作区，等价于：
 
-​	git stash apply
+	git stash apply
 
-​	git stash drop
+	git stash drop
 
 ---
 
@@ -102,9 +102,9 @@ git push origin 标签名/--tags    推送标签/全部标签
 
 删除已推送到远程的标签：
 
-​	git tag -d 标签名
+	git tag -d 标签名
 
-​	git push origin :refs/tags/标签名
+	git push origin :refs/tags/标签名
 
 ---
 
@@ -220,5 +220,21 @@ git checkout -b antd
 git branch -u antd/master antd
 
 
+```
+
+更新操作
+
+```
+// 在antd分支上,拉取最新代码；定位到你要更新到的tag；创建临时分支
+
+git checkout antd
+git pull
+git checkout 3.8.0
+git checkout -b 3.8.0
+
+// 切换到开发分支merge antd对应tag的代码，然后删除临时分支
+git checkout dev
+git merge 3.8.0
+git branch -D 3.8.0
 ```
 

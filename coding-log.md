@@ -62,6 +62,8 @@
 
 **weixin**
 
+**typescript**
+
 # 2018-01-03
 
 **构建**
@@ -741,3 +743,9 @@ stage-型的preset被废除了，提案插件单独引入，提案插件包含-p
 **react**
 
 create-react-app 可通过--scripts-version参数控制script版本
+
+# 2018-08-22
+
+**typescript**
+
+对于react组件，如果需要提供给非ts应用使用，则仍需propTypes，否则则不需要

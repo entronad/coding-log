@@ -749,3 +749,9 @@ create-react-app 可通过--scripts-version参数控制script版本
 **typescript**
 
 对于react组件，如果需要提供给非ts应用使用，则仍需propTypes，否则则不需要
+
+# 2018-08-23
+
+**ble**
+
+addListener 可以添加多个，故每次使用完listener要remove掉

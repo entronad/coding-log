@@ -45,7 +45,7 @@ git reset HEAD 文件名    将HEAD之后暂存区的修改撤销掉，不会动
 git checkout -b dev    等价于：
 
 	git branch dev    创建分支
-
+	
 	git checkout dev    切换到分支
 
 git branch    查看所有分支
@@ -71,7 +71,7 @@ git stash list    查看当前stash
 git stash pop   恢复stash中的内容到当前工作区，等价于：
 
 	git stash apply
-
+	
 	git stash drop
 
 ---
@@ -103,7 +103,7 @@ git push origin 标签名/--tags    推送标签/全部标签
 删除已推送到远程的标签：
 
 	git tag -d 标签名
-
+	
 	git push origin :refs/tags/标签名
 
 ---
@@ -211,8 +211,8 @@ git pull antd master
 // fetch antd-plus；将master转为关联antd-plus/master；并将 master 的内容push到antd-plus/master
 
 git fetch origin
+git push origin master
 git branch -u origin/master master
-git push
 
 // 创建antd分支并关联antd/master
 

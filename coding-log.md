@@ -755,3 +755,21 @@ create-react-app 可通过--scripts-version参数控制script版本
 **ble**
 
 addListener 可以添加多个，故每次使用完listener要remove掉
+
+# 2018-08-27
+
+**react-native**
+
+0.56.0版本需改动的配置
+
+"react-native": "0.55.4"
+
+"babel-preset-react-native": "4.0.0",
+
+android/build.gradle
+
+    minSdkVersion = 21
+
+android/gradle.properties
+
+android.enableAapt2=false

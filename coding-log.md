@@ -773,3 +773,17 @@ android/build.gradle
 android/gradle.properties
 
 android.enableAapt2=false
+
+# 2018-08-23
+
+**javascript**
+
+在Promise的定义函数中，中途resolve或reject后，虽然Promise的状态不再受影响了，但该定义函数仍将继续执行直到结束或return；由于使用Promise和该定义函数的执行不在同一线程中，故resolve之后的代码与Promise的then执行先后顺序无法预知（一般该定义函数resolve之后的同步代码会先与Promise收到then）
+
+可用async函数代替，async中throw即返回reject，throw之后的代码不会再执行
+
+# 2018-08-23
+
+**redux**
+
+reducer对state不会有特别的处理和保障，靠开发者自觉

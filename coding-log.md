@@ -782,7 +782,7 @@ android.enableAapt2=false
 
 可用async函数代替，async中throw即返回reject，throw之后的代码不会再执行
 
-# 2018-08-23
+# 2018-09-05
 
 **redux**
 

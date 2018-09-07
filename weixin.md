@@ -163,6 +163,8 @@ wxs是构建wxml的脚本语言，不同于逻辑层的JavaScript，逻辑层写
 
 wxs脚本可直接写在wxs标签内或通过wxs标签的src引用
 
+`wxs` 模块均为单例，`wxs` 模块在第一次被引用时，会自动初始化为单例对象。多个页面，多个地方，多次引用，使用的都是同一个 `wxs` 模块对象。
+
 关于wxs的理解
 
 在小程序中，逻辑层运行在单独的App Server线程中，每个页面运行在各自的page frame线程中，逻辑线程与视图线程通过响应式的消息通信，只有App Server中可以运行js，wxs就是为了供page frame线程中一些简单的逻辑所需，通过wxs运行的逻辑无需进行线程消息通信，语法是弱化版的js，适合进行一些轻量的渲染前逻辑，比如类似vue中computed的功能
@@ -220,3 +222,130 @@ options: {
 setData可设置data和properties，设置properties时如为数组或对象时存在bug
 
 注意组件属性名不要以data开头，属性名和data字段也不要重名
+
+
+
+组件的事件处理函数用bindmyevent="onMyEvent"或bind:myevent="onMyEvent"输入，事件通过this.triggerEvent发射
+
+
+
+behaviors是可以混入到组件中的代码段，会根据规则进行覆盖，可用ws://引入内置behaviors
+
+
+
+可通过relations字段设置组件间的关系，为它们的插入等设置触发逻辑
+
+
+
+`Behavior()` 构造器提供了新的定义段 `definitionFilter` ，用于支持自定义组件扩展，即覆盖原组件的字段
+
+
+
+# 分包
+
+分包的大小限制是：
+
+- 整个小程序所有分包大小不超过 8M
+- 单个分包/主包大小不能超过 2M
+
+引用原则是子包直接不能相互引用，但子包可引用app
+
+
+
+# 多线程
+
+一些异步处理的任务，可以放置于 Worker 中运行，待运行结束后，再把结果返回到小程序主线程。Worker 运行于一个单独的全局上下文与线程中，不能直接调用主线程的方法。 Worker 与主线程之间的数据传输，双方使用 [Worker.postMessage()](https://developers.weixin.qq.com/miniprogram/dev/api/createWorker.html) 来发送数据，[Worker.onMessage()](https://developers.weixin.qq.com/miniprogram/dev/api/createWorker.html) 来接收数据，传输的数据并不是直接共享，而是被复制的。
+
+
+
+使用workers需先在app.json中配置
+
+```json
+"workers": "workers"
+```
+
+
+
+worker使用前需先在主线程中创建wx.createWorker()
+
+
+
+1. Worker 最大并发数量限制为 1 个，创建下一个前请用 [Worker.terminate()](https://developers.weixin.qq.com/miniprogram/dev/api/createWorker.html) 结束当前 Worker
+2. Worker 内代码只能 require 指定 Worker 路径内的文件，无法引用其它路径
+3. Worker 的入口文件由 [wx.createWorker()](https://developers.weixin.qq.com/miniprogram/dev/api/createWorker.html) 时指定，开发者可动态指定 Worker 入口文件
+4. Worker 内不支持 `wx` 系列的 API
+5. Workers 之间不支持发送消息
+
+
+
+# 文件系统
+
+开发时项目中添加的文件称为代码包文件，受小程序包大小的限制
+
+小程序在手机上的存储称为本地文件，以小程序与用户维度隔离：
+
+- 本地临时文件不限制大小，仅在当前生命周期有效，只可读不可写
+- 本地用户文件一直有效，可指定目录，可读可写，大小限制50M
+- 本地缓存文件已被弃用
+
+
+
+# 运行机制
+
+小程序冷启动时如果发现有新版本，将会异步下载新版本的代码包，并同时用客户端本地的包进行启动，即新版本的小程序需要等下一次冷启动才会应用上。 如果需要马上应用最新版本，可以使用 [wx.getUpdateManager](https://developers.weixin.qq.com/miniprogram/dev/api/getUpdateManager.html) API 进行处理。
+
+- 小程序没有重启的概念
+- 当小程序进入后台，客户端会维持一段时间的运行状态，超过一定时间后（目前是5分钟）会被微信主动销毁
+- 当短时间内（5s）连续收到两次以上收到系统内存告警，会进行小程序的销毁
+
+
+
+# 性能
+
+可通过开发者工具的 Trace Panel和开发模式下小程序的性能面板监控小程序性能
+
+setData使用注意：
+
+- 不要频繁setData
+- setData不要携带过大的数据
+- 页面进入后台后不要再setData了
+
+不要使用过大的图片，不管是放在代码包里还是其他方式加载
+
+需及时手动清理不用了的代码和库
+
+
+
+# 组件
+
+部分组件是原生组件，列表见https://developers.weixin.qq.com/miniprogram/dev/component/native-component.html，原生组件使用注意：
+
+- 原生组件的层级是
+
+  最高
+
+  的，所以页面中的其他组件无论设置
+
+   
+
+  ```
+  z-index
+  ```
+
+   
+
+  为多少，都无法盖在原生组件上。
+
+  - 后插入的原生组件可以覆盖之前的原生组件。
+
+- 原生组件还无法在 `scroll-view`、`swiper`、`picker-view`、`movable-view` 中使用。
+
+- 部分CSS样式无法应用于原生组件，例如：
+
+  - 无法对原生组件设置 CSS 动画
+  - 无法定义原生组件为 `position: fixed`
+  - 不能在父级节点使用 `overflow: hidden` 来裁剪原生组件的显示区域
+
+- 原生组件的事件监听不能使用 `bind:eventname` 的写法，只支持 `bindeventname`。原生组件也不支持 catch 和 capture 的事件绑定方式
+
+- 在iOS下，原生组件暂时不支持触摸相关事件。

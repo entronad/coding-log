@@ -25,6 +25,12 @@ https://developers.weixin.qq.com/miniprogram/dev/framework/config.html
 
 
 
+pages数组的第一项为默认页面
+
+页面名称用小写驼峰，组件名用小写连接符
+
+
+
 # App Service
 
 无法使用window、document等全局变量
@@ -79,6 +85,8 @@ https://developers.weixin.qq.com/miniprogram/dev/framework/app-service/route.htm
 所有js变量都是文件作用域
 
 模块采用commonjs形式
+
+引用必须一直写到文件名全称
 
 
 

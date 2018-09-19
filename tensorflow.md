@@ -11,3 +11,5 @@ tf.Variable第一个V要大写
 constant定义时即已经初始化了，Variable一定要初始化：tf.gloabal_variable_initializer()
 
 可通过playground.tensorflow.org感性认识学习过程
+
+shape中的-1表示根据后面的维度确定此维度

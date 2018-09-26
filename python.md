@@ -17,11 +17,11 @@
 list操作方法：
 
 	末尾增加 datas.append(data)
-
+	
 	指定位置插入：datas.insert(index, data)
-
+	
 	删除末尾：datas.pop()
-
+	
 	删除指定位置：datas.pop(index)
 
 list中数据类型可不同
@@ -99,11 +99,11 @@ def abc(x):
 参数类型：
 
 	一般的参数叫做位置参数，通过在参数表中的位置表明关系
-
+	
 	可变参数定义函数calc(\*numbers)会将传入的多个参数组成tuple，在调用时calc(\*[1,2,3])表示将该list作为可变参数传入
-
+	
 	关键字参数定义函数def person(name, age, **kw):会将传入的键值对作为dict传入，调用如person('Adam', 45, gender='M', job='Engineer')
-
+	
 	命名关键字参数为分隔符\*之后的参数def person(name, age, \*, city, job)，必须这样调用person('Jack', 24, city='Beijing', job='Engineer')，如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符了：def person(name, age, \*args, city, job):，命名关键字参数传入时必须带有参数名，命名关键字参数也可设置默认值def person(name, age, *, city='Beijing', job):
 
 各类型顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数
@@ -131,7 +131,7 @@ for in迭代dict默认是迭代key
 列表生成器(generator)创建方式
 
 	将列表生成式外面的[]改为()
-
+	
 	定义generator函数
 
 变量互换：a, b = b, a
@@ -206,3 +206,13 @@ with expression [as variable]:
 ```
 
 表示通过expression内置的打开退出异常处理，运行with-block
+
+import Module (as name) ：引入模块
+
+from Module import Func/Class：从模块中引入函数、类
+
+from Module import * 引用模块中所有公开成员
+
+元组赋值：
+
+赋值语句中右边会被转换为元组，故左边可用逗号分隔，接受元组中的值

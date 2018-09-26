@@ -64,6 +64,8 @@
 
 **typescript**
 
+**linux**
+
 # 2018-01-03
 
 **构建**
@@ -804,3 +806,15 @@ react通过事件委托统一处理事件，触发采用自己的一套冒泡机
 
 1. canvas内存消耗大，一个页面上canvas多了可能内存溢出
 2. 浏览器把大的canvas组合到背景上的消耗比较大，所以滑动效果不好
+
+# 2018-09-21
+
+**linux**
+
+proxychains与设置中的代理不可共存
+
+# 2018-09-26
+
+**javascript**
+
+NaN 与 NaN === 和 == 都为false，要用isNaN()判断, isNaN()只要不是数字都true，而Number.isNaN()必须是NaN才是true

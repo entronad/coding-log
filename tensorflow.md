@@ -13,3 +13,5 @@ constant定义时即已经初始化了，Variable一定要初始化：tf.gloabal
 可通过playground.tensorflow.org感性认识学习过程
 
 shape中的-1表示根据后面的维度确定此维度
+
+数据过少、对定量的数据训练过久会过拟合，防止过拟合除了用更多数据训练外，方法是regularization，常见的有weight regularization and dropout

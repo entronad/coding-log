@@ -14,4 +14,26 @@ constant定义时即已经初始化了，Variable一定要初始化：tf.gloabal
 
 shape中的-1表示根据后面的维度确定此维度
 
-数据过少、对定量的数据训练过久会过拟合，防止过拟合除了用更多数据训练外，方法是regularization，常见的有weight regularization and dropout
+---
+
+数据过少、对定量的数据训练过久会过拟合，模型规模（即由隐节点层数与每层节点数决定的模型可训练参数数，称为capacity）越大越容易过拟合
+
+防止过拟合除了用更多数据训练外，方法是regularization，常见的有weight regularization and dropout
+
+应该先从较小的规模开始逐渐增长规模，直到loss的减小不再更优
+
+weight decay 就是L2 regularization
+
+dropout比例常设为0.2到0.5之间
+
+---
+
+防止过拟合常用方法：
+
+增加训练数据
+
+减小模型规模
+
+使用 weight regularization
+
+使用 dropout

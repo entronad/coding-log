@@ -216,3 +216,17 @@ from Module import * 引用模块中所有公开成员
 元组赋值：
 
 赋值语句中右边会被转换为元组，故左边可用逗号分隔，接受元组中的值
+
+enumerate函数将可迭代对象的项转换成下标和项的元组，常用于循环：
+
+```
+for i, element in enumerate(seq):
+```
+
+---
+
+google lint
+
+句末不加分号
+
+缩进2格

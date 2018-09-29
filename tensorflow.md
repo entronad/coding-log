@@ -37,3 +37,29 @@ dropout比例常设为0.2到0.5之间
 使用 weight regularization
 
 使用 dropout
+
+---
+
+keras 存储模型时尚不能存储optimizers，所以需要重新compile并且optimizer的状态都没了
+
+---
+
+Tensors are immutable
+
+---
+
+tf的操作自动将numpy array转换为tensor
+
+numpy操作自动将tensor转换为numpy array
+
+---
+
+tfe.gradients_function(f) 返回的是一个函数，该函数返回值是各偏微分的数组
+
+---
+
+```python
+with tf.GradientTape() as t:
+```
+
+起到一个记录的作用，方便后续使用

@@ -1,3 +1,29 @@
+NIPS
+
+AlexNet
+
+---
+
+DL中的重要概念
+
+Model
+
+layer
+
+activation
+
+loss
+
+optimizer 在两个epoch之间计算怎么从老的参数变成新的参数（常用到gradient）
+
+train/fit 每一个epoch都会walkthrough所有data
+
+模型train完了要evaluate，要用和traindata不一样的testdata，不过只要一遍，不需要多个epoch
+
+evaluate完了就可以predict了，model(predict_dataset)的结果需要处理才能得到所要的
+
+---
+
 数据为tensor，操作为operation，结合成graph，graph构成session
 
 tensorflow分为客户端与服务端，之间通过session通信
@@ -63,3 +89,31 @@ with tf.GradientTape() as t:
 ```
 
 起到一个记录的作用，方便后续使用
+
+---
+
+在numpy中，axis就是dimension，最外围的dimension是第一个axis（标号从0开始）
+
+shape是从最外围，即第一个axis开始存放size的，
+
+
+
+一般将第一个维度，即最外围，shape[0]，称为column，v
+
+一般将第二个维度，即第二外围，shape[1]，称为row, h
+
+
+
+类似sum(axis=0)这样的操作，指的是会在该维度下操作，而不影响其他维度的shape，结果的shape是抹去该维度,比如sum(axis=0)就是在column上相加，得到的只剩原来的row（但是根据定义，现在row又变成了column）
+
+TensorFlow中输入数据的某项属性称为column
+
+---
+
+训练的输入输出通常称为feature、label
+
+如果没有非线性的激活函数，该层就等于没有用
+
+隐节点常用relu
+
+logit是一种变换

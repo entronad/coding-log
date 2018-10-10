@@ -201,3 +201,7 @@ NP问题：NP问题是指可以在多项式的时间里验证一个解的问题�
 张量处理：通过每一点周围与核同形的一块与核点乘，重新组成形状不变的张量
 
 抽象：x、y沿着x+y直线函数乘积的积分
+
+---
+
+设计cost function的原则是要smoth，即make small changes of w cause small changes of cost ,以便可通过梯度寻优

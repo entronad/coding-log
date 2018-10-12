@@ -194,6 +194,8 @@ NP问题：NP问题是指可以在多项式的时间里验证一个解的问题�
 
 卷积神经网络（CNN）-> 视觉细胞 ->处理图像
 
+循环神经网络（RNN）-> 处理时序问题
+
 ---
 
 卷积的理解：时间尺度：过去每一点的状态与状态关于时长的转移的乘积的叠加
@@ -205,3 +207,15 @@ NP问题：NP问题是指可以在多项式的时间里验证一个解的问题�
 ---
 
 设计cost function的原则是要smoth，即make small changes of w cause small changes of cost ,以便可通过梯度寻优
+
+---
+
+在大量训练数据中使用梯度下降时，理论上梯度需计算所有训练数据的cost function梯度取平均，但实际只要选取一小部分batch即可，因为每个epoch我们只要大致保持是向下变化即可
+
+---
+
+决定如何训练的参数称为hyper-parameters
+
+---
+
+炼丹调的参就是hyper-parameters和architecture

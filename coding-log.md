@@ -818,3 +818,9 @@ proxychains与设置中的代理不可共存
 **javascript**
 
 NaN 与 NaN === 和 == 都为false，要用isNaN()判断, isNaN()只要不是数字都true，而Number.isNaN()必须是NaN才是true
+
+# 2018-10-11
+
+**babel** **webpack**
+
+改变标识符称为minify，由babel-preset-minify完成，压缩成一行称为uglify，由uglifyjs-webpack-plugin完成

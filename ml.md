@@ -175,3 +175,15 @@ NP问题：NP问题是指可以在多项式的时间里验证一个解的问题�
 ---
 
 炼丹调的参就是hyper-parameters和architecture
+
+---
+
+概率分布：连续量只能算在某个区间上的概率，所以定义的形式是两个小于某个值概率相减，这个小于某个值的分布函数就是概率分布，概率密度是概率分布在区间趋于0的极限，或导数
+
+---
+
+training data 用来训练param
+
+validation data 用来训练hyper-param
+
+test data用来测试训练结果，param和hyper-param都用test data来测试

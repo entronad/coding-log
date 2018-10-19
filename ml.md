@@ -187,3 +187,17 @@ training data 用来训练param
 validation data 用来训练hyper-param
 
 test data用来测试训练结果，param和hyper-param都用test data来测试
+
+---
+
+防止过拟合中奥卡姆剃刀的意义：太复杂的模型学习能力过剩会学到一些不该学到的东西，比如training data中偶然存在的规律，噪声分布等
+
+l1,l2 regulization的意义是减小w意味着减小单个输入对模型的影响，而更注重输入整体特性对模型的影响, b的大小对过拟合影响不大，一般不regulization
+
+事实上，regulization为什么有效尚无定论
+
+l1 会让w更集中于少数几个重要的输入，其它的更趋于0
+
+dropout的本质是随机的降低对单个输入的依赖
+
+人为扩展数据集的方式很强大，比如转动图片，放快慢声音

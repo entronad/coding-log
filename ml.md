@@ -231,3 +231,11 @@ dropout的本质是随机的降低对单个输入的依赖
 - 正则化参数lmbda
 
   首先设lmbda=0，调学习率，调完学习率后从lmbda=1开始以10为倍数增减调参，调完lmbda后要再调一遍学习率
+
+- mini-batch
+
+  (mini-batch为1称为online learning)通过矩阵技术，计算mini-batch为100的时间远低于100次online learning，通常在50次到1次之间，甚至接近1次，所以要在利用矩阵优势和更often之间权衡。在初期只需要大方向时，online learning效果就够了，后续对精确性要求高时用mini batch
+
+  mini batch优化的最终目的是加快收敛速度。它与其它参数之间相对独立，一般先选几个相对可用的其它参数，调好mini batch再调其它参数
+
+自动优化参数的方法有grid search，《3ractical %ayesian optimi]ation of machine learning algorithms, by -asper 6noek, +ugo /arochelle, and 5yan $dams. 》

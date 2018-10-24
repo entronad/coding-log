@@ -239,3 +239,15 @@ dropout的本质是随机的降低对单个输入的依赖
   mini batch优化的最终目的是加快收敛速度。它与其它参数之间相对独立，一般先选几个相对可用的其它参数，调好mini batch再调其它参数
 
 自动优化参数的方法有grid search，《3ractical %ayesian optimi]ation of machine learning algorithms, by -asper 6noek, +ugo /arochelle, and 5yan $dams. 》
+
+---
+
+梯度反向传播时，要么消失，要么爆炸
+
+反向传播时最入口层参数的微分可写成反向过程多层sigmoid函数导数、w连乘，每个w期望小于1（以高斯分布初始化），每个sigmoid函数导数<0.25，故乘积很小，而加入恰巧每个w都很大（大于 1/sigmoid函数导数），则连乘后乘积很大
+
+总之由于连乘的太多，除非恰巧连乘下来接近1（显然概率极低）入口层的梯度，即学习速度和出口比要么极小要么极大。消失的概率大些，因为w一旦大一些，sigmoid函数导数下降很多
+
+---
+
+DL中还可能遇到问题：sigmoid函数在输出层会很早退化为0，初始化和动量调度也会影响学习效果

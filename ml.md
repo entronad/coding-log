@@ -256,6 +256,20 @@ DL中还可能遇到问题：sigmoid函数在输出层会很早退化为0，初�
 
 CNN和最初的神经网络比起来仿生的成分已经很小了，所以常常不用neural这个词，神经元称为unit
 
-卷积核就是local receptive field
+被卷积核影响到的就是local receptive field（local receptive field * kernal = 后层的一个神经元）
 
 对于后层的每个神经元，只有local receptive field大小的前层与之连接，且每个神经元的a,w,b都一样
+
+feature map 指神经元输出
+
+---
+
+一般来讲relu好于sigmoid
+
+全连接层数量、大小影响比较小
+
+训练多个网络然后投票可提高准确率，是一种常用方法
+
+dropout只需用在全连接层不需用在卷积层
+
+CNN中一层卷积加一层池化算一层

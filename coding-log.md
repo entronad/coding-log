@@ -824,3 +824,9 @@ NaN 与 NaN === 和 == 都为false，要用isNaN()判断, isNaN()只要不是数
 **babel** **webpack**
 
 改变标识符称为minify，由babel-preset-minify完成，压缩成一行称为uglify，由uglifyjs-webpack-plugin完成
+
+# 2018-10-30
+
+**react-native**
+
+在android的status bar 上，黑底的称之为light，白底的称之为dark，需显式的设置backgroundcolor否则切换后颜色会出问题，可能与沉浸式机制有关

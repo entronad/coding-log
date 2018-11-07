@@ -1,0 +1,1 @@
+所有设备都被认为是文件，在目录 /dev/下，其中硬盘与U盘是/dev/sd[a-p]，云主机上可能是/dev/vd[a-p]，sd最早指SCSI device，现在大多是sata

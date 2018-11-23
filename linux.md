@@ -250,3 +250,76 @@ atime 读取时间
 
 touch 可用来创建空文件和修改文件时间属性
 
+---
+
+文件默认权限 rw-r--r--
+
+目录默认权限 rwxr-xr-x
+
+修改默认权限通过umask, 后三位数字表示拿掉的权限
+
+---
+
+可通过lsattr 和chattr查看和修改文件隐藏属性
+
+---
+
+特殊权限
+
+SUID：Set UID；SGID：Set GID
+
+用s代替u 或g的x，SUID仅限二进制程序，表示使用者在执行程序时暂时获得该程序拥有者的权限，SGID可用于目录和文件
+
+SBIT：Sticky Bit
+
+用t代替o的x，仅限目录，其他人有此目录的w、x权限，但不能删除、改名、移动其他使用者的文件
+
+修改方法为在3位数字之前再加一位：
+
+4 SUID
+
+2 SGID
+
+1 SBIT
+
+大写的ST表示只具有s、t而没有x
+
+或u+s g+s o+t
+
+---
+
+可通过file指令查看文件详细类型
+
+---
+
+wich 可搜索某个命令的位置，是根据$PATH来找的，-a表示找出所有
+
+whereis只搜索几个目录，速度快，常用于搜索指令、配置、文档
+
+locate搜索是从/var/lib/mlocate/数据库中读取，速度快，数据库定期更新，可通过updatedb手动更新
+
+find 功能强大，但是直接硬盘操作，速度慢
+
+---
+
+对于文件系统来说：
+
+superblock 存放文件系统的整体信息
+
+inode 记录文件的属性
+
+block 实际记录文件的内容
+
+---
+
+查看本系统支持的文件系统
+
+ls -l /lib/modules/$(uname -r)/kernel/fs
+
+查看当前已使用的文件系统
+
+cat /proc/filesystems
+
+df 查看所有文件系统的占用空间
+
+du 查看当前目录的占用空间

@@ -20,6 +20,8 @@ xfs：适合大容量存储，最常用类型
 
 vfat：兼容windows，如双系统需使用
 
+btrfs：新的一种类型
+
 ---
 
 现在不要再设/boot分区了
@@ -323,3 +325,81 @@ cat /proc/filesystems
 df 查看所有文件系统的占用空间
 
 du 查看当前目录的占用空间
+
+---
+
+硬链接：ln
+
+指向同一个inode，只是文件名不同，不能跨文件系统，不能用于目录
+
+符号链接：ln -s
+
+创建新inode，指向档案的block
+
+---
+
+lsblk 列出系统中所有磁盘
+
+blkid 列出磁盘设备的uuid等参数
+
+parted 列出指定磁盘的信息与分区列表
+
+---
+
+文件系统挂载注意：
+
+单一文件系统不应该被重复挂载在不同的挂载点
+
+单一挂载点不应重复挂载多个文件系统
+
+作为挂载点的目录最好为空目录
+
+---
+
+压缩后缀名：
+
+.zip zip
+
+.gz gzip
+
+.bz2 bzip2
+
+.xz xz
+
+打包后缀名：
+
+.tar tar
+
+后缀名连写越前面越外层
+
+---
+
+gzip 可解开compress zip gzip等压缩的文件，gzip压缩后不保留原文件，gzip可用于windows
+
+bzip2 -> xz 压缩比越来越高，不过速度会慢
+
+以上命令针对目录指的是将目录内的文件分别压缩
+
+---
+
+tar命令压缩，-z gzip -j bzip2 -J xz 需通过-f自行指定文件名和扩展名，-f后跟的单词被认为文件名故此参数最好单独列出
+
+tar解压缩时需使用相对路径以防出问题
+
+tar打包完没有压缩的文件称为tarfile，压缩了的称为tarball
+
+---
+
+vim中不保存就离开是 :q!
+
+---
+
+shell: 为用户提供用户界面的软件；提供访问内核所提供服务的程序
+
+所有的linux shell都是一样的功能
+
+第一个流行的shell是Bourne shell(sh), bash 是其加强版（Bourne Again SHell),bash是linux默认的shell，当我们登陆操作系统时，操作系统会提供给我们一个shell来工作，其配置再/etc/passwd中
+
+---
+
+bash此次登陆中的指令记录在内存中，此次登陆之前的指令记录在~/.bash_history中

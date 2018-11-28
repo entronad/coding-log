@@ -238,3 +238,18 @@ git merge 3.8.0
 git branch -D 3.8.0
 ```
 
+
+
+npm发布：
+
+如未登陆需要登陆：
+
+npm login
+
+发布 npm login
+
+发布完72小时内可撤销：
+
+撤销整个库：npm unpublish <package_name> -f
+
+撤销某版本：npm unpublish <package_name>@\<version\>

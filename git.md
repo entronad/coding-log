@@ -253,3 +253,12 @@ npm login
 撤销整个库：npm unpublish <package_name> -f
 
 撤销某版本：npm unpublish <package_name>@\<version\>
+
+
+
+拉取指定远程分支
+
+git branch -r 查看远程分支
+
+git checkout 远程分支 -b 本地分支
+

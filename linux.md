@@ -489,3 +489,88 @@ grep 提取出包含某信息的行
 ---
 
 sed stream editor 流编辑器，用来处理文本
+
+---
+
+awk 数据处理工具（以作者名字命名）
+
+---
+
+shell script 后缀名 .sh 第一行需指明执行的shell才能运行：
+
+\#!/bin/bash
+
+将一些重要的环境变量（PATH、LANG）自行设置以确保稳定，并使得程序中可直接下达外部指令
+
+---
+
+以bash或sh命令执行脚本，将打开一个新的shell子程序，该子程序的变量不会影响父程序
+
+而 source或 . 则是直接在父程序中执行
+
+---
+
+test 检测系统上某些文件或相关属性
+
+[] 表示判断符，注意括号内两端和每个元素间都要有空格，变量用双引号括起来，常数用单引号或双引号括起来
+
+---
+
+系统账号为系统运行所必须的内置账号，一般账号uid大于等于1000，系统账号uid小于1000
+
+初始群组：用户一登陆就获得的群组，记录在 /etc/passwd 中
+
+有效群组：groups 命令后列在第一个的，创建文件时默认该群组
+
+使用newgrp命令切换权限将打开一个新的shell，可通过exit返回原来的shell
+
+useradd 创建新用户，
+
+passwd 为用户设置密码
+
+usermod 修改用户设置
+
+userdel 删除用户，如只是删除用户信息，将 /etc/passwd和/etc/shadow中的账号取消即可，如只是禁用，将/ect/shadow中失效日期设为0即可
+
+id 查询自己的信息
+
+groupadd groupmod groupdel gpasswd 群组操作
+
+---
+
+ACL：Access Control List
+
+设置：setfacl
+
+查看：getfacl
+
+---
+
+su 加 - 表示用 login-shell 登陆，否则环境变量还是原来用户的
+
+---
+
+一些系统账号登记的shell为 /sbin/nologin 表示不可通过常用的bash等shell登录
+
+---
+
+PAM(Pluggable Authentication Modules) 是让各应用程序进行使用者认证的统一接口
+
+---
+
+w 或 who可查看当前登录的用户，lastlog 可查看最近登录记录
+
+---
+
+可使用 mail -s "邮件标题" username@localhost 给本机其它用户发邮件
+
+---
+
+个人用户真的需要折腾raid的，首选mainline内核加btrfs，其次密切关注bcachefs开发进展，LVM不是给非技术人员用的。
+
+---
+
+at 执行一次的指令，需atd服务开启
+
+contab 循环执行的指令，需crond服务开启
+

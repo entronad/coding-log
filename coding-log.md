@@ -853,6 +853,8 @@ ES5 的继承，实质是先创造子类的实例对象`this`，然后再将父�
 
 super关键字有作为父类构造函数和作为父类**原型**对象两种使用方式（是否加括号）
 
+super关键字只可在类定义中使用，在静态方法中指父类，在普通方法中指父类原型
+
 # 2018-11-30
 
 **javascript**
@@ -910,3 +912,28 @@ airbnb的eslint不让循环引用module
 当查看有问题的test时，将函数test临时改为test.only将使得此test为唯一执行的
 
 it就是test的别名
+
+# 2018-12-10
+
+**javascript**
+
+在传统中，prototype为构造函数的原型对象，实例对象的\_\_proto\_\_也指向它
+
+calss有 \_\_proto\_\_，指向父类，有prototype，B.prototype.__proto__ === A.prototype
+
+作为一个对象，子类（`B`）的原型（`__proto__`属性）是父类（`A`）；作为一个构造函数，子类（`B`）的原型对象（`prototype`属性）是父类的原型对象（`prototype`属性）的实例。
+
+子类实例的`__proto__`属性的`__proto__`属性，指向父类实例的`__proto__`属性。也就是说，子类的原型的原型，是父类的原型。即父类的原型对象（`prototype`）
+
+从实例获取类通过constructor
+
+类原型继承总结：
+
+类本质上是构造函数，实例可通过constructor获取类
+
+类的prototype取得该类的原型对象，类的\_\_proto\_\_指向父类
+
+类原型对象的\_\_proto\_\_指向父类的原型对象
+
+实例的\_\_proto\_\_指向类的原型对象
+

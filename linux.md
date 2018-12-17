@@ -574,3 +574,60 @@ at 执行一次的指令，需atd服务开启
 
 contab 循环执行的指令，需crond服务开启
 
+at 运行的本质就是将工作以文本的形式写入/var/spool/at/ 目录，
+
+开启atd 的指令是 systemctl restart atd / 开机启动 systemctl enable atd
+
+设置是否可设置at通过/etc/at.allow 和 /etc/at.deny控制
+
+atq 查询 atm移除
+
+batch 必须在负载低于0.8的情况下执行，所以常用来查看负载，管理上和at一样
+
+contab管理和at类似，所有cron执行的工作都会被记录在/var/log/cron内
+
+anacron用于确保重新开机后也会执行关机期间未执行的调度任务
+
+---
+
+在linux中，触发任何一个事件，系统都会将其定义为一个进程
+
+当程序被触发成进程时，会根据执行者生成权限/属性等参数
+
+父进程的PID称为PPID
+
+子进程的调用流程称为 fork-and-exec：
+
+首先复制一个与父进程完全一样，称为暂存进程，但PID不同的进程，它会多出一个PPID
+
+暂存进程以exec的方式载入实际要执行的子进程
+
+系统常驻的进程称为daemon（服务，守护进程）
+
+---
+
+linux 默认提供1-6号终端和一个图形界面，通过[alt] + f1-f7切换
+
+ps 指process status进程状态
+
+最常用的是查看自己bash的ps -l和查看所有ps aux
+
+top是动态的显示进程状态
+
+pstree显示进程树的相关性
+
+系统执行程序的优先级为priority PRI，使用者只能设置nice NI，当前的priority由上一个priority加nice求得
+
+---
+
+free 查看内存使用情况
+
+uname 查看系统与核心的信息
+
+uptime 查看系统启动时间和工作负载
+
+netstat 查看网络情况
+
+dmesg 分析核心产生的信息
+
+vmstat 侦测系统资源变化

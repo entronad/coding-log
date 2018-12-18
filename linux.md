@@ -631,3 +631,61 @@ netstat 查看网络情况
 dmesg 分析核心产生的信息
 
 vmstat 侦测系统资源变化
+
+---
+
+fuser 借由文件找出正在使用该文件的程序
+
+lsof 列出被程序所打开的文件文件名
+
+pidof 找出某程序正在被执行的pid
+
+---
+
+daemon是程序，service是进程
+
+控制服务的指令都在 systemctl 命令中
+
+服务不可简单的kill，这样systemctl会无法监控
+
+修改systemctl的配置不要在/usr/lib/systemd/system/目录内，而应该在/etc/systemd/system/内
+
+---
+
+定期任务还可用systemd.timer来设置
+
+---
+
+常用log文件：
+
+/var/log/boot.log 最近一次开机的boot信息
+
+/var/log/cron 按时调度的信息
+
+/var/log/dmesg 开机是核心侦测过程中产生的信息
+
+/var/log/lastlog 所有账号最近一次登录系统时的信息
+
+/var/log/mailog或/var/log/mail/* 邮件往来信息
+
+/var/log/messages 系统发生的错误信息
+
+/var/log/secure 涉及到需要输入账号密码的地方
+
+/var/log/wtmp，/var/log/faillog 正确与错误登录者的信息
+
+---
+
+对于“被编辑过就无法使用”的配置文件，不能用:wq离开vim环境
+
+---
+
+配置文件的轮替备份称为logrotate，通过/etc/logrotate.conf 和/etc/logrotate.d/进行配置
+
+---
+
+加载操作系统需要自己的boot loader，多系统中会在MBR和操作系统自己的文件系统中都保存一份boot loader，MBR中的boot loader只能有一个（后装的覆盖前面的），它可以负责转交其它loader。
+
+---
+
+由于核心的模块被放在/lib/modules/中，所以/lib与/不能放在不同分区

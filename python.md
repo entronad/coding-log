@@ -100,11 +100,11 @@ def abc(x):
 
 	一般的参数叫做位置参数，通过在参数表中的位置表明关系
 	
-	可变参数定义函数calc(\*numbers)会将传入的多个参数组成tuple，在调用时calc(\*[1,2,3])表示将该list作为可变参数传入
+	可变参数定义函数calc(*numbers)会将传入的多个参数组成tuple，在调用时calc(*[1,2,3])表示将该list作为可变参数传入
 	
 	关键字参数定义函数def person(name, age, **kw):会将传入的键值对作为dict传入，调用如person('Adam', 45, gender='M', job='Engineer')
 	
-	命名关键字参数为分隔符\*之后的参数def person(name, age, \*, city, job)，必须这样调用person('Jack', 24, city='Beijing', job='Engineer')，如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符了：def person(name, age, \*args, city, job):，命名关键字参数传入时必须带有参数名，命名关键字参数也可设置默认值def person(name, age, *, city='Beijing', job):
+	命名关键字参数为分隔符*之后的参数def person(name, age, *, city, job)，必须这样调用person('Jack', 24, city='Beijing', job='Engineer')，如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符了：def person(name, age, *args, city, job):，命名关键字参数传入时必须带有参数名，命名关键字参数也可设置默认值def person(name, age, *, city='Beijing', job):
 
 各类型顺序必须是：必选参数、默认参数、可变参数、命名关键字参数和关键字参数
 
@@ -248,6 +248,20 @@ Python中的函数是一级对象。这意味着Python中的函数的引用可�
 ---
 
 a ** b 为幂运算符
+
+---
+
+任何一个py文件都是一个模块
+
+py文件顶层的变量称为模块的属性，import XX 为导入的模块，可通过XX.yy使用模块的属性，或通过from XX import yy 直接导入模块的属性
+
+
+
+
+
+
+
+
 
 # python3改动
 

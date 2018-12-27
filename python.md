@@ -339,6 +339,22 @@ True 和 False 本质上是 1 和 0 ,所以 True == 1 True + 4 == 5
 
 list也可以用 + * 进行拼接和重复
 
+---
+
+字典的 D.keys()  D.values()  D.items() 返回结果都是迭代器，外面需套list()。D.items()元素为元组，
+
+字典的键可以为任何不可变对象
+
+字典的特殊构造方式：
+
+dict(name='mel', age=45)  键只能是字符串
+
+dict(('name', 'mel'), ('age', 45))
+
+dict.fromkeys(['a', 'b'], 0)  传入键的列表，和所有值的默认值
+
+D = {k: v for (k, v) in zip(['a', 'b', 'c'], [1, 2, 3])}  解析表达式
+
 
 
 

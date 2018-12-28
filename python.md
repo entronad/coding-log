@@ -225,7 +225,7 @@ for i, element in enumerate(seq):
 
 ---
 
-google lint
+# google lint
 
 句末不加分号
 
@@ -355,9 +355,37 @@ dict.fromkeys(['a', 'b'], 0)  传入键的列表，和所有值的默认值
 
 D = {k: v for (k, v) in zip(['a', 'b', 'c'], [1, 2, 3])}  解析表达式
 
+---
 
+一组直接用逗号隔开的对象表示元组定义
 
+---
 
+文件通过内置open函数打开，参数 w 指写入，r 指读取， +指读写
+
+b指二进制，文本文件内容为str字符串，自动执行Unicode编码和解码和末尾换行，二进制为特殊的bytes字符串类型，可以不修改的访问
+
+pickle 是用来序列化与解析文件内容到python对象的工具
+
+---
+
+== 检验相等性，is 检验一致性
+
+---
+
+真假的概念是每个对象的固有属性，对于数字对象，0为假，其它为真；对于非数字对象，空为假，非空为真
+
+None是一类特殊对象的唯一值，永远为假，不代表未定义
+
+真假的本质是整数1和0，bool类型是对其的包装
+
+类型也是一类对象，内置类型标准名称为dict, list, str, tuple, int, float, complex, byte, type, set, file，可用同名的函数来定制类型
+
+赋值语句是引用而不是拷贝
+
+---
+
+由于GIL（global interperator lock）的存在，python的多线程不能利用多核，利用多核需使用多进程multiprocessing
 
 
 
@@ -374,3 +402,7 @@ zip返回值要加个list（）
 整型与长整型合并，8进制不可只加0
 
 集合可通过{1, 2, 3}的字面量创建
+
+字典不可比较大小，没有has_key
+
+cPickle 变成了pickle

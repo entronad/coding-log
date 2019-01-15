@@ -75,3 +75,9 @@
 **javascript**
 
 父类构造函数有参数的，记得子类构造函数用...args传给super
+
+# 2019-01-15
+
+**javascript**
+
+import中.js后缀名是否省略，文件夹是否默认导入index.js不是由标准决定的，airbnb认为文件不加后缀名是最佳实践

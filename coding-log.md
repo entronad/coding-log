@@ -89,3 +89,13 @@ import中.js后缀名是否省略，文件夹是否默认导入index.js不是由
 在浏览器中，如果script标签引入的是module，要加type="module"，import中模块不可省略后缀名，也没有默认的index.js
 
 浏览器加载中的import文件一定要放在服务器上不能直接通过文件系统，这样会引发跨域错误
+
+# 2019-01-17
+
+**javascript**
+
+特别注意当作为表达式时，a++的值为加之前的，a+=1的值为加之后的，++a为加之前的
+
+**vscode**
+
+在debug配置中，传给启动程序（比如node）的参数给runtimeArgs，传给脚本（比如index.js）的参数给args

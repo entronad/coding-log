@@ -99,3 +99,17 @@ import中.js后缀名是否省略，文件夹是否默认导入index.js不是由
 **vscode**
 
 在debug配置中，传给启动程序（比如node）的参数给runtimeArgs，传给脚本（比如index.js）的参数给args
+
+# 2019-01-20
+
+**javascript**
+
+ArrayBuffer构造函数传入的是字节数，如果传入的参数大，可能会分派失败
+
+通过给TypedArray传入另一个TypedArray的方式的构造函数，底层是一个新的ArrayBuffer，如需同一个ArrayBuffer，可传入typedArray.buffer
+
+TypedArray与普通数组比，没有concat
+
+x86 体系的计算机都采用小端字节序，TypedArray 数组内部也采用小端字节序读写数据，或者更准确的说，按照本机操作系统设定的字节序读写数据，如要设定字节序用DataView
+
+`TypedArray`视图，是用来向网卡、声卡之类的本机设备传送数据，所以使用本机的字节序就可以了；而`DataView`视图的设计目的，是用来处理网络设备传来的数据，所以大端字节序或小端字节序是可以自行设定的

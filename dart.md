@@ -310,6 +310,10 @@ void main() {
 
 
 
+dart项目安装用 pub get 指令
+
+flutter项目安装用 flutter packages get
+
 
 
 

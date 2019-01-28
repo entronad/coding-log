@@ -10,6 +10,8 @@
 
 层叠使用[`Stack`](https://docs.flutter.io/flutter/widgets/Stack-class.html)
 
+---
+
 StatelessWidget的build方法在三种情况下调用：
 
 - 当挂载到树中时
@@ -21,6 +23,8 @@ StatefullWidget本身不需要build方法，一切依靠state，必须要一个�
 State必须要有build方法返回视图
 
 一个组件的state一般都是交给父组件管理，除非动画
+
+---
 
 路由靠[Route](https://docs.flutter.io/flutter/widgets/Route-class.html) （screen的抽象）和 [Navigator](https://docs.flutter.io/flutter/widgets/Navigator-class.html) （管理routes）
 
@@ -64,6 +68,10 @@ Widget 的主要作用是实现build方法
 
 [Expanded](https://docs.flutter.io/flutter/widgets/Expanded-class.html) 铺满剩余空间的组件，它有决定比例的flex参数
 
+起到绘图作用的Widget是 [`CustomPaint`](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html)和[`CustomPainter`](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html)
+
+---
+
 Widget的所有成员变量都应该是final
 
 ---
@@ -91,3 +99,38 @@ flutter:
 ---
 
 Widget构造函数的参数都是命名参数
+
+---
+
+打包命令是在根目录下执行flutter build apk 生成的在根目录下build文件中
+
+当没有设置release key时，默认用debug key代替让你可打包，但记得正是发布时要替换
+
+---
+
+Widget与State
+
+Widget是一种临时的对象，仅用来构建App当前的表现，任何Widget（stateless、statefull）都是immutable的，仅可有final成员变量，
+
+Widget的核心是build方法，它返回挂载到树上的Widget
+
+StatefullWidget本身没有可变的状态，它没有build方法，但有createState，它返回一个State，依靠State管理可变状态、用build返回挂载到树上的Widget
+
+State对象在两次调用它自身build方法之间是持久化的，State状态的更新通过显示的调用setState方法，它的参数为一个匿名函数，函数的内容可以写的随意点，类似react，setSate一般是异步的。
+
+仅当同一种StatefullWidget第一次被挂载时createState被调用生成State实例，当父Widget重构时，StatefullWidget会重构实例，但State的实例不会发生变化，State的build返回的Widget也会复用，仅当调用setState时，它的build方法会复用，返回新Widget
+
+StatefullWidget两者的联系：State传入StatefullWidget作为泛型，StatefullWidget仅用来通过成员变量传递父组件的参数，State通过内置的widget 参数获得包裹的StatefullWidget对象
+
+---
+
+生命周期方法属于Sate而不是Widget，有：
+
+[initState](https://docs.flutter.io/flutter/widgets/State-class.html#initState)
+
+ [dispose](https://docs.flutter.io/flutter/widgets/State-class.html#dispose) 
+
+---
+
+Widget的比对靠的是类型，当有大量同类的Widget时，可以使用key，global key
+

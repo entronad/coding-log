@@ -326,6 +326,10 @@ library的内容放在lib文件夹下，该文件夹中通过一个与library同
 
 导入其它library的文件，需加package:指令，在同一个library中，也可使用相对路径，但不能跨lib文件夹，保险的方式是都用package:
 
+相对路径不需要.开头，绝对路径巧用package:指令
+
+如果命名冲突，要用as show hide等方法
+
 ---
 
 面向对象的继承体系同时基于 class 和 mixin
@@ -384,4 +388,29 @@ typedef Compare<T> = int Function(T a, T b);
 
 ---
 
-匿名函数，箭头函数：有大括号的不要加箭头，就一个表达式的要加箭头
+匿名函数，箭头函数：有大括号的不要加箭头，就一个表达式的要加箭头，参数只有一个也要加括号
+
+---
+
+在List和Map的字面量前可用\<\>指定泛型
+
+---
+
+const 必然是final的
+
+实例只能是final
+
+final在第一次用到时初始化
+
+类中的const 一定是static const
+
+const写在应用类型的值前面表示它是编译时固定了
+
+const只能被赋予编译时常量，如果被赋给了引用类型，该值会编译时固定
+
+在const作用域内的const都可省略
+
+---
+
+String中变量$后面如果是一个标识符，大括号可省略
+

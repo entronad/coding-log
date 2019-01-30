@@ -22,7 +22,9 @@ StatefullWidget本身不需要build方法，一切依靠state，必须要一个�
 
 State必须要有build方法返回视图
 
-一个组件的state一般都是交给父组件管理，除非动画
+---
+
+状态一般交由容器父组件管理，子组件仅管理自身的动画等状态
 
 ---
 
@@ -134,3 +136,94 @@ StatefullWidget两者的联系：State传入StatefullWidget作为泛型，Statef
 
 Widget的比对靠的是类型，当有大量同类的Widget时，可以使用key，global key
 
+---
+
+布局依靠 [layout widgets](https://flutter.io/docs/development/ui/widgets/layout) ，视图组件放在它的child或children参数中
+
+---
+
+一般整个App是一个StatelessWidget，其build方法，如果要MD返回一个MaterialApp，首页放在其home参数中。
+
+如果需要的是一个完整的页面（包含title等），用Scaffold
+
+---
+
+assets可仅指明文件夹名表示其中所有文件都包括，目录地址相对于pubspec.yaml文件：
+
+```
+flutter:
+  assets:
+    - assets/
+```
+
+---
+
+yaml
+
+递归式命名
+
+大小写敏感
+
+仅可使用空格缩进
+
+数据结构类型：对象、数组
+
+\# 注释
+
+对象：
+
+```
+animal: pets
+hash: { name: Steve, foo: bar } 
+```
+
+数组
+
+```
+- Cat
+- Dog
+- Goldfish
+
+-
+ - Cat
+ - Dog
+ - Goldfish
+```
+
+http://www.ruanyifeng.com/blog/2016/07/yaml.html
+
+---
+
+使用assets中的图片或package的assets中的图片可以：
+
+```
+AssetImage('graphics/background.png')
+
+AssetImage('icons/heart.png', package: 'my_icons')
+```
+
+---
+
+screens和pages合称routes
+
+跳转最基本的方法是 [`Navigator.push()`](https://docs.flutter.io/flutter/widgets/Navigator/push.html)和 [`Navigator.pop()`](https://docs.flutter.io/flutter/widgets/Navigator/pop.html)
+
+第一个参数都是context，push第二个参数是Route
+
+Route作用是占据整个屏幕，并提供页面跳转的动画，它传入一个builder参数，返回Widget。常用的是MaterialPageRoute
+
+push是一个异步方法，返回的Future的result可由目标路由的pop方法的第二个参数设置
+
+跳转到命名路由用 [`Navigator.pushNamed`](https://docs.flutter.io/flutter/widgets/Navigator/pushNamed.html)方法，此时需要在App中传入routes（路由名与builder的键值对）和initialRoute，此时不要home了
+
+---
+
+State的构造函数中不可调用setState
+
+---
+
+在hotreload使用中以下情况会出问题：Widget的stateful、stateless类型改变，枚举类型变成普通类，类定义的泛型变化
+
+---
+
+App Widget ，Scaffold也可以作为路由的返回值

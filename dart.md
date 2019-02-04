@@ -531,3 +531,251 @@ operator关键字，函数名为操作符，可以重写操作符
 定义noSuchMethod()方法可以确定调用未定义的方法时的行为
 
 只有dynamic类型、定义了unimplemented方法的static类型或实现了noSuchMethod()的对象可以唤起未实现的方法
+
+---
+
+枚举是一种特别的类，定义方式如下：
+
+```
+enum Color { red, green, blue }
+```
+
+一般调用时类似Color.blue，常用于switch判断
+
+Color.blue.index可以获取值的序号，Color.values可以获取所有枚举的列表
+
+---
+
+mixin的作用是复用代码，
+
+mixin以mixin关键字代替class，可以用 on 指明可以应用到哪些类，以便使用这些类中的方法
+
+调用时使用with关键字
+
+---
+
+泛型在运行时依然存在，在运行时可以检测一个类型的泛型，这是dart和java的区别
+
+要限制参数的类型，可以使用extends关键字
+
+---
+
+函数泛型
+
+定义在first\<T\> 里，可在返回类型、参数类型、本地变量类型中使用
+
+---
+
+async函数调用时会同步执行，直到遇到await
+
+处理Stream可以使用await for语句或Stream的API
+
+---
+
+同步generator函数关键字是sync\*，返回类型是Iterable,
+
+异步generator函数关键字是async\*，返回类型是Stream
+
+---
+
+涉及多核多线程使用Isolate
+
+---
+
+dart:core 会自动引入所有程序中
+
+---
+
+parse可用关键字参数radix指定进制
+
+toStringAsFixed可指定小数位数，toStringAsPrecision可指定有效数字（1.2e+2）
+
+---
+
+字符串常用方法：
+
+contains
+
+startsWith
+
+endsWith
+
+indexOf
+
+substring
+
+spilt
+
+直接通过[]取第几个字符
+
+toUpperCase
+
+toLowerCase
+
+trim
+
+isEmpty
+
+isNotEmpty
+
+replaceAll
+
+注意字符串是不可变的，所以以上方法都是返回新的字符串
+
+StringBuffer可以用来构建字符串，在执行toString方法前都可改动：
+
+```
+var sb = StringBuffer();
+sb
+  ..write('Use a StringBuffer for ')
+  ..writeAll(['efficient', 'string', 'creation'], ' ')
+  ..write('.');
+
+var fullString = sb.toString();
+
+assert(fullString ==
+    'Use a StringBuffer for efficient string creation.');
+```
+
+---
+
+RegExp的规则同js
+
+方法有contains, replaceAll, hasMatch, allMatches
+
+---
+
+List方法：add, addAll, indexOf, removeAt, clear, sort
+
+---
+
+Set类型方法：add, addAll, remove, contains, containsAll, Set.from, intersection（交集）
+
+---
+
+Map类型方法：keys,values表示键和值的遍历器，containsKey, putIfAbsent（如果没有此键就加入）
+
+---
+
+map方法返回的是可遍历对象，注意可遍历对象是惰性求值的，如果需要立即求值需要加上toList
+
+返回所有符合条件的对象where, 判断是否符合条件any, every，它们都是可遍历对象的方法
+
+---
+
+处理URI、URL用Uri对象
+
+---
+
+处理时间对象为DateTime
+
+获取当前时间 DateTime.now()
+
+时间段对象为Duration对象
+
+---
+
+要使一个类的实例可比较，要实现Comparable接口，重写compareTo方法
+
+---
+
+每个对象都有个hashCode getter，供map方法使用，可以重写
+
+---
+
+Future有then、catchError方法
+
+async函数一定返回Future
+
+多个Future完成用 Future.awit方法
+
+---
+
+Stream 常用于监听点击事件，它可用listen方法监听
+
+```
+// Find a button by ID and add an event handler.
+querySelector('#submitInfo').onClick.listen((e) {
+  // When the button is clicked, it runs this code.
+  submitData();
+});
+```
+
+添加对返回值的处理用transform
+
+处理错误和结束给listen传入onError和onDone
+
+---
+
+数学处理在
+
+```
+import 'dart:math';
+```
+
+中
+
+随机数通过Random对象获取，有多种类型：
+
+```
+var random = Random();
+random.nextDouble(); // Between 0.0 and 1.0: [0, 1)
+random.nextInt(10); // Between 0 and 9.
+random.nextBool(); // true or false
+```
+
+---
+
+数据转换处理在
+
+```
+import 'dart:convert';
+```
+
+中
+
+JSON处理有jsonDecode和jsonEncode
+
+UTF8字符串处理有utf8.decode和utf8.encode
+
+# lint
+
+类型名（class typedef）用大写驼峰，包括注解的类，
+
+如果注解类只有无参的构造函数，可以赋给一个const常量方便使用，此时用小写驼峰：
+
+```
+const foo = Foo();
+
+@foo
+class C { ... }
+```
+
+文件名、包名、import中的前缀，用小写下划线
+
+常量也用小写驼峰
+
+缩写也要进行驼峰化
+
+import顺序为dart:, 外部package, 内部package 相对路径
+
+export 放到所有inport之后
+
+不建议使用part
+
+不要直接引入其他lib的src中的内容
+
+引入自己lib中 的内容用相对路径
+
+对于字面量字符串，用拼接不要用+, 尽量用\$,\$后面能不要大括号就不要大括号
+
+集合尽量用字面量定义
+
+判断集合是不是空用isEmpty和isNotEmpty，不要length
+
+当要定义新的回调函数时，用for in循环而不是forEach
+
+可遍历对象转换为数组时，用toList而不是List.from除非你要改变元素类型，因为这会改变元素类型
+
+要过滤集合的类型用whereType
+

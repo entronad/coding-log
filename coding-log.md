@@ -119,3 +119,9 @@ x86 体系的计算机都采用小端字节序，TypedArray 数组内部也采�
 **javascript**
 
 ArrayBuffer构造函数传入的字节数如果大于1E9，视图获取length会失败
+
+# 2019-02-03
+
+**git**
+
+git bash 中如果要执行.bat需加上XX.bat

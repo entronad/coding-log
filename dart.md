@@ -738,6 +738,20 @@ JSON处理有jsonDecode和jsonEncode
 
 UTF8字符串处理有utf8.decode和utf8.encode
 
+---
+
+赋值运算是表达式
+
+---
+
+类型FutureOr\<T\>只T或Future\<T\>
+
+
+
+
+
+
+
 # lint
 
 类型名（class typedef）用大写驼峰，包括注解的类，
@@ -778,4 +792,48 @@ export 放到所有inport之后
 可遍历对象转换为数组时，用toList而不是List.from除非你要改变元素类型，因为这会改变元素类型
 
 要过滤集合的类型用whereType
+
+尽量不要用cast()
+
+当函数需要名字时，使用函数声明式
+
+连接参数的默认值既可以是=也可是:，尽量用=
+
+没有显示指明的可选参数的默认值是null，不需要显式指明
+
+变量初始化为null不需要显式指明
+
+类的成员变量不应该存储冗余的可从其它成员推断的量
+
+在java和c井中，getter和直接调用成员的机制不同，所以成员都应该通过getter访问，但dart中是相同的，所以不需要给直接调用成员设置getter
+
+只读成员应设为final
+
+对于简单的函数，使用箭头函数，对于复杂的逻辑（超过两三行）不要用箭头函数
+
+简单的函数即使不需要返回值也可以用箭头函数，特别是有对应getter的setter
+
+当没有冲突时，类定义中指代成员不需要this，构造函数中不需要this
+
+尽可能在定义式中初始化成员
+
+不要使用new
+
+以下情况属于const环境，其中的变量是自动的const不需要添加const关键字：const集合字面量，const构造函数，注解，const变量的声明，switch语句中case紧跟的对比项
+
+尽量不要有没有on的catch语句，即使有，也要做好处理
+
+程序的bug用Error，运行时的问题用Exception
+
+不要捕获Error，应该修好bug
+
+需要继续抛异常使用rethrow
+
+尽量使用async/await而不是直接使用Future
+
+注意不要滥用async
+
+尽量不要直接使用Completer
+
+FutureOr的测试中要将Future\<T\>作为第一判断分支，以防T为Object
 

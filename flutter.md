@@ -204,6 +204,8 @@ AssetImage('icons/heart.png', package: 'my_icons')
 
 ---
 
+routes是MaterialApp的属性
+
 screens和pages合称routes
 
 跳转最基本的方法是 [`Navigator.push()`](https://docs.flutter.io/flutter/widgets/Navigator/push.html)和 [`Navigator.pop()`](https://docs.flutter.io/flutter/widgets/Navigator/pop.html)
@@ -215,6 +217,10 @@ Route作用是占据整个屏幕，并提供页面跳转的动画，它传入一
 push是一个异步方法，返回的Future的result可由目标路由的pop方法的第二个参数设置
 
 跳转到命名路由用 [`Navigator.pushNamed`](https://docs.flutter.io/flutter/widgets/Navigator/pushNamed.html)方法，此时需要在App中传入routes（路由名与builder的键值对）和initialRoute，此时不要home了
+
+不全遮挡的路由通过[PopupRoute](https://docs.flutter.io/flutter/widgets/PopupRoute-class.html)实现
+
+定制路由通过 [PageRouteBuilder](https://docs.flutter.io/flutter/widgets/PageRouteBuilder-class.html) 实现
 
 ---
 

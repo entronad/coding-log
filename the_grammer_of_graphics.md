@@ -27,3 +27,9 @@ variable 对象到值的映射，连续的值为continuous 有限整数值为cat
 varset variable反过来，值到对象的映射
 
 frame 多维varset所有可能的tuple的集合
+
+---
+
+data是symbolic representations of observations or thoughts about the world
+
+data大致分为三类：empirical, abstract, meta

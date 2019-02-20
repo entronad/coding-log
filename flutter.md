@@ -233,3 +233,7 @@ State的构造函数中不可调用setState
 ---
 
 App Widget ，Scaffold也可以作为路由的返回值
+
+---
+
+Widget中常见的contex类是BuildContext ，它用来表明此组件及其子组件在数中的位置，很多类可通过静态方法of将其添加到实例中

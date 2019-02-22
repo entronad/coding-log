@@ -6,7 +6,7 @@
 
 ---
 
-起到绘图作用的Widget是 [`CustomPaint`](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html)和[`CustomPainter`](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html)
+起到绘图作用的Widget是 [`CustomPaint`](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html)和[`CustomPainter`](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html) 的子类，Painter传递给Paint的painter属性
 
 层叠使用[`Stack`](https://docs.flutter.io/flutter/widgets/Stack-class.html)
 
@@ -204,6 +204,12 @@ AssetImage('icons/heart.png', package: 'my_icons')
 
 ---
 
+MaterialApp是一种特殊的Navigator，虽然它们之间没有继承关系，Navigator一般被用来调用其静态方法
+
+Scaffold 起到Screen（Route）的作用
+
+MaterialApp、Scaffold都是Widget，可以被放到可以放Widget的地方
+
 routes是MaterialApp的属性
 
 screens和pages合称routes
@@ -232,8 +238,8 @@ State的构造函数中不可调用setState
 
 ---
 
-App Widget ，Scaffold也可以作为路由的返回值
+Widget中常见的contex类是BuildContext ，它用来表明此组件及其子组件在数中的位置，很多类可通过静态方法of将其添加到实例中
 
 ---
 
-Widget中常见的contex类是BuildContext ，它用来表明此组件及其子组件在数中的位置，很多类可通过静态方法of将其添加到实例中
+scaffold的body属性一般放在Center中

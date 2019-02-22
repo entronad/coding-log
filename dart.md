@@ -837,3 +837,4 @@ export 放到所有inport之后
 
 FutureOr的测试中要将Future\<T\>作为第一判断分支，以防T为Object
 
+不要重写类的字段，如有需要，用getter setter处理

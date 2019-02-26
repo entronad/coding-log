@@ -125,3 +125,13 @@ ArrayBuffer构造函数传入的字节数如果大于1E9，视图获取length会
 **git**
 
 git bash 中如果要执行.bat需加上XX.bat
+
+# 2019-02-26
+
+**react-native**
+
+很多老版本的库其原生依赖jcenter中可能没有了，需手动进入其源代码添加优先的google()
+
+**android**
+
+AndroidManifest中有uses-sdk标签指定android:minSdkVersion和android:targetSdkVersion

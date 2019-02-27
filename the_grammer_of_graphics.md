@@ -33,3 +33,13 @@ frame 多维varset所有可能的tuple的集合
 data是symbolic representations of observations or thoughts about the world
 
 data大致分为三类：empirical, abstract, meta
+
+empirical 是collected from observations of the real world 即我们通常意义上的data，处理empirical data的函数有col、map、stream、image、sample、reshape等
+
+Abstract data 是arise from formal models 即m、n等，处理函数有iter、count、mesh、rand等
+
+metadata 是 data on data 
+
+---
+
+reshape是将不同形状的data变成column，它后面跟的函数名是data本来的形状

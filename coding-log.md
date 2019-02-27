@@ -135,3 +135,13 @@ git bash 中如果要执行.bat需加上XX.bat
 **android**
 
 AndroidManifest中有uses-sdk标签指定android:minSdkVersion和android:targetSdkVersion
+
+# 2019-02-27
+
+**git**
+
+git add 只会添加当前目录及子目录的内容，如要添加仓库所有改动，确保在根目录下执行
+
+**android**
+
+26版本之后，关键权限一定要求用户在App中确认了

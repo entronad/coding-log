@@ -43,3 +43,47 @@ metadata 是 data on data
 ---
 
 reshape是将不同形状的data变成column，它后面跟的函数名是data本来的形状
+
+---
+
+transform 是 transformations on variables 有mathematical, statistical, multivariate（多元）等类型
+
+---
+
+corss(\*)和nest(/)的区别，
+
+A\*B的可能域结果是A与B所有可能的组合，
+
+A/B的可能域要剔除两者没有交集的情况，含义是a whithin b
+
+blend(+)指取并
+
+理论上只要以上三种运算就可以了，还有以下简写：
+
+exponentiation(^)是多次cross的缩写
+
+dot-cross(·)是对应元素cross
+
+---
+
+cross, nest, blend 都满足结合律
+
+cross, nest 满足分配律
+
+0元素是空集，单位元素是所有肯能情况的集合
+
+没有交换律
+
+---
+
+symbol 和 operator的组合称为expression，没有+的expression称为term，没有 *的term称为factor，只有一个term的expression称为monomial，不止一个term的expression称为polynomial
+
+algebraic form指所有term的factor数量一样的expression，此数量称为其order
+
+---
+
+运算符的优先级顺序是 nest > cross > blend
+
+---
+
+轴可分为以下几类：norminal, ordinal, interval, ratio

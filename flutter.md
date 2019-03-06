@@ -243,3 +243,21 @@ Widget中常见的contex类是BuildContext ，它用来表明此组件及其子�
 ---
 
 scaffold的body属性一般放在Center中
+
+---
+
+BottomNavigationBarItem无标题还不能实现，只能先把标题设为Container(height: 0.0)
+
+---
+
+自定义颜色用32位色Color类（dart:ui)，构造函数可直接传入0xAARRGGBB的16进制数，注意忘了AA会永远透明，也可用Color.fromARGB，这样每一位可是16进制或10进制，Color.fromRGBO，这样透明度用最后一位小数表示
+
+---
+
+在某些强制使用Theme参数而不可直接设置的地方，可以通过嵌套Theme来设置自己想要的效果
+
+---
+
+**Animation**
+
+动画分两种tween animation和physics-based animation

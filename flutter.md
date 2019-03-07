@@ -261,3 +261,48 @@ BottomNavigationBarItem无标题还不能实现，只能先把标题设为Contai
 **Animation**
 
 动画分两种tween animation和physics-based animation
+
+---
+
+基本绘图类
+
+ [CustomPaint](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html)：(flutter) 提供canvas的widget，它最主要的功能是定义painter 和 foregroundPainter 和child
+
+绘图顺序：自己的canvas -> 子元素绘图 -> 自己的foregroundPainter
+
+只能在自己的尺寸内绘制，出去会导致未定义的行为
+
+它的绘制行为由Painter控制，不可使用setState和markNeedsLayout
+
+决定大小的顺序是：包裹子元素 -> size属性（默认是0）
+
+
+
+ [CustomPainter](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html)：(flutter) 给CustomPaint使用的接口，主要功能是定义paint 和 shouldRepaint方法
+
+paint方法在任何需要重绘的时候调用，paint方法会传入canvas和size，其中进行对canvas的绘制
+
+shouldRepaint方法在类生成新实例的时候决定是否需要重绘。常通过以下两种方式触发repaint：
+
+- 继承此类，并传入repaint参数给构造函数，该参数对象会通知何时repaint
+- 继承一个 [Listenable](https://docs.flutter.io/flutter/foundation/Listenable-class.html) 或其实现类，实现 [CustomPainter](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html)接口，这样其本身就能提供通知
+
+
+
+[Canvas](https://docs.flutter.io/flutter/dart-ui/Canvas-class.html)：(dart:ui) 记录图形操作的接口，
+
+canvas有一个作用于所有操作的transformation matrix，初始为1矩阵，可通过translate, scale, rotate, skew, transfrom等方法修改
+
+canvas有一个作用于所有操作的clip region，初始为无穷大，可通过clipRect, clipRRect, clipPath等方法修改
+
+这两个状态可通过 save, saveLayer, restore等方法进行栈操作
+
+Canvas创建的是 [Picture](https://docs.flutter.io/flutter/dart-ui/Picture-class.html) 对象，但这由框架处理开发者不用管
+
+
+
+ [Paint](https://docs.flutter.io/flutter/dart-ui/Paint-class.html) ：(dart:ui) 描述canvas上绘图样式的类，大部分canvas的API中都会带一个Paint对象以描述样式
+
+
+
+**总结** 绘图主要操作对象是canvas对象，开发者的绘图定义在Painter中

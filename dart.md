@@ -746,6 +746,18 @@ UTF8字符串处理有utf8.decode和utf8.encode
 
 类型FutureOr\<T\>只T或Future\<T\>
 
+---
+
+工厂构造函数需添加factory关键字以便能按构造函数的方式调用
+
+
+
+
+
+
+
+
+
 
 
 

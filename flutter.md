@@ -306,3 +306,7 @@ Canvas创建的是 [Picture](https://docs.flutter.io/flutter/dart-ui/Picture-cla
 
 
 **总结** 绘图主要操作对象是canvas对象，开发者的绘图定义在Painter中
+
+---
+
+类似react中的，ref需要的是state而不是Widget

@@ -6,7 +6,7 @@
 
 ---
 
-起到绘图作用的Widget是 [`CustomPaint`](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html)和[`CustomPainter`](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html)
+起到绘图作用的Widget是 [`CustomPaint`](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html)和[`CustomPainter`](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html) 的子类，Painter传递给Paint的painter属性
 
 层叠使用[`Stack`](https://docs.flutter.io/flutter/widgets/Stack-class.html)
 
@@ -204,6 +204,14 @@ AssetImage('icons/heart.png', package: 'my_icons')
 
 ---
 
+MaterialApp是一种特殊的Navigator，虽然它们之间没有继承关系，Navigator一般被用来调用其静态方法
+
+Scaffold 起到Screen（Route）的作用
+
+MaterialApp、Scaffold都是Widget，可以被放到可以放Widget的地方
+
+routes是MaterialApp的属性
+
 screens和pages合称routes
 
 跳转最基本的方法是 [`Navigator.push()`](https://docs.flutter.io/flutter/widgets/Navigator/push.html)和 [`Navigator.pop()`](https://docs.flutter.io/flutter/widgets/Navigator/pop.html)
@@ -216,6 +224,10 @@ push是一个异步方法，返回的Future的result可由目标路由的pop方�
 
 跳转到命名路由用 [`Navigator.pushNamed`](https://docs.flutter.io/flutter/widgets/Navigator/pushNamed.html)方法，此时需要在App中传入routes（路由名与builder的键值对）和initialRoute，此时不要home了
 
+不全遮挡的路由通过[PopupRoute](https://docs.flutter.io/flutter/widgets/PopupRoute-class.html)实现
+
+定制路由通过 [PageRouteBuilder](https://docs.flutter.io/flutter/widgets/PageRouteBuilder-class.html) 实现
+
 ---
 
 State的构造函数中不可调用setState
@@ -226,4 +238,75 @@ State的构造函数中不可调用setState
 
 ---
 
-App Widget ，Scaffold也可以作为路由的返回值
+Widget中常见的contex类是BuildContext ，它用来表明此组件及其子组件在数中的位置，很多类可通过静态方法of将其添加到实例中
+
+---
+
+scaffold的body属性一般放在Center中
+
+---
+
+BottomNavigationBarItem无标题还不能实现，只能先把标题设为Container(height: 0.0)
+
+---
+
+自定义颜色用32位色Color类（dart:ui)，构造函数可直接传入0xAARRGGBB的16进制数，注意忘了AA会永远透明，也可用Color.fromARGB，这样每一位可是16进制或10进制，Color.fromRGBO，这样透明度用最后一位小数表示
+
+---
+
+在某些强制使用Theme参数而不可直接设置的地方，可以通过嵌套Theme来设置自己想要的效果
+
+---
+
+**Animation**
+
+动画分两种tween animation和physics-based animation
+
+---
+
+基本绘图类
+
+ [CustomPaint](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html)：(flutter) 提供canvas的widget，它最主要的功能是定义painter 和 foregroundPainter 和child
+
+绘图顺序：自己的canvas -> 子元素绘图 -> 自己的foregroundPainter
+
+只能在自己的尺寸内绘制，出去会导致未定义的行为
+
+它的绘制行为由Painter控制，不可使用setState和markNeedsLayout
+
+决定大小的顺序是：包裹子元素 -> size属性（默认是0）
+
+
+
+ [CustomPainter](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html)：(flutter) 给CustomPaint使用的接口，主要功能是定义paint 和 shouldRepaint方法
+
+paint方法在任何需要重绘的时候调用，paint方法会传入canvas和size，其中进行对canvas的绘制
+
+shouldRepaint方法在类生成新实例的时候决定是否需要重绘。常通过以下两种方式触发repaint：
+
+- 继承此类，并传入repaint参数给构造函数，该参数对象会通知何时repaint
+- 继承一个 [Listenable](https://docs.flutter.io/flutter/foundation/Listenable-class.html) 或其实现类，实现 [CustomPainter](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html)接口，这样其本身就能提供通知
+
+
+
+[Canvas](https://docs.flutter.io/flutter/dart-ui/Canvas-class.html)：(dart:ui) 记录图形操作的接口，
+
+canvas有一个作用于所有操作的transformation matrix，初始为1矩阵，可通过translate, scale, rotate, skew, transfrom等方法修改
+
+canvas有一个作用于所有操作的clip region，初始为无穷大，可通过clipRect, clipRRect, clipPath等方法修改
+
+这两个状态可通过 save, saveLayer, restore等方法进行栈操作
+
+Canvas创建的是 [Picture](https://docs.flutter.io/flutter/dart-ui/Picture-class.html) 对象，但这由框架处理开发者不用管
+
+
+
+ [Paint](https://docs.flutter.io/flutter/dart-ui/Paint-class.html) ：(dart:ui) 描述canvas上绘图样式的类，大部分canvas的API中都会带一个Paint对象以描述样式
+
+
+
+**总结** 绘图主要操作对象是canvas对象，开发者的绘图定义在Painter中
+
+---
+
+类似react中的，ref需要的是state而不是Widget

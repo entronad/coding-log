@@ -750,6 +750,18 @@ UTF8字符串处理有utf8.decode和utf8.encode
 
 num类型中有三个特殊的值，double.nan  double.infinity  double.negativeInfinity，打印效果是NaN Infinity -Infinity，但不可直接通过关键字设置，可通过isFinite判断
 
+---
+
+工厂构造函数需添加factory关键字以便能按构造函数的方式调用
+
+
+
+
+
+
+
+
+
 
 
 
@@ -841,3 +853,4 @@ export 放到所有inport之后
 
 FutureOr的测试中要将Future\<T\>作为第一判断分支，以防T为Object
 
+不要重写类的字段，如有需要，用getter setter处理

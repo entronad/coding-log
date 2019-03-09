@@ -373,7 +373,7 @@ Point.origin() {
 
 位置参数变成可选需写到[]中，命名参数变成必须参数需加@required
 
-必须的位置参数写在最前面
+不能同时有命名可选参数与位置可选参数。[]{}只能出现一个且在最后，后面不能有逗号
 
 可选参数可用 = 添加默认值
 
@@ -745,6 +745,10 @@ UTF8字符串处理有utf8.decode和utf8.encode
 ---
 
 类型FutureOr\<T\>只T或Future\<T\>
+
+---
+
+num类型中有三个特殊的值，double.nan  double.infinity  double.negativeInfinity，打印效果是NaN Infinity -Infinity，但不可直接通过关键字设置，可通过isFinite判断
 
 
 

@@ -266,7 +266,7 @@ BottomNavigationBarItem无标题还不能实现，只能先把标题设为Contai
 
 基本绘图类
 
- [CustomPaint](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html)：(flutter) 提供canvas的widget，它最主要的功能是定义painter 和 foregroundPainter 和child
+**[CustomPaint](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html)**：(flutter) 提供canvas的widget，它最主要的功能是定义painter 和 foregroundPainter 和child
 
 绘图顺序：自己的canvas -> 子元素绘图 -> 自己的foregroundPainter
 
@@ -278,7 +278,7 @@ BottomNavigationBarItem无标题还不能实现，只能先把标题设为Contai
 
 
 
- [CustomPainter](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html)：(flutter) 给CustomPaint使用的接口，主要功能是定义paint 和 shouldRepaint方法
+**[CustomPainter](https://docs.flutter.io/flutter/rendering/CustomPainter-class.html)**：(flutter) 给CustomPaint使用的接口，主要功能是定义paint 和 shouldRepaint方法
 
 paint方法在任何需要重绘的时候调用，paint方法会传入canvas和size，其中进行对canvas的绘制
 
@@ -289,7 +289,7 @@ shouldRepaint方法在类生成新实例的时候决定是否需要重绘。常�
 
 
 
-[Canvas](https://docs.flutter.io/flutter/dart-ui/Canvas-class.html)：(dart:ui) 记录图形操作的接口，
+**[Canvas](https://docs.flutter.io/flutter/dart-ui/Canvas-class.html)**：(dart:ui) 记录图形操作的接口，
 
 canvas有一个作用于所有操作的transformation matrix，初始为1矩阵，可通过translate, scale, rotate, skew, transfrom等方法修改
 
@@ -303,7 +303,7 @@ Canvas创建的是 [Picture](https://docs.flutter.io/flutter/dart-ui/Picture-cla
 
  [Paint](https://docs.flutter.io/flutter/dart-ui/Paint-class.html) ：(dart:ui) 描述canvas上绘图样式的类，大部分canvas的API中都会带一个Paint对象以描述样式
 
-
+ [RenderCustomPaint](https://docs.flutter.io/flutter/rendering/RenderCustomPaint-class.html)：CustomPaint的createRenderObject方法的返回对象
 
 **总结** 绘图主要操作对象是canvas对象，开发者的绘图定义在Painter中
 

@@ -310,3 +310,7 @@ Canvas创建的是 [Picture](https://docs.flutter.io/flutter/dart-ui/Picture-cla
 ---
 
 类似react中的，ref需要的是state而不是Widget
+
+---
+
+widget一般

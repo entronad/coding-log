@@ -754,7 +754,9 @@ num类型中有三个特殊的值，double.nan  double.infinity  double.negative
 
 工厂构造函数需添加factory关键字以便能按构造函数的方式调用
 
+---
 
+泛型只能起到编译期辅助检查类型的作用，如不指定泛型则可以为任意类型，泛型不能做到根据不同类型决定选择分支的作用
 
 
 
@@ -854,3 +856,4 @@ export 放到所有inport之后
 FutureOr的测试中要将Future\<T\>作为第一判断分支，以防T为Object
 
 不要重写类的字段，如有需要，用getter setter处理
+

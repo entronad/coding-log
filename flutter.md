@@ -313,4 +313,10 @@ Canvas创建的是 [Picture](https://docs.flutter.io/flutter/dart-ui/Picture-cla
 
 ---
 
-widget一般
+虽然写程序的时候万物皆是Widget，但屏幕上视图树上的是Element，Widget不可修改，Element可修改，Element类实现了BuildContext，事实上我们使用的BuildContext就是Element, 为什么要封装这个接口主要是为了避免直接使用Element
+
+Navigator.of(context)的作用是向上遍历寻找最近的NavigatorState，故要确保传进来的context上方包含NavigatorState，比如有MaterialApp
+
+---
+
+对于Widget，只有新旧的key和runtimeType都变了才会更新Element

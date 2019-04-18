@@ -766,7 +766,13 @@ num类型中有三个特殊的值，double.nan  double.infinity  double.negative
 
 静态成员和方法，不会被继承和重写
 
+---
 
+mixin的优先级顺序是：子类最高，mixin越往后优先级越高，高于父类
+
+mixin的类直接继承自Object，且不能有构造函数
+
+可用mixin关键字代替class表明此类只可以mixin，加on表明只能被哪些类继承
 
 
 

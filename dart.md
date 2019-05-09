@@ -774,6 +774,30 @@ mixin的类直接继承自Object，且不能有构造函数
 
 可用mixin关键字代替class表明此类只可以mixin，加on表明只能被哪些类继承
 
+---
+
+比较 == !=的规则是
+
+1.如果有一个是null，则都是null为true，一个不为null为false
+
+2.都不为null，调用左边数的对应方法
+
+3.常用的内置类型都有类型不同的判定，不同类型为false
+
+---
+
+List越界会报错，[]适用[]运算符会报错，这点和js返回undefined不一样，可以用length进行检查
+
+[]调用first、last等字段会报错
+
+---
+
+dart的double和js的number一样，都是IEEE 754 64位浮点数，会遇到一样的浮点数精度问题
+
+
+
+
+
 
 
 
@@ -868,4 +892,6 @@ export 放到所有inport之后
 FutureOr的测试中要将Future\<T\>作为第一判断分支，以防T为Object
 
 不要重写类的字段，如有需要，用getter setter处理
+
+可以为任意类型用Object，dynamic有特殊的含义
 

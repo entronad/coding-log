@@ -320,3 +320,7 @@ Navigator.of(context)的作用是向上遍历寻找最近的NavigatorState，故
 ---
 
 对于Widget，只有新旧的key和runtimeType都变了才会更新Element
+
+---
+
+flutter中目前不准备有dart:mirrors，因为这会导致没法tree shaking

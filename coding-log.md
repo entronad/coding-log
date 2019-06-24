@@ -159,3 +159,356 @@ apply(this.a)    f(...a)
 ---
 
 concat(values1, values2)的作用：如果values不是数组，则放到原数组后面，是数组则取出元素放到数组后面，
+
+# 2019-06-13
+
+**css**
+
+当浏览器最大化时，chrome中window.innerWidth, window.outerWidth, screen.width都相等，火狐、IE等window.outerWidth会大于浏览器实际宽度
+
+vw, vh是相对于window.innerWidth, window.outerWidth
+
+---
+
+块级元素不仅仅是display: block的元素
+
+---
+
+对于绝对定位模型（absolute, fixed)，宽度默认是包裹性的，但当top等属性存在对位属性时，宽度表现为充满
+
+---
+
+内部尺寸的表现形式
+
+- 包裹性
+
+按钮有两种：
+
+```
+<button>按钮</button>
+<input type="button" value="按钮">
+```
+
+区别是input默认不换行
+
+按钮是inline-block具有典型的包裹性：宽度根据内容变大，但顶到父元素了内部会换行
+
+- 首选最小宽度
+
+CSS中图片和文字的权重是远大于布局的，width: auto最小的宽度不是0，而是单独汉字或英文单词（以空格, -, ?分隔除非设置了word-break:break-all）
+
+- 最大宽度
+
+最大连续内联盒子的宽度和
+
+---
+
+width作用在最内层的内容上（不含padding）
+
+# 2019-06-14
+
+**css**
+
+由于width是决定内容的，所以对于width的设置建议使用宽度分离原则，即width不与padding、border等设置在同一个元素上，而是设置在外面再嵌套的盒子上。也可以用box-sizeing，但它是没有margin-box的选项的
+
+理论上来讲，非替换元素都不需要设置width
+
+---
+
+替换元素的特点之一是无论display是inline还是block，尺寸由内容决定
+
+---
+
+父元素auto时，width可以设置百分比，高度不可设置百分比，这不是由于计算死循环引起的，事实上auto是不可以乘以百分比的，而width的auto浏览器都给其定义了数值规则
+
+absolut的元素高可设置百分比
+
+绝对定位的百分比相对于padding box 其它的相对于content box
+
+---
+
+width/height默认值是auto，min-width/min-height默认值是auto，max-width/max-height默认值是none
+
+max- min- 的优先级比!important还高，min- 和 max- 冲突时min-优先级高 
+
+---
+
+为高度不定的元素设置收起动画，可用max-height ，为其设置一个保证足够的最小值
+
+```
+element {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s
+}
+element.active {
+    max-height: 666px;
+}
+```
+
+---
+
+内联元素中重要的盒子
+
+- 内容区域：指围绕文字的看不见的区域，通常为鼠标选中文本的区域（chrome略有偏差）
+- 内联盒子：内联标签的盒子，如果是单独的文字构成匿名内联盒子，注意如果单独文字在块级标签中则构成匿名块级盒子
+- 行框盒子：指每一行，由内联盒子组成
+- 包含盒子（包含块）指所有行盒子构成的
+
+在HTML5中每个行框如同前面有一个空白节点一样，它不占任何宽度，但有高度，称为strut
+
+---
+
+替换元素有默认尺寸，比如img是0，video, iframe, canvas 是300px*150px
+
+---
+
+文字是否换行，连续空白符是否合并由wite-space属性决定：
+
+|            | 换行符 | 空格和制表符 | 文字转行 |
+| ---------- | ------ | ------------ | -------- |
+| `normal`   | 合并   | 合并         | 转行     |
+| `nowrap`   | 合并   | 合并         | 不转行   |
+| `pre`      | 保留   | 保留         | 不转行   |
+| `pre-wrap` | 保留   | 保留         | 转行     |
+| `pre-line` | 保留   | 合并         | 转行     |
+
+---
+
+替换元素的display不管是什么，尺寸计算规则都是一样的
+
+替换元素的尺寸由内而外分为：
+
+- 固有尺寸：内容本身的尺寸
+- html尺寸：直接在标签中设置的width, height, size, cols, rows
+- css尺寸
+
+input是替换元素，其font-size/padding/margin的默认值单位是px，以便保证固有尺寸不受外界css的影响
+
+优先级是css > html > 固有尺寸，宽高如果只设置了一个将根据其固有尺寸的宽高比确定另一个
+
+占位空图片的最好方式：
+
+```
+<img>
+img {visibility: hidden;}
+img[src] {visibility: visible;}
+```
+
+可通过::before或::after伪元素的content属性，插入非替换内容
+
+# 2019-06-19
+
+**css**
+
+flex布局项目最终的主轴方向长度是grow和shrink后的结果，显示设置height不一定有用，利用此特性可以添加滚动条，因为overflow属性要起作用一定要有height，可以设置个height: 0;
+
+---
+
+flex自动计算出的东西百分比宽高是可用的
+
+---
+
+background-size等只能作用于图片
+
+---
+
+对于长度不定，但想显示出无限延伸效果的，即太短不铺满屏幕时它铺满屏幕，太长时自动包裹内容撑大父元素的，可再其后再加个元素，背景与其衔接，前置设置flex: none 后者设置flex: auto
+
+---
+
+table元素本身不是block所以不可以设置高度，一般包裹一层div
+
+为tr设置border，需将tr所在table的css样式border-collapse设置为 collapse；
+
+比如：
+
+table{border-collapse: collapse;}
+
+table tr{border-bottom:solid 1px #d0dee5;}
+
+# 2019-06-20
+
+**css**
+
+line-height 默认是1.2
+
+# 2019-06-20
+
+**css**
+
+::before ::after伪元素（单引号为过时写法）表示生成一个行内元素作为目标的第一个子元素，配合content属性使用，常用作字体图标
+
+配合q标签可添加引号：
+
+```
+<q>一些引用</q>, 他说, <q>比没有好。</q>.
+
+q::before { 
+  content: "«";
+  color: blue;
+}
+q::after { 
+  content: "»";
+  color: red;
+}
+```
+
+---
+
+内联元素也是有垂直方向上的padding的，只是由于内联元素没有可视高度与可视宽度，垂直方向的行为由line-height和vertical-align控制，当设置overflow:auto 就可以看出区别了
+
+利用这一特性，可以增加行内文字的可点击区域，而不影响视觉表现，还可以在地址栏hash定位时给上面空距离
+
+padding百分比都是相对宽度，利用这一特性可以制作宽高比一定，根据屏幕宽度缩放的图片容器（内容用绝对定位）
+
+ol ul input button select等标签注意会有个默认的padding，
+
+button标签的padding在不同浏览器下千差万别且不好控制，所以一般用a标签模拟，如果为保持button的表单特性，也可用label标签处理，但注意id对应
+
+实现菜单三道杠按钮
+
+```
+.icon-menu {
+    display: inline-block;
+    width: 140px; height: 10px;
+    padding: 35px 0;
+    border-top: 10px solid;
+    border-bottom: 10px solid;
+    backgroud-color: currentColor;
+    background-clip: content-box;
+}
+```
+
+双层原点
+
+```
+.icon-dot {
+    display: inline-block;
+    width: 100px; height: 100px;
+    padding: 10px;
+    border: 10px solid;
+    border-radius: 50%;
+    background-color: currentColor;
+    background-clip: content-box;
+}
+```
+
+---
+
+滚动容器的padding-bottom在chrome下正常，在Firefox，IE下不显示，可通过给子元素设置margin-bottom处理
+
+---
+
+设置左右两栏等高为最高的一栏的内容，且背景填满：可理解为不改变元素本身所占尺寸的外涂色
+
+```
+.column-box {
+    overflow: hidden;
+}
+.column-left, column-right {
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+}
+```
+
+----
+
+空块级元素（没有height）的上下margin会合并
+
+---
+
+margin的auto值会自动填充剩余，而缺省值是0，所以margin-left: auto会使其右对齐
+
+margin: auto有效有一个前提条件是元素在该方向上是自动充满的，因此height方向是无效的
+
+利用这一特性实现绝对定位实现垂直水平居中：
+
+```
+.father {
+    width: 300px;
+    height: 150px;
+    position: relative;
+}
+.son {
+    positive: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    width: 200px; height: 100px;
+    margin: auto;
+}
+```
+
+---
+
+display为inline的非替换元素垂直margin无效，替换元素有效且永无合并
+
+---
+
+绝对定位，或定宽高容器，在对应方向上的margin-right，margin-bottom计算优先级很低，不一定有效
+
+---
+
+border-width不能设百分比，其它还有outline，各种shadow
+
+---
+
+border-style默认值为none
+
+---
+
+border-style dash和dotted在不同浏览器下样式不同
+
+---
+
+border-style double 只有在width大于等于3时才有效，宽度分配规则是双线宽度永远相等，中间间隔加减1
+
+---
+
+border-color默认就是color，可以方便悬浮变色等场景
+
+---
+
+border也算点击区域，可以用它扩大点击区域
+
+---
+
+overflow的规则边界是padding，不包含border
+
+---
+
+line-height的定义是两基线间的距离
+
+---
+
+字母小写x的高度称为x-height，x的下边缘是baseline，上边缘是等分线（或中线），vertical-align:middle对其的线是1/2 x-height（x的交叉点），由于各个字体重心不同，所以vertical-align:middle不能保证文字在行内看起来居中
+
+单位ex即x-height的高度，它随字体变化，故不用来定义长度，但可用来对齐行里的小箭头等图标：
+
+行内元素，图标高度1ex，背景图片居中
+
+```
+.icon-arrow {
+    display: inline-block;
+    height: 1ex;
+    background: url(arrow.png) no-repeat center;
+}
+```
+
+---
+
+div中写几个字就有了高度，这个高度是完全由line-height决定的而不是font-size, margin, padding，border等对其完全没有影响
+
+---
+
+css中的行距为行高-em-box,即line-height-font-size，分成两半文字上下方各一半，称为半行距，文字实际可能超出或小于em-box
+
+---
+
+line-height不能为负值，但行距可以为负值（即font-size大于line-height）
+
+---
+
+当行内有替换元素时，line-height只能决定行的最小高度
+
+
+

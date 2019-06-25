@@ -331,12 +331,6 @@ table tr{border-bottom:solid 1px #d0dee5;}
 
 **css**
 
-line-height 默认是1.2
-
-# 2019-06-20
-
-**css**
-
 ::before ::after伪元素（单引号为过时写法）表示生成一个行内元素作为目标的第一个子元素，配合content属性使用，常用作字体图标
 
 配合q标签可添加引号：
@@ -472,7 +466,7 @@ border也算点击区域，可以用它扩大点击区域
 
 ---
 
-overflow的规则边界是padding，不包含border
+overflow的规则边界是border内边缘，即padding里的内容保留
 
 ---
 
@@ -510,5 +504,54 @@ line-height不能为负值，但行距可以为负值（即font-size大于line-h
 
 当行内有替换元素时，line-height只能决定行的最小高度
 
+---
 
+line-height的默认值是normal，它是变化的，随浏览器和字体而不同，基本在1~1.5之间
 
+不加单位的line-height子元素继承的是计算规则，加了单位或百分比继承的是结果，如果要也继承规则，需用选择器进行通配* {line-height: 150%}
+
+line-height全局设置固定值、百分比，数值都有很多应用
+
+line-height的计算值是向上取整的
+
+---
+
+块级元素、内联元素都可以设置line-height，对于块级元素套内联元素的情况，块级元素的行高作用于strut，因此最终块级元素的高度由strut与内联元素中高的决定，即表现为块级元素高度由父子行高中高的决定，
+
+很多时候就算块级父元素只有一个内联子元素，块级元素的表现也会受strut影响，比如当父子字号不一样但line-height一样时，基线对齐后的错位会撑高高度
+
+---
+
+vertical-align设置为长度值、百分比时，是相对于baseline移动，向上为正，百分比是相对于line-height
+
+vertical-align只能作用于行内元素和table-cell
+
+vertical-align: middle指的是元素中部与x-height的一半对齐
+
+---
+
+不同元素的baseline：文字x的下边缘，替换元素下边缘，inline-block如果没有内联元素或overflow不是visible是margin下边缘否则是最后一行内联元素基线
+
+---
+
+vertical-align top 与 text-top的区别为前者是行框的顶部，后者是内容区域的顶部不受左右其它内联元素影响
+
+---
+
+vertical-align 中的sub和super这两个值，对应的有sup, sub这两个标签，注意属性不会改变文字大小，而标签font-size默认是smaller
+
+---
+
+float的浮动参考是行框盒子
+
+---
+
+overflow-x和overflow-y当一边不是visibal，则另一边如设置visibal会表现的像auto，即不可能出现一边显示，另一边隐藏/滚动
+
+---
+
+在pc端，页面最外面的滚动条是html的，而移动端不一定
+
+---
+
+absolute定位的元素具有包裹性

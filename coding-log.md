@@ -552,6 +552,155 @@ overflow-x和overflow-y当一边不是visibal，则另一边如设置visibal会�
 
 在pc端，页面最外面的滚动条是html的，而移动端不一定
 
+# 2019-06-26
+
+**css**
+
+包含块：
+
+1.初始包含块为根元素，尺寸等同于浏览器视窗
+
+2.relative或static包含块为最近的祖先容器的content box
+
+3.fixed包含块为初始包含块
+
+4.absolute包含块为最近的不为static的祖先元素的padding box建立，如果祖先是内联的情况比较复杂
+
+注意height: 100%是相对于包含块，而height: inherit则是相对于父元素
+
 ---
 
-absolute定位的元素具有包裹性
+absolute定位的元素具有包裹性，也有自适应性，自适应性是相对于包含块，文字超过包含块宽度就会换行，不管它位置在哪里，设置white-space: nowrap可以避免
+
+---
+
+当没有设置top等属性时，absolute不是相对于包含块，而是成为“无依赖绝对定位”，是相对于父元素左上，如果只设置了一个方向上的位置，则另一方向仍是无依赖绝对定位
+
+# 2019-06-27
+
+**javascript**
+
+用new Array(n)生成的数组每个元素是没有值，hasOwnProperty为false，因此不可调用map，而显式设置undefined是有值的，hasOwnProperty为true，可以调用map
+
+将iterable转换为数组最方便的方式是[...it]，所以生成n个等于下标的数组，生成1-n的数组：
+
+```
+[...Array(n).keys()]
+
+[...Array(n + 1).keys()].slice(1)
+
+// Ts 中只能用Array.from
+```
+
+# 2019-07-02
+
+**css**
+
+如果overflow不是定位元素，同时绝对定位元素和overflow容器之间也没有定位元素，则overflow不对absolute元素进行裁剪
+
+fixed元素包含块是根元素，中间所有的overflow无效
+
+transform会对overflow原则有意外的影响
+
+clip属性将被移除，建议使用clip-path，它可实现可访问性隐藏
+
+---
+
+虽然relative的移动是相对于自身，但是top等的百分比却是相对于包含块
+
+relative不会表现流动性，left right只有其一能有效
+
+relative的z-index比正常文档流高
+
+relative尽量不要用，要用要坚持影响最小，即套一个不可见的wrapper设为relative，自身设为absolute
+
+fixed元素不会覆盖html的滚动条，鼠标在fixed蒙层上滑动后面依然会动，可用js阻止滚动事件，并设置overflow 和border-right
+
+---
+
+z-index只对定位元素、flex box的子元素有效，z-index只是层叠水平规则的一小部分，任何元素都有层叠水平
+
+层叠顺序按装饰 -> 布局 -> 内容的顺序：层叠上下文 -> 负z-index -> block -> float -> inline -> auto,0 z-index -> 正z-index
+
+z-index谁大谁上面，后来的在上面
+
+---
+
+谁会形成层叠上下文：
+
+页面根元素、定位元素（relative/absolute/fixed）、z-index不为auto、flex布局且z-index不为auto，opacity不为1，transform不为none
+
+特别注意z-index为负结果是放在层叠上下文之上，block块之下，可用来做背景、隐藏元素等
+
+非浮层元素避免设置z-index，z-index理论上来讲不需要超过2
+
+---
+
+常用字体族分为
+
+serif: 衬线字体
+
+sans-serif: 无衬线字体
+
+monospace: 等宽字体
+
+system-ui:系统UI字体
+
+无衬线字体指笔划宽度基本一样，现在人一般喜欢这种，比如微软雅黑，苹方，droid都挺好看的，一般可设置sans-serif
+
+代码展现常用等宽字体
+
+单位ch指数字0的宽度，当使用等宽字体时有用，可用在号码输入等场合
+
+---
+
+font-weight如为数值只可以是100-900的整百数。400是normal，900是bold，bolder和lighter指的是处在临界范围内的相对于父元素font-weight，注意可能有些字体只有normal和bold
+
+font-style指斜体，italic指用字体的斜体如果没有则让其斜过来，oblique指让字斜过来，很多中文字体没有斜体，一般都设italic
+
+可用@font-face定义字体
+
+现在web开发不考虑兼容性最好的字体文件格式是woff2, url后面的format是为了让浏览器提前知道字体格式
+
+用字体定义图标主要为了兼容，今后应该会被svg替代
+
+---
+
+可以用letter-spacing设置字符间距，word-spacing控制单词间空格的大小
+
+word-wrap:break-word不能打断英文单词，还是用word-break:break-all
+
+text-align:justify要起效需超过一行，非最后一行起效，英文要超过一个词
+
+移动端text-align-last无效
+
+---
+
+word-break, white-space适用于所有元素，具有继承性
+
+text-align，text-indent等是块级元素的，具有继承性
+
+line-height是块级元素的时指子元素的最小行盒高度，是内联元素的时指行盒高度，具有继承性
+
+vertical-align是内联元素的，不具有继承性
+
+---
+
+text-decoration一般用line-through做删除线，作下划线时会与文字粘住，一般用内联元素的border-bottom比较好，它不会影响布局，默认颜色和文字一样，
+
+可用text-transform控制大小写，作用于所有元素，具有继承性
+
+---
+
+::first-letter伪元素限制很多，可设属性也有限，::first-line相对好点
+
+---
+
+隐藏元素的background-img是否请求各浏览器不一；base64图片当尺寸大时渲染性能不好
+
+background-position设置百分比时计算方法独特
+
+---
+
+背景色一定是在最低处的，因此可用background-color统一设置点击效果（它覆盖原来的背景色）
+

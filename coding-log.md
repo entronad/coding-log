@@ -696,7 +696,7 @@ text-decoration一般用line-through做删除线，作下划线时会与文字�
 
 ---
 
-隐藏元素的background-img是否请求各浏览器不一；base64图片当尺寸大时渲染性能不好
+隐藏元素的background-img是否请求各浏览器不一, img标签的图片都会请求；base64图片当尺寸大时渲染性能不好
 
 background-position设置百分比时计算方法独特
 
@@ -704,3 +704,16 @@ background-position设置百分比时计算方法独特
 
 背景色一定是在最低处的，因此可用background-color统一设置点击效果（它覆盖原来的背景色）
 
+# 2019-07-03
+
+**css**
+
+display:none会使本身和所有子元素都不可见，而visibility:hidden只会作用本身，但它具有继承性
+
+transition可作用于visibility
+
+outline是元素获得焦点时的提示，语法类似border
+
+cursor有很多，比如none用于在视频上隐藏光标，progress和wait提示等待，move表示可移动，not-allowed表示禁用，zoom-in,zoom-out放大缩小，url()自定义光标
+
+direction ltr,rtl可以改变文字左右方向，writing-mode可以改变文字横竖，注意使用标准语法：horizontal-tb, vertical-rl, vertical-lr,注意它会改变整个css的规则

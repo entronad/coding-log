@@ -717,3 +717,9 @@ outline是元素获得焦点时的提示，语法类似border
 cursor有很多，比如none用于在视频上隐藏光标，progress和wait提示等待，move表示可移动，not-allowed表示禁用，zoom-in,zoom-out放大缩小，url()自定义光标
 
 direction ltr,rtl可以改变文字左右方向，writing-mode可以改变文字横竖，注意使用标准语法：horizontal-tb, vertical-rl, vertical-lr,注意它会改变整个css的规则
+
+# 2019-08-21
+
+**javascript**
+
+sort方法的比较函数，一般就用前面的减后面的，注意当等于0时，理论上来讲并不保证顺序不变，所以可以做个处理，dart也是

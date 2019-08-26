@@ -548,7 +548,7 @@ Color.blue.index可以获取值的序号，Color.values可以获取所有枚举�
 
 mixin的作用是复用代码，
 
-mixin以mixin关键字代替class，可以用 on 指明可以应用到哪些类，以便使用这些类中的方法
+mixin以mixin关键字代替class，on后面跟一个接口或超类，表明只有实现此超类或接口的可以使用此mixin
 
 调用时使用with关键字
 
@@ -772,8 +772,6 @@ mixin的优先级顺序是：子类最高，mixin越往后优先级越高，高�
 
 mixin的类直接继承自Object，且不能有构造函数
 
-可用mixin关键字代替class表明此类只可以mixin，加on表明只能被哪些类继承
-
 ---
 
 比较 == !=的规则是
@@ -825,6 +823,36 @@ List<Object> 是不可以被推断为具体类型元素的List的，因为元素
 > 可遍历对象转换为数组时，用toList而不是List.from除非你要改变元素类型，因为这会改变元素类型
 
 对应
+
+---
+
+num 的三个方法
+
+isNaN: 只有double.nan满足
+
+isInfinite: 只有正负infinite满足
+
+isFinite: 只有正常数字满足，那三个都不满足
+
+因此常用判断要用isFinite，而另两个用来判断字面上指定的特殊类型
+
+---
+
+Rect 是ui中的类，表示图形，Rectangle是math中的类，表抽象的
+
+---
+
+switch case语句选项必须是编译期常量，且类型必须完全匹配不能是子类，
+
+每个case后必须有break或continue，除了一种情况就是里面没有任何内容，表示落入下一个case，
+
+case前可用引号加标签，continue后面跟标签名，表示继续落入此case
+
+
+
+
+
+
 
 
 
@@ -924,4 +952,6 @@ FutureOr的测试中要将Future\<T\>作为第一判断分支，以防T为Object
 不要重写类的字段，如有需要，用getter setter处理
 
 可以为任意类型用Object，dynamic有特殊的含义
+
+
 

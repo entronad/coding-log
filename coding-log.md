@@ -723,3 +723,17 @@ direction ltr,rtl可以改变文字左右方向，writing-mode可以改变文字
 **javascript**
 
 sort方法的比较函数，一般就用前面的减后面的，注意当等于0时，理论上来讲并不保证顺序不变，所以可以做个处理，dart也是
+
+# 2019-08-28
+
+**javascript**
+
+debounce 和 throttle
+
+wait: 按下后等待此时间再执行training，期间如果再按将刷新此等待时间，直到最后一次按完后再等待此时间后执行
+
+options.maxWait: 第一次按下后此时间后将一定会执行training，哪怕其间多次按了使得wait不断刷新
+
+throttle 为 maxWait强制等于wait的debounce，即一定确保在wait后执行
+
+此外debounce只有trailing默认true，throttle两个都默认true

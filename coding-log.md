@@ -737,3 +737,20 @@ options.maxWait: 第一次按下后此时间后将一定会执行training，哪�
 throttle 为 maxWait强制等于wait的debounce，即一定确保在wait后执行
 
 此外debounce只有trailing默认true，throttle两个都默认true
+
+# 2019-09-02
+
+**javascript**
+
+常见导致内存泄露的情况：
+
+1.全局变量
+
+2.未销毁的定时器，它会导致其回调函数也无法回收
+
+3.闭包
+
+4 DOM引用，如果保存DOM对象的对象或数组还存在，即使此DOM已经从树上移除（document.body.removeChild）其也还会在内存中；子元素不回收父元素也不会被回收
+
+WeakSet 和 WeakMap 就是为解决此问题的，WeakSet中的元素和WeakMap中的**键**只能是对象，它们是若引用的，如无其它引用（比如从DOM树上移除了），将自动消失。比如可将DOM与其对应的数据作为WeakMap的键值（注意WeakMap的值不是弱引用）
+

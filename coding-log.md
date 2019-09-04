@@ -754,3 +754,23 @@ throttle 为 maxWait强制等于wait的debounce，即一定确保在wait后执�
 
 WeakSet 和 WeakMap 就是为解决此问题的，WeakSet中的元素和WeakMap中的**键**只能是对象，它们是若引用的，如无其它引用（比如从DOM树上移除了），将自动消失。比如可将DOM与其对应的数据作为WeakMap的键值（注意WeakMap的值不是弱引用）
 
+# 2019-09-04
+
+**html**
+
+下载可用a标签带download属性来实现
+
+```
+const a = document.createElement('a');
+a.download = 'somename';
+a.href = url;
+document.body.appendChild(a);
+a.click();
+a.remove();
+```
+
+将其插入目录树是为了兼容火狐
+
+**react**
+
+react的onClick不是原生的事件，可用e.stopPropagation()阻止进一步传播

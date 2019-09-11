@@ -774,3 +774,19 @@ a.remove();
 **react**
 
 react的onClick不是原生的事件，可用e.stopPropagation()阻止进一步传播
+
+# 2019-09-11
+
+**react**
+
+Context
+
+通过Mycontext = React.createContext(value)生成，value为初始值
+
+在需要用到的子树的根部通过<MyContext.Provider value={}>注入
+
+需要使用时，class定义的组件通过Calss.contextType和this.context使用；函数定义的组件通过<MyContext.Consumer>使用，组件函数的参数是value
+
+Context的主要作用是参数透传，要实现参数的修改，需在Provider处注入参数修改器
+
+如需组合多个Context，只有采取嵌套的办法

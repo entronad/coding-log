@@ -796,3 +796,13 @@ Context的主要作用是参数透传，要实现参数的修改，需在Provide
 **html**
 
 元素的子节点有childNodes和children两个字段，前者是标准的，返回所有类型节点（元素、属性、文本），后者是非标准的，只返回节点
+
+# 2019-10-11
+
+**javascript**
+
+原型链是面向编程的概念，在引擎中相同“形状”的对象会优化统一成“shape”，论文中一般称为Hidden Class，v8称为Map，JSC称为Structure。如果是动态的增加对象的字段，将会形成transition chains and trees
+
+不要对数组使用 `Object` 对象下的方法，尤其是 `defineProperty`，因为这会让 JS 引擎在存储数组元素时，使用 `Dictionary Elements` 结构替代 `Elements`，而 `Elements` 结构是共享 `PropertyDescriptor` 的
+
+使用 `proxy` 监听对象变化比 `Object.defineProperty` 更优，因为 `Object.defineProperty` 会破坏 JS 引擎对数组做的优化。

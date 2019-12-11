@@ -801,8 +801,48 @@ Context的主要作用是参数透传，要实现参数的修改，需在Provide
 
 **javascript**
 
-原型链是面向编程的概念，在引擎中相同“形状”的对象会优化统一成“shape”，论文中一般称为Hidden Class，v8称为Map，JSC称为Structure。如果是动态的增加对象的字段，将会形成transition chains and trees
+原型链是面向编程的概念，在引擎中相同“形状”的对象会优化统一成“shape”，论文中一般称为Hidden Class，v8称为Map，JSC称为Structure。
+
+如果是动态的增加对象的字段，将会形成transition chains and trees，transition chains产生的对象和直接产生的对象哪怕结果形状一样，也不会认为是一样的shape，
 
 不要对数组使用 `Object` 对象下的方法，尤其是 `defineProperty`，因为这会让 JS 引擎在存储数组元素时，使用 `Dictionary Elements` 结构替代 `Elements`，而 `Elements` 结构是共享 `PropertyDescriptor` 的
 
 使用 `proxy` 监听对象变化比 `Object.defineProperty` 更优，因为 `Object.defineProperty` 会破坏 JS 引擎对数组做的优化。
+
+# 2019-10-16
+
+**html**
+
+动态设置元素高度要起效，需用：
+
+```
+document.getElementById('div_register').setAttribute("style","width:500px");
+```
+
+的形式
+
+---
+
+获取元素实际的width、height、top、left等位置信息，有
+
+offset-    client-   scroll 三种前缀
+
+其中宽高：offset是border外，client是border内，scroll是没有滚动条的border内
+
+起点：offset是margin框，client就是上下border，scroll是滚动条位置
+
+---
+
+overflow: visible 有一条非常重要的隐藏特性：当没有其它auto或hidden限制时，当元素在用户代理视口中放不下时，用户代理会出现“神秘滚动条”，以确保visible的部分一定能显现，这是用户代理的部分，而不是由auto或scroll产生的，
+
+解决办法是在html标签上加overflow: hidden
+
+---
+
+html可以设置大小位置小于窗体，但其背景一定会作用到整个
+
+# 2019-11-12
+
+**css**
+
+offsetWidth会触发重绘，对性能影响极大，建议使用 getBoundingClientRect

@@ -324,3 +324,45 @@ Navigator.of(context)的作用是向上遍历寻找最近的NavigatorState，故
 ---
 
 flutter中目前不准备有dart:mirrors，因为这会导致没法tree shaking
+
+---
+
+StatelessWidget 的 build 方法只会在三种情况下调用：第一次被插入组件树；组件的父元素改变配置；它所依赖的InheritedWidget发生改变。
+
+当build要被反复调用更改时，还不如用StatefulWidget
+
+当key被设置为GlobalKey时，StatelessWidget被移动时它不会被销毁重建
+
+StatefullWidget有两种模式
+
+一、只在State.initState中创建资源，在State.dispose中销毁资源，不会调用setState或依赖inheritedWidgets，一般用在应用或页面的根组件，通过ChangeNotifier或Stream等与子组件通信。这里组件消耗少，可以由比较复杂的build方法
+
+二、会调用setState或依赖inheritedWidgets，会多次rebuild，需要尽量减少rebuild的影响
+
+减少rebuild消耗的办法：
+
+- state尽量放在末端
+- build方法中的Widget尽量少，最好只有一个简单组件（直接继承自[RenderObjectWidget](https://api.flutter.dev/flutter/widgets/RenderObjectWidget-class.html)）（不一定现实）
+- 不变的子树尽量不重构，常用方法是将stateful的部分提取出来接受一个child参数
+- 尽可能使用const Widgets
+- 不要改变树的层级和节点的类型（类似react）
+- 不变的地方使用GlobalKey
+
+state的生命周期：
+
+创建：
+
+1. [StatefulWidget.createState](https://api.flutter.dev/flutter/widgets/StatefulWidget/createState.html)
+2. state将与 [BuildContext](https://api.flutter.dev/flutter/widgets/BuildContext-class.html) 永久绑定，mounted变为true
+3. 调用 [initState](https://api.flutter.dev/flutter/widgets/State/initState.html) 
+4. 调用 [didChangeDependencies](https://api.flutter.dev/flutter/widgets/State/didChangeDependencies.html) ，里面主要是涉及 [InheritedWidget](https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html) 的东西
+5. 完成初始化，build方法可用
+
+更新
+
+​    如果因为外界因素（父组件rebuild）导致生成了同类型和key的widget，将会调用[didUpdateWidget](https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html) 方法，其后总会自动调用build方法
+
+销毁：
+
+1. 当从组件树中移除时调用deactivate
+2. 当移除后不再挂到新的位置时，调用dispose

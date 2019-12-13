@@ -846,3 +846,25 @@ html可以设置大小位置小于窗体，但其背景一定会作用到整个
 **css**
 
 offsetWidth会触发重绘，对性能影响极大，建议使用 getBoundingClientRect
+
+# 2019-12-13
+
+**react**
+
+注意事件冒泡只能在dom树的上下关系中传递（不是屏幕上的上下关系，不能传给兄弟）
+
+---
+
+reac中的e是单例池化的，异步或传递之后就又空了，故要在最直接的handler中浅拷贝一下const eCopy = {...e};
+
+---
+
+js中也可以直接this.rootDiv.current.style.XXX设置style的具体属性，但不能用个新对象设置this.rootDiv.current.style全体
+
+**css**
+
+当使用css module时，animation要name放第一个，不能用时间放第一个的写法
+
+---
+
+重新触发css动画的办法可以是移除再重新加上类名，注意中间用获取一下element.offsetWidth触发回流

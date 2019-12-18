@@ -868,3 +868,11 @@ js中也可以直接this.rootDiv.current.style.XXX设置style的具体属性，�
 ---
 
 重新触发css动画的办法可以是移除再重新加上类名，注意中间用获取一下element.offsetWidth触发回流
+
+# 2019-12-18
+
+**javascript**
+
+脚本中如果要用到dom的话，不能放在head中，要放在body，而且放在body中所要用的dom之后，此时才已经有了这个dom，事实上一般script都建议放在body末尾
+
+在<head>中加载的脚本，不能使用dom，此时dom还没有生成，

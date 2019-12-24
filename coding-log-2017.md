@@ -214,7 +214,7 @@ top、margin-top的区别：
 
    注意：如果用top等，而position未设置为absolute，那设置是不起作用的。
 
-2. top这些在绝对定位的前提下，这个绝对定位，是相对body  或者  position：relative的父级元素的绝对定位。
+2. top这些在绝对定位的前提下，这个绝对定位，是相对body  或者  position：relative/absolute的父级元素的绝对定位。
 
    margin的相对定位，是指相对相邻元素的定位。
 
@@ -293,7 +293,11 @@ action 的参数为(context, payload)，action 可为 async 函数
 
 **css**
 
-宽高的百分比是在减去padding之后，无需考虑滚动条
+宽高的百分比是相对于包含块的，一般来说是父元素，但要考虑relative/absolute
+
+高度设置百分比必须保证其包含块的大小是确定的，否则看起来无效
+
+已减去包含块的padding，无需考虑滚动条
 
 # 2017-05-24
 
@@ -909,27 +913,28 @@ MD推荐12/14/16/20/34字体排版缩放
 
 参考：
 
-​	状态栏：24dp
+	状态栏：24dp
+	
+	Navigation：56/64dp
+	
+	tabbar：48dp
+	
+	边距：16dp
+	
+	item：72dp
+	
+	细边距：8dp
+	
+	底部动作条：item：48dp
+	
+	悬浮按钮：56dp，内容24dp，至少放在距边缘16dp以内，弹出3-6个
+	
+	迷你悬浮按钮：40dp，内容24dp
+	
+	扁平按钮：88dp*36dp
 
-​	Navigation：56/64dp
 
-​	tabbar：48dp
-
-​	边距：16dp
-
-​	item：72dp
-
-​	细边距：8dp
-
-​	底部动作条：item：48dp
-
-​	悬浮按钮：56dp，内容24dp，至少放在距边缘16dp以内，弹出3-6个
-
-​	迷你悬浮按钮：40dp，内容24dp
-
-​	扁平按钮：88dp*36dp
-
-​	
+	
 
 触摸目标最小尺寸是48dp
 
@@ -1051,7 +1056,7 @@ HTTP协议不限制你携带请求体，但严格符合协议的server是不应�
 >
 > This is part of the layered design of HTTP/1.1 that will become clear again once the spec is partitioned (work in progress).
 >
-> ​    ——HTTP 规范的主要创作人之一 Roy T. Fielding
+>     ——HTTP 规范的主要创作人之一 Roy T. Fielding
 >
 # 2017-08-01
 
@@ -1231,7 +1236,7 @@ margin、padding、width加起来要是父元素的width（与父元素padding�
 
 **css**
 
-垂直方向上的margin会合并，嵌套元素的margin也会合并
+垂直方向上的父子、相邻margin会合并，但flex布局、绝对定位、浮动元素不会这样
 
 当margin有负数时，一正一负合并，正的会减去负的绝对值；两个负的合并，绝对值会取大的
 
@@ -1301,11 +1306,11 @@ position: absolute会变为块级框
 
 包含块：
 
-​	HTML的根元素是html元素，其包含块是视窗大小的矩形
-
-​	static/relative包含块由最近的块级框、行内块祖先元素构成
-
-​	absolute包含块为最近的不是static的祖先元素（即一般是absolute或relative，由于absolute本身要求相同，所以一般会要设一个relative），如果是块级元素，则为border，即包含padding；行内元素则为内容边界
+	HTML的根元素是html元素，其包含块是视窗大小的矩形
+	
+	static/relative包含块由最近的块级框、行内块祖先元素构成
+	
+	absolute包含块为最近的不是static的祖先元素（即一般是absolute或relative，由于absolute本身要求相同，所以一般会要设一个relative），如果是块级元素，则为border，即包含padding；行内元素则为内容边界
 
 ！！！设置top等偏移属性值为百分比时，相对于的是包含块，即static时是块级框，absolute时是border框
 
@@ -1757,6 +1762,8 @@ box-shadow 中的spread是指不模糊的范围，可用以设置多重边框
 
 border-radius可单独设置水平半径、垂直半径，并可用百分百：
 
+目前支持不是太好
+
 ```
 border-radius: 50% / 50%;
 ```
@@ -1814,7 +1821,7 @@ min-content 这个关键字将解析为这个容器内部最大的不可断行�
 
 ---
 
-\<table> 会自动根据内容跳转列宽，也可通过设置table-layout调整布局方式：
+\<table> 会自动根据内容调整列宽，也可通过设置table-layout调整布局方式：
 
 ```
 table {

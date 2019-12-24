@@ -774,6 +774,18 @@ mixin的类直接继承自Object，且不能有构造函数
 
 可用mixin关键字代替class表明此类只可以mixin，加on表明只能被哪些类继承
 
+----
+
+父类中的this.method，只要子类重写了method，那就是指子类中的method
+
+---
+
+null是有toString hashCode runtimeType等方法，它的类型是Null
+
+---
+
+list.indexOf如果找不到是-1
+
 
 
 

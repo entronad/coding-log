@@ -39,3 +39,21 @@ ts/js中目前没有注解，没有@overrides
 
 
 不能在静态属性初始化表达式中引用 "this"
+
+
+
+声明.d.ts文件是为js库加上类型应用到ts项目中用的，详情见https://ts.xcatliu.com/basics/declaration-files#npm-bao
+
+type 关键字类似于 interface 关键字，但用来定义较为基础的类型
+
+对于声明文件中要定义类，静态部分和实例部分要分开定义
+
+在 npm 包的声明文件中，使用 `declare` 不再会声明一个全局变量，而只会在当前文件中声明一个局部变量。
+
+
+
+interface 如果需要构造函数、keys等接口时可 extends Object
+
+
+
+declare class 不需要返回类型

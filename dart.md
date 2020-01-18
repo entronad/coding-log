@@ -890,7 +890,9 @@ null是有toString hashCode runtimeType等方法，它的类型是Null
 
 list.indexOf如果找不到是-1
 
+---
 
+?. 和ES比，具有函数调用安全，但是不可应用于遍历器调用符[]和函数调用符()，[]用(map ?? const {})[key]代替
 
 
 

@@ -57,3 +57,7 @@ interface 如果需要构造函数、keys等接口时可 extends Object
 
 
 declare class 不需要返回类型
+
+
+
+impliments 就能起到 mixin 的作用

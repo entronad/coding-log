@@ -376,3 +376,8 @@ state的生命周期：
 有些类型灵活的接口参数，可否采用 null - defaultValue - customValue 的形式？还是 hasXXX, XXX 组合的形式？
 
 采用前者的优势，绝大部分接口，要么默认值是null，没有 defaultValue, 要么默认值就是defaultValue，要么默认值就是 defaultValue ，挂在本体类下面即可，只有默认值是null，但还要提供 defaultValue 这一种情况比较复杂，但这是很少的一种情况，在本体类（参数是基本类型或类）或参数类型类（有自定义的类）下面挂上 defaultXX 即可，注意一般要const。
+多个组件要通过继承复用实现某一结构类似的视图时，可以这样：widget 或state 里的 build 方法一样，将其中要变的部分视图抽取出来，单独用函数提供，然后重写这个函数
+
+---
+
+Hero 组件的作用是通过动画跨页面传递组件

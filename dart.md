@@ -878,7 +878,21 @@ dart:convert 为sdk自带，其只提供utf-8和json的少量转换
 
 null 可满足所有的 as 
 
+----
 
+父类中的this.method，只要子类重写了method，那就是指子类中的method
+
+---
+
+null是有toString hashCode runtimeType等方法，它的类型是Null
+
+---
+
+list.indexOf如果找不到是-1
+
+---
+
+?. 和ES比，具有函数调用安全，但是不可应用于遍历器调用符[]和函数调用符()，[]用(map ?? const {})[key]代替
 
 
 

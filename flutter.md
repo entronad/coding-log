@@ -366,3 +366,13 @@ state的生命周期：
 
 1. 当从组件树中移除时调用deactivate
 2. 当移除后不再挂到新的位置时，调用dispose
+
+---
+
+当需要获取某个 Widget 的实例，以便对其进行控制时，可不直接将其构造函数写在build树中，而是通过一个方法，在此方法中创建此实例并保存，然后将其返还，在build树中调用此方法。
+
+---
+
+有些类型灵活的接口参数，可否采用 null - defaultValue - customValue 的形式？还是 hasXXX, XXX 组合的形式？
+
+采用前者的优势，绝大部分接口，要么默认值是null，没有 defaultValue, 要么默认值就是defaultValue，要么默认值就是 defaultValue ，挂在本体类下面即可，只有默认值是null，但还要提供 defaultValue 这一种情况比较复杂，但这是很少的一种情况，在本体类（参数是基本类型或类）或参数类型类（有自定义的类）下面挂上 defaultXX 即可，注意一般要const。

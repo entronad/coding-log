@@ -262,3 +262,6 @@ git branch -r 查看远程分支
 
 git checkout 远程分支 -b 本地分支
 
+
+
+git rebase 可用来合并提交，可针对某分支，也可代替merge在合并时使用，注意push过的分支就不好合并了

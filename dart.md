@@ -935,7 +935,7 @@ class C { ... }
 
 import顺序为dart:, 外部package, 内部package 相对路径
 
-export 放到所有inport之后
+export 放到所有import之后
 
 不建议使用part
 
@@ -1004,4 +1004,10 @@ FutureOr的测试中要将Future\<T\>作为第一判断分支，以防T为Object
 可以为任意类型用Object，dynamic有特殊的含义
 
 for in 一般用 var
+
+如果 extension 命名冲突了
+
+
+
+
 

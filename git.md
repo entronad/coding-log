@@ -264,4 +264,6 @@ git checkout 远程分支 -b 本地分支
 
 
 
-git rebase 可用来合并提交，可针对某分支，也可代替merge在合并时使用，注意push过的分支就不好合并了
+rebase 后加了分支名将自动merge，加i可以打开配置合并分支，如果已经push过了要加 -f
+
+合并并精简分支可以在merge的时候加上 squash 命令，然后再add和commit

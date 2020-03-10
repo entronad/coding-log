@@ -67,3 +67,11 @@ for in 和 for of的区别
 for in 是老的，出来的是key，常用于遍历对象，会包含原型的key，故要用hasOwnProperty过滤，一般不用于array
 
 for of 是新的，出来的是value，必须用于部署了iterable接口的，常用于array，不可直接用于object，需与Object.keys()配合
+
+# 2020-03-10
+
+**react**
+
+react 需要了解的新内容
+
+函数式组件，hooks，renderProps, cocurrent, scheduler, suspense

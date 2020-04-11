@@ -381,3 +381,19 @@ state的生命周期：
 ---
 
 Hero 组件的作用是通过动画跨页面传递组件
+
+---
+
+Curve 对象使用时用 transform, 子类实现时重写 transformInterval ，transform 对 transformInterval包装并添加了越界逻辑
+
+---
+
+flutter每次update之后，都会重新执行一遍build方法，即build内定义的东西每次都换新的，即widget（不管StatefulWidget还是staetelessWidget）是用完即丢的东西。
+
+而state是持久化的东西，每次StatefulWidget换新的了不会执行createState重新实例化state
+
+因此才需要将 widget 和 state 分离，
+
+因此想要持久化的东西需保持在state中，传递的话通过state -> widget.xx -> 传递，而不能在widget的构造函数中新建
+
+一般StatefulWidget中的成员或方法都是表征当前组件树状态，供state使用的，或供state进行初始化用的

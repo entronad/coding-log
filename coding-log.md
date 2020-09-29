@@ -75,3 +75,11 @@ for of 是新的，出来的是value，必须用于部署了iterable接口的，
 react 需要了解的新内容
 
 函数式组件，hooks，renderProps, cocurrent, scheduler, suspense
+
+# 2020-04-04
+
+**javascript**
+
+js 中的类只能有一个构造函数，子类如未定义构造函数，可直接继承父类构造函数
+
+js 类中不可通过 this.sv 获取静态成员，必须通过 ClassName.sv 的方式获取，但dart中可以通过 this.sv 获取静态成员

@@ -64,6 +64,24 @@ exponentiation(^)是多次cross的缩写
 
 dot-cross(·)是对应元素cross
 
+三者对应的sql：
+
+```
+#cross:
+select a.*, b.*
+from X a, Y b;
+where a.key = b.key;
+
+#nest:
+select a.*, b.*
+from X a, Y b;
+
+#blend:
+select * from X
+union all
+select * from Y;
+```
+
 ---
 
 cross, nest, blend 都满足结合律

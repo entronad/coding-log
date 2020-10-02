@@ -397,3 +397,7 @@ flutter每次update之后，都会重新执行一遍build方法，即build内定
 因此想要持久化的东西需保持在state中，传递的话通过state -> widget.xx -> 传递，而不能在widget的构造函数中新建
 
 一般StatefulWidget中的成员或方法都是表征当前组件树状态，供state使用的，或供state进行初始化用的
+
+---
+
+通过CustomXXXChildLayout 和 XXXChildLayoutDelegate 可以设置和获取子元素的位置、大小

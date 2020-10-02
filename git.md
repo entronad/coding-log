@@ -262,6 +262,8 @@ git branch -r 查看远程分支
 
 git checkout 远程分支 -b 本地分支
 
+注意：远程分支没有关联本地分支且分支名不同时，将本地分支push到远程分支必须写全：git push coding localbranch:branch1
+
 
 
 rebase 后加了分支名将自动merge，加i可以打开配置合并分支，如果已经push过了要加 -f

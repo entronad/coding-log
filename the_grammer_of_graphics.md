@@ -121,3 +121,7 @@ variable、scale、coordinate 都可以进行 transform
 ---
 
 stack的含义是下一个开始值是前一个的值而不是0
+
+---
+
+大多数属性都只接受一个variable或variable的和或定值，position接受多个variable的积，不接受定值

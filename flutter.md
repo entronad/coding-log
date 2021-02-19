@@ -362,6 +362,8 @@ state的生命周期：
 
 ​    如果因为外界因素（父组件rebuild）导致生成了同类型和key的widget，将会调用[didUpdateWidget](https://api.flutter.dev/flutter/widgets/State/didUpdateWidget.html) 方法，其后总会自动调用build方法
 
+注意state自身调用setState引起的更新，只会调用 build 而不会调用 didUpdateWidget 。父组件中该子组件是写好每次build的时候都是同一个实例时，子组件也不会调用 didUpdateWidget。
+
 销毁：
 
 1. 当从组件树中移除时调用deactivate

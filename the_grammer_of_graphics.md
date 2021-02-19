@@ -125,3 +125,7 @@ stack的含义是下一个开始值是前一个的值而不是0
 ---
 
 大多数属性都只接受一个variable或variable的和或定值，position接受多个variable的积，不接受定值
+
+---
+
+在ViZml中，如果一个没有被定义，将不会显示，布尔值默认是false

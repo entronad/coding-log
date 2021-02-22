@@ -118,3 +118,31 @@ Haskell 中有大量的中缀运算符，注意勤加括号防止优先级问题
 
 Haskell 中可定义自己的运算符，但不可改变现有运算符，定义时需指明结合性（infixl, infixr, infixx）和优先级
 
+模块的导出：module Test (f1, f2) where 可以导出函数和类型，如果没有括号则所有都导出，如果空括号或没有此行则都不导出
+
+模块的导入：import (f1) 如果要隐藏一些，用 hiding (f1)，如果要重命名 import qualified Test as T
+
+常用函数：
+
+id 恒值函数，返回输入
+
+const 常值函数，给定两个元素，只返回第一个
+
+const id 返回两个参数中的第二个
+
+flip 参数反置
+
+error 异常函数，输入是 String，返回是多态类型
+
+undefined 未定义，用来占位尚未定义的函数
+
+null 判断列表是否为空
+
+length 列表长度，返回值是Int，所以太长的列表要使用 Data.list 中的 genericLength
+
+注意求一组数字的平均值要用：avg xs = sum xs / (fromIntegral $ length xs) 或者 avg xs = sum xs / genericLength xs
+
+init, tail 将一个列表的最后一个元素与第一个元素去掉得到一个新的列表
+
+map 类型是 (a -> b) -> [a] -> [b]
+

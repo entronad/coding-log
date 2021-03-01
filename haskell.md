@@ -164,7 +164,7 @@ deriving 定义继承的类型
 
 () 被称为单位类型或哑元类型，这个类型只有一个值 ()
 
-当类型中的某些数据需要其他类型作为参数时：data Book = Book Name Author 其中第二个 Book 称为数据构造器，首字母大写的特殊函数
+当类型中的某些数据需要其他类型作为参数时：data Book = Book Name Author 其中第二个 Book 称为数据构造器，首字母大写的特殊函数。即类型定义式中可以凭空出现大写字母的，它是定义构造器函数，后面跟的是输入参数类型
 
 访问器函数可以方便的定义：
 
@@ -184,6 +184,12 @@ increasePrice :: ([Book], [Book]) -> Book -> Price -> ([Book], [Book])
 increasePrice (b1, b2) b pri = (b: b1, (b {price = pri + (price b)}) : b2)
 ```
 
+data Maybe a = Nothing | Just a 其中 Just 是一个构造器，输入a类型变量返回 Maybe a 类型变量
+
+data Either a b = Left a | Right b 其中 Left 和 Right 也是构造器
+
+定义式中出现要定义的类型称为递归类型，比如自然数：data Nat = Zero | Succ Nat deriving (Show, Eq, Ord)，使用递归类型的函数常常是递归函数
+
 类型的类型称为 kind，所有类型的类型通常写作 \*
 
 类型同构（isomorphism）指的是两种类型能找到同构映射，同构映射指的是能找到一个映射（称为逆）与其进行复合后是恒值映射
@@ -196,8 +202,17 @@ newtype 也可定义类型，但有且只能有一个参数
 
 类型类的关键字是class，但它与OO中的class完全不一样
 
-类型实现类型类用 instance
+如果类型类有依赖（约束）关系，用 => 关键字：class Eq a => Ord a where
+
+类型实现类型类就是实现其中的函数声明，用 instance，先写类型类再写类型：instance Show Weight where
 
 类似可以定义 map 函数的 List 这种的称为函子（Functor）类型，它需要定义一个 fmap ，同时满足：
 
 应用恒值映射作为 fmap 后和原来一样，在复合函数运算符上服从分配律
+
+默认的 String 类型是字符的单链表，某些情况不高效，因此 Data.String 中还有 ByteString，Text 等类型，他们的类型类是 IsString
+
+7.8以前 Applicative 不是 Monad 的超类，现在是了。pure 和 return 是一样的，一般 pure 好， do notation 习惯用 return
+
+\>\>= 被称为 bind
+

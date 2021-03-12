@@ -270,3 +270,21 @@ MonadPlus 就是 Alternative
 
 对于纯函数，函数调用可以直接被结果代替，称为引用透明性（referential transparency）
 
+Writer monad 本质上也是返回结果
+
+Reader monad 有时又被称为环境 monad
+
+Writer Reader State 都是私有的，使用时用 writer reader state 函数代替
+
+定义获取 state 的函数，一般不是直接使用s a 去生成 state，而是通过 \$ 和获取s a的函数，比如 pop = state \$ \\(x:xs) -> (x, xs)
+
+() 值具有 () 类型，表示 void，即不返回任何值
+
+\_|\_ 称为 bottom 表示计算不可能完成的结果。如果一种类型没有 \_|\_ 则说它是非提升的 unlifted，有则叫提升的 lifted 。
+
+data 定义类型时默认d  \_|\_ = \_|\_ ，而newtype没有，可自行定义 n \_|\_ 的返回值。所以 N 和 Int 是同构的，D不是。
+
+当且仅当 f \_|\_ = \_|\_ 时称函数是严格的。C，Java等中的函数是严格的，Haskell中的函数是非严格的
+
+@ 是一个语法糖，后半部分为一个模式用以获取其中的项，比如数组 list，则 list@(first:last) 就可以获取它本身、第一和最后一个元素的标识符
+

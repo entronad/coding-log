@@ -920,6 +920,20 @@ for循环在第一次执行前也会进行判断，不成功则一次循环也�
 
 可以用 obj.runtimeType.toString 的方法获取对象实际的类名字符串，然后进行一些类型处理
 
+---
+
+当变量类型可为空时，但你确定它不为空，可在后面加 ! 跳过检查
+
+---
+
+继承List常用方式：BaseList 继承，ListMixin 可多重混入，DelegatingList 代理现有的List
+
+---
+
+null 不属于 Object
+
+
+
 
 
 
@@ -1014,4 +1028,6 @@ FutureOr的测试中要将Future\<T\>作为第一判断分支，以防T为Object
 可以为任意类型用Object，dynamic有特殊的含义
 
 for in 一般用 var
+
+常用泛型：List、Set元素 E，Map键值 K，V，函数返回类型 R
 

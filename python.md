@@ -29,6 +29,8 @@
 
 获取list最后一个参数 datas[-1]，倒数第二个 datas[-2]
 
+list用冒号取值的规则是左闭右开
+
 list操作方法：
 
 	末尾增加 datas.append(data)

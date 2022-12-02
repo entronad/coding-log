@@ -20,3 +20,8 @@ argsort 返回索引
 
 tile 的tuple中的数值是最终结果，即1代表不动
 
+numpy 中 matrix 过去只二维的数组，但是现在现在不建议用了后面会移除，现在建议都用array
+
+numpy 中 transpose 的定义是反转 axes 的顺序，对于1维不动，对于二维，就是矩阵转置
+
+linalg.det() 可以计算矩阵行列式

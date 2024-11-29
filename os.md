@@ -1,1 +1,0 @@
-a process is an instance of a program
